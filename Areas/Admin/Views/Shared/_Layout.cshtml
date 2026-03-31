@@ -1,0 +1,372 @@
+﻿@{
+    var role = ViewBag.UserRole as string;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Admin Triangle Mind Technologies | Dashboard</title> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="icon" type="image/x-icon" href="~/logo.jpeg" />
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
+    <link rel="stylesheet" href="@Url.Content("~/adminassets/bower_components/bootstrap/dist/css/bootstrap.min.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/adminassets/bower_components/Ionicons/css/ionicons.min.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/adminassets/dist/css/AdminLTE.min.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/adminassets/dist/css/skins/_all-skins.min.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/adminassets/bower_components/morris.js/morris.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/adminassets/bower_components/jvectormap/jquery-jvectormap.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/adminassets/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/adminassets/bower_components/bootstrap-daterangepicker/daterangepicker.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/adminassets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/adminassets/dist/css/reportstylesheet.css")" />
+    <!-- Google Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
+
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <link rel="stylesheet" href="@Url.Content("~/adminassets/dist/css/pageindexing.css")" />
+    <style>
+
+        .custom-btn {
+            background-color: #ff0000ad;
+            color: #fff;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .custom-btns {
+            background-color: #008000a1;
+            color: #fff;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .custom-btn:hover {
+            background-color: #0056b3;
+            color: #fff;
+        }
+
+        .custom-btn:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5);
+        }
+
+        .custom-btns:hover {
+            background-color: #0056b3;
+            color: #fff;
+        }
+
+        .custom-btns:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5);
+        }
+
+        .next-btn {
+            margin-top: 4px;
+            background: #008000a8;
+            color: aliceblue;
+        }
+
+        .prev-btn {
+            margin-top: 4px;
+            margin-right: 9px;
+            background: #c11414c2;
+            color: aliceblue;
+        }
+    </style>
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+
+        <header class="main-header header-fixed">
+            <!-- Logo -->
+            <a href="#" class="logo">
+                <span class="logo-mini"></span>
+                <span id="logoText" runat="server" class="logo-lg"><b>Admin</b></span>
+
+            </a>
+            <!-- Header Navbar: style can be found in header.less -->
+            <nav class="navbar navbar-static-top">
+                <!-- Sidebar toggle button-->
+                <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button" style="display: flex; align-items: center;">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span style="font-family: 'Source Sans Pro';margin-left: 20px; font-weight: bold; color: white;">Triangle Mind Technologies</span>
+                </a>
+
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown user user-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <img src="@Url.Content("~/adminassets/img/def-profile-img.png")" class="user-image" alt="User Image" />
+
+                                <span class="hidden-xs">HMS</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!-- User image -->
+                                <li class="user-header">
+                                    <img src="@Url.Content("~/adminassets/img/def-profile-img.png")" class="img-circle" alt="User Image" />
+                                    <p>
+                                        HMS
+                                    </p>
+                                </li>
+                                <!-- Menu Footer-->
+                                <!-- Menu Footer-->
+                                <li class="user-footer">
+                                    <div class="pull-left">
+                                         @*  @if (role == "Admin") *@
+                                           {
+                                            <a href="/admin/Dashboard/ChangePassword" class="btn custom-btns bgc">Setting</a>
+                                         @*   } *@
+                                    </div>
+                                    <div class="pull-right">
+                                        <form asp-controller="Account" asp-action="Logout" asp-area="">
+                                            <button type="submit" class="btn custom-btn">Sign out</button>
+                                        </form>
+                                    </div>
+
+
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+        </header>
+        <aside class="main-sidebar">
+            <section class="sidebar">
+                <div class="user-panel">
+                    <div class="pull-left image">
+                        <img src="~/adminassets/img/def-profile-img.png" class="img-circle" alt="User Image" />
+                    </div>
+                    <div class="pull-left info">
+                        <p>HMS</p>
+                        <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                    </div>
+                </div>
+
+                <ul class="sidebar-menu" data-widget="tree">
+                    <li class="active">
+                        <a href="/admin/Dashboard/index">
+                            <i class="fa fa-grip"></i> <span>Dashboard</span>
+                        </a>
+                    </li>
+                    @if (role == "Admin")
+                    {
+
+                        <!-- Admin-only pages -->
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-cogs"></i> <span>Master</span>
+                                <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+                            </a>
+
+                            <ul class="treeview-menu">
+
+                                <li>
+                                    <a href="/admin/Master/DepartmentList">
+                                        <i class="fa fa-sitemap"></i>
+                                        <span>Course</span>
+                                    </a>
+                                </li>
+
+                              </ul>
+                        </li>
+                    } 
+
+                    <!-- Common Option for All Roles -->
+                    <li><a href="/admin/Dashboard/ChangePassword"><i class="fa fa-key"></i> <span>Change Password</span></a></li>
+                </ul>
+            </section>
+        </aside>
+
+
+        <div class="content-wrapper">
+            @RenderBody()
+            <div class="control-sidebar-bg"></div>
+        </div>
+
+        <footer class="main-footer" style="background-color:white;height: 56px;">
+            <div class="pull-right hidden-xs"></div>
+            <div>
+                <strong>
+                    Copyright &copy; 2025
+                    <a href="http://www.trianglemind.in/" target="_blank">TriangleMind Technologies</a>.
+                </strong> All rights reserved.
+            </div>
+        </footer>
+    </div>
+
+@*  <script src="~/adminassets/bower_components/jquery/dist/jquery.min.js"></script> *@
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="@Url.Content("~/adminassets/bower_components/jquery-ui/jquery-ui.min.js")"></script>
+
+    <script>
+        $.widget.bridge('uibutton', $.ui.button);
+    </script>
+
+    <script src="@Url.Content("~/adminassets/bower_components/bootstrap/dist/js/bootstrap.min.js")"></script>
+
+    <!-- Morris.js charts -->
+    <script src="@Url.Content("~/adminassets/bower_components/raphael/raphael.min.js")"></script>
+    <script src="@Url.Content("~/adminassets/bower_components/morris.js/morris.min.js")"></script>
+
+    <!-- Sparkline -->
+    <script src="@Url.Content("~/adminassets/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js")"></script>
+
+    <!-- jvectormap -->
+    <script src="@Url.Content("~/adminassets/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js")"></script>
+    <script src="@Url.Content("~/adminassets/plugins/jvectormap/jquery-jvectormap-world-mill-en.js")"></script>
+
+    <!-- jQuery Knob Chart -->
+    <script src="@Url.Content("~/adminassets/bower_components/jquery-knob/dist/jquery.knob.min.js")"></script>
+
+    <!-- daterangepicker -->
+    <script src="@Url.Content("~/adminassets/bower_components/moment/min/moment.min.js")"></script>
+    <script src="@Url.Content("~/adminassets/bower_components/bootstrap-daterangepicker/daterangepicker.js")"></script>
+
+    <!-- datepicker -->
+    <script src="@Url.Content("~/adminassets/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js")"></script>
+
+    <!-- Bootstrap WYSIHTML5 -->
+    <script src="@Url.Content("~/adminassets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js")"></script>
+
+    <!-- Slimscroll -->
+    <script src="@Url.Content("~/adminassets/bower_components/jquery-slimscroll/jquery.slimscroll.min.js")"></script>
+
+    <!-- FastClick -->
+    <script src="@Url.Content("~/adminassets/bower_components/fastclick/lib/fastclick.js")"></script>
+
+    <!-- AdminLTE App -->
+    <script src="@Url.Content("~/adminassets/dist/js/adminlte.min.js")"></script>
+
+    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+@*     <script src="~/adminassets/dist/js/pages/dashboard.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="~/adminassets/dist/js/demo.js"></script> *@
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    @if (TempData["Message"] != null)
+    {
+        <script>
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true,
+                "positionClass": "toast-top-right",
+                "timeOut": "3000"
+            };
+
+            toastr["@TempData["MessageType"]"]("@TempData["Message"]");
+        </script>
+    } 
+    <script>
+        $(document).ready(function() {
+
+            $('table').each(function() {
+                var table = $(this);
+                var rows = table.find('tbody tr');
+                var rowsCount = rows.length;
+                var defaultRowsPerPage = parseInt($('#pageSizeSelect').val()) || 20;
+                var rowsPerPage = defaultRowsPerPage;
+                var pageCount = Math.ceil(rowsCount / rowsPerPage);
+                var currentPage = 1;
+
+                // Create pagination container only if needed
+                var pagination = $('<div class="table-pagination mt-2"></div>');
+                if (pageCount > 1) {
+                    table.after(pagination);
+                }
+
+                     function showPage(page) {
+            rows.hide();
+            var start = (page - 1) * rowsPerPage;
+            var end = start + rowsPerPage;
+            rows.slice(start, end).show();
+
+            if (pageCount > 1) {
+                pagination.html('');
+
+                var maxVisible = 5;
+                var startPage = Math.floor((page - 1) / maxVisible) * maxVisible + 1;
+                var endPage = Math.min(startPage + maxVisible - 1, pageCount);
+
+                // Previous button
+                if (startPage > 1) {
+                    pagination.append('<button class="prev-btn btn btn-sm btn-default">Prev</button>');
+                }
+
+                // Page buttons (max 5)
+                for (var i = startPage; i <= endPage; i++) {
+                    pagination.append(
+                        '<button class="page-btn btn btn-sm ' +
+                        (i === page ? 'btn-primary' : 'btn-default') +
+                        '">' + i + '</button>'
+                    );
+                }
+
+                // Next button
+                if (endPage < pageCount) {
+                    pagination.append('<button class="next-btn btn btn-sm btn-default">Next</button>');
+                }
+            } else {
+                pagination.empty();
+            }
+                }
+                // Page click
+        pagination.on('click', '.page-btn', function() {
+            currentPage = parseInt($(this).text());
+            showPage(currentPage);
+        });
+
+        // Next click
+        pagination.on('click', '.next-btn', function() {
+            currentPage = currentPage + 5;
+            if (currentPage > pageCount) currentPage = pageCount;
+            showPage(currentPage);
+        });
+
+        // Prev click
+        pagination.on('click', '.prev-btn', function() {
+            currentPage = currentPage - 5;
+            if (currentPage < 1) currentPage = 1;
+            showPage(currentPage);
+        });
+
+                // Initial display
+                showPage(1);
+
+                // Pagination button click
+                pagination.on('click', '.page-btn', function() {
+                    currentPage = parseInt($(this).text());
+                    showPage(currentPage);
+                });
+
+                // Handle page size change
+                $('#pageSizeSelect').on('change', function() {
+                    rowsPerPage = parseInt($(this).val());
+                    pageCount = Math.ceil(rowsCount / rowsPerPage);
+                    currentPage = 1;
+
+                    // Only show pagination if more than one page
+                    if (pageCount > 1 && pagination.parent().length === 0) {
+                        table.after(pagination);
+                    } else if (pageCount <= 1) {
+                        pagination.empty();
+                    }
+
+                    showPage(currentPage);
+                });
+            });
+
+        });
+    </script> 
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>

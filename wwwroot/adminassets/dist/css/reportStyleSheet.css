@@ -1,0 +1,28 @@
+﻿
+@media(max-width:767px) {
+    .box-header.with-border .pull-right {
+        float: none !important;
+    }
+
+    .box-header.with-border .form-inline {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 15px;
+        width: 100%;
+        margin: 50px 0 0 0;
+    }
+
+        .box-header.with-border .form-inline input.form-control {
+            width: 100% !important;
+        }
+
+    .box-header.with-border .pull-left {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .formtopdatebtn {
+        margin-bottom: 10px;
+    }
+}

@@ -1,0 +1,1329 @@
+﻿@font-face {
+    font-family: 'Cravend';
+    src: url('./fonts/Cravend.eot');
+    src: url('./fonts/Cravend.eot') format('embedded-opentype'),
+         url('./fonts/Cravend.woff2') format('woff2'),
+         url('./fonts/Cravend.woff') format('woff'), 
+         url('./fonts/Cravend.ttf') format('truetype'),
+         url('./fonts/Cravend.svg#Cravend') format('svg');
+}
+
+@font-face {
+    font-family: 'Humanist521LightBT';
+    src: url('./fonts/Humanist521LightBT.eot');
+    src: url('./fonts/Humanist521LightBT.eot') format('embedded-opentype'),
+         url('./fonts/Humanist521LightBT.woff2') format('woff2'),
+         url('./fonts/Humanist521LightBT.woff') format('woff'), 
+         url('./fonts/Humanist521LightBT.ttf') format('truetype'),
+         url('./fonts/Humanist521LightBT.svg#Humanist521LightBT') format('svg');
+}
+
+@font-face {
+    font-family: 'tahoma';
+    src: url('fonts/tahoma.eot');
+    src: url('fonts/tahoma.eot') format('embedded-opentype'), 
+        url('fonts/tahoma.woff2') format('woff2'), 
+        url('fonts/tahoma.woff') format('woff'), 
+        url('fonts/tahoma.ttf') format('truetype'), 
+        url('fonts/tahoma.svg#tahoma') format('svg');
+}
+h4 {
+    font-size: 20px;
+    line-height: 30px;
+    font-family: "Inter", sans-serif;
+}
+.container {
+    max-width: 1250px;
+    position: relative;
+    z-index: 99;
+}
+.phd-section {
+    display: flex;
+    justify-content: center;
+    padding: 30px 0 !important;
+}
+.phd-container {
+    max-width: 900px;
+    width: 100%;
+}
+.phd-card {
+    border-radius: 20px;
+    text-align: center;
+    color: #fff;
+    transition: transform 0.3s ease;
+}
+.phd-title {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 20px;
+}
+
+.phd-subtitle {
+    font-size: 18px;
+    color: #cbd5f5;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+.phd-divider {
+    width: 60px;
+    height: 3px;
+    background: #38bdf8;
+    margin: 0 auto 25px;
+    border-radius: 2px;
+}
+
+/*******************************/
+main {
+    margin: 61px 0 0 0;
+}
+.imgbnr img {
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
+}
+
+section.banner-scholaria {
+    position: relative;
+}
+    section.banner-scholaria .container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding: 110px 0 0 0;
+        text-align: center;
+    }
+.bannercontent h1 {
+    font-size: 56px;
+    color: #fff;
+    font-weight: 700;
+    line-height: 61.6px;
+}
+h2, h2.common-heading {
+    font-size: 31px;
+    line-height: 1.2;
+    font-weight: 600;
+    font-family: "Inter", sans-serif;
+}
+li {
+    color: #000;
+    list-style: none;
+    font-size: 16px;
+    line-height: 27.2px;
+    position: relative;
+    font-family: "Inter", sans-serif;
+}
+ul.fromclarity {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 120px auto;
+}
+    ul.fromclarity li.commondsgn:not(:last-child)::before,
+    ul.scholararow li p.arrowtext::before {
+        content: "";
+        position: absolute;
+        top: -93px;
+        bottom: 0;
+        left: 99px;
+        right: 0;
+        background-image: url('../images/arrowdsn.png');
+        background-repeat: no-repeat;
+        height: 91px;
+        width: 210px;
+        background-size: 100% 100%;
+        transform: rotate(11deg);
+        filter: brightness(0) saturate(100%) invert(25%) sepia(88%) saturate(1328%) hue-rotate(329deg) brightness(94%) contrast(102%);
+    }
+    ul.fromclarity li.commondsgn:nth-child(2)::before {
+        transform: rotateX(-149deg);
+        top: 72px;
+    }
+p {
+    margin: 0 0 10px;
+    font-size: 16px !important;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    line-height: 27.2px !important;
+    text-align: left;
+}
+    p span, ul.commonlidesign li span {
+        color: #ae2220;
+        font-weight: 700;
+    }
+section.phd-section .container {
+    max-width: 1100px;
+}
+h2 span {
+    font-size: 47px;
+    color: #5c7d56;
+    font-family: "Inter", sans-serif;
+}
+section.afuuly-funded-phd {
+    margin: 30px 0 0 0;
+    padding: 50px 0;
+    background: #ebedec;
+    position: relative;
+}
+    section.afuuly-funded-phd::before {
+        content: "";
+        background: #5a7b54;
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 9;
+        max-width: 633px;
+    }
+html {
+    overflow-x: hidden;
+}
+.right-side-boxes {
+    background: #5a7b54;
+    padding: 0 0 0 70px !important;
+}
+.left-side-boxes {
+    padding: 0 60px 0 0 !important;
+}
+.boxedlogo p {
+    color: #fff;
+    padding: 0 330px 0 0;
+}
+.commonbtn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 55px;
+}
+.commonbtn span img {
+    width: 100%;
+}
+.left-side-boxes p span {
+    color: #5c7d56;
+}
+.left-side-boxes .commonbtn {
+    margin: 30px 0 0 0;
+}
+ul.scholararow li {
+    display: flex;
+    align-items: center;
+}
+ul.scholararow li p.arrowtext {
+    margin: 60px 0 0 80px;
+    position: relative;
+    padding: 15px 15px;
+    background: #e8d3ab;
+}
+ul.scholararow li p.arrowtext::before {
+    top: -52px;
+    max-width: 110px;
+    height: 50px;
+    left: -90px;
+    transform: rotate(17deg);
+}
+section.the-scholaria-three-stage h2.common-heading {
+    text-align: center;
+}
+section.the-scholaria-three-stage {
+    padding: 40px 0;
+}
+.threebtnpara {
+    display: block;
+    align-items: center;
+    margin: 30px 0 0 0;
+}
+.threebtnpara .commonbtn {
+ /*   flex-direction: column;*/
+    gap: 15px;
+}
+section.the-scholaria-three-stage .commonbtn {
+    margin: 30px 0 0 0;
+}
+ul.scholararow li:nth-child(2) p.arrowtext::before {
+    filter: brightness(0) saturate(100%) invert(44%) sepia(21%) saturate(547%) hue-rotate(65deg) brightness(99%) contrast(98%);
+}
+/*section.why-do-ninty-percent-ofphd {
+    background: #ebedec;
+    padding: 40px 0 40px;
+}*/
+section.why-do-ninty-percent-ofphd {
+    padding: 40px 0 40px;
+    position: relative;
+    background: #fcf8fe;
+}
+/*section.why-do-ninty-percent-ofphd {
+    padding: 40px 0 40px;
+    position: relative;
+}*/
+/*    section.why-do-ninty-percent-ofphd::before {
+        content: "";
+        background-image: url('../images/WhyFailure.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+    }*/
+.rightcontent {
+    padding: 0 0 0 40px !important;
+    position: relative;
+}
+section.why-do-ninty-percent-ofphd .headingbox h2 {
+    color: #fff;
+    font-size: 49px;
+    padding: 0;
+    line-height: 70px;
+    position: relative;
+}
+    section.why-do-ninty-percent-ofphd .headingbox h2::before {
+        content: "";
+        background-image: url('../images/questionmark.png');
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        position: absolute;
+        top: 0;
+        left: auto;
+        right: 0px;
+        height: 100%;
+        width: 100%;
+        max-width: 310px;
+        filter: brightness(0) saturate(100%) invert(100%) sepia(18%) saturate(7488%) hue-rotate(182deg) brightness(121%) contrast(97%);
+        opacity: 0.4;
+    }
+section.why-do-ninty-percent-ofphd ul.commonlidesign li {
+    color: #a8211f;
+    position: relative;
+    padding: 0 0 10px 39px;
+}
+ul.commonlidesign li::before, .common-btn-desgn a::before {
+    content: "";
+    background-image: url('../images/2026-Logos-SureAdmit/desgn.png');
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 3px;
+    left: 0;
+    bottom: 0;
+    height: 22px;
+    width: 30px;
+    filter: brightness(0) saturate(100%) invert(26%) sepia(65%) saturate(2985%) hue-rotate(340deg) brightness(80%) contrast(90%);
+    background-size: 100% 100%;
+}
+p.red-para {
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    background: #5d7f57;
+    padding: 20px 20px;
+    border-radius: 20px;
+    border-left: 7px solid #e4d0a8;
+    border-right: 7px solid #e4d0a8;
+    margin: 15px 0 0 0;
+}
+.rightcontent .commonbtn {
+    margin: 20px 0 0 0;
+}
+section.not-sure-where-to-strart {
+    padding: 40px 0;
+}
+section.not-sure-where-to-strart ul.commonlidesign li {
+    padding: 0 0 14px 40px;
+}
+span.buttondsgn img {
+    width: 100%;
+}
+span.buttondsgn {
+    max-width: 120px;
+    display: inline-block;
+}
+.card-design, .card-design-two {
+    padding: 30px 140px 30px 20px;
+    border-radius: 0;
+    box-shadow: 0 0 40px 0 #00000026;
+    overflow: hidden;
+    min-height: 921px;
+}
+    .card-design-two{
+        height:auto;
+    }
+.col-lg-5 .card-design {
+    background: #98bad5;
+}
+.col-lg-5 .card-design p, .col-lg-5 .card-design li,
+.col-lg-5 .card-design h3, .col-lg-5 .card-design h4 {
+    color: #fff;
+}
+.col-lg-5 .card-design ul.commonlidesign li::before {
+    filter: brightness(0) saturate(100%) invert(100%) sepia(8%) saturate(3763%) hue-rotate(245deg) brightness(113%) contrast(102%);
+}
+.col-lg-5 .card-design .common-btn-desgn a::before {
+    filter: brightness(0) saturate(100%) invert(15%) sepia(85%) saturate(2617%) hue-rotate(341deg) brightness(123%) contrast(85%);
+}
+.col-lg-5 .card-design .common-btn-desgn a {
+    color: #ae2220;
+    border: 1px solid #ae2220;
+}
+.col-lg-5 .card-design .common-btn-desgn a:hover {
+    border: 1px solid #c52f36;
+    color: #fff;
+}
+.col-lg-5 .card-design .common-btn-desgn a:hover::before {
+    filter: brightness(0) saturate(100%) invert(96%) sepia(0%) saturate(16%) hue-rotate(302deg) brightness(104%) contrast(107%);
+}
+section.products-card-section .commonbtn span.frst img {
+    width: 100%;
+    height: 100%;
+}
+ul.commonlidesign li {
+    padding: 0 0 5px 35px;
+}
+.common-btn-desgn a {
+    font-family: 'Inter';
+    color: #c52f36;
+    border: 1px solid #c52f36;
+    padding: 0 70px 0 20px;
+    line-height: 50px;
+    display: inline-block;
+    border-radius: 50px;
+    position: relative;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+.common-btn-desgn a::before {
+    right: 20px;
+    left: auto;
+    margin: auto;
+    height: 30px;
+    width: 40px;
+}
+.common-btn-desgn a:hover {
+    background: #ae2220;
+    color: #fff;
+}
+.common-btn-desgn a:hover::before {
+    filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7467%) hue-rotate(358deg) brightness(105%) contrast(106%);
+}
+.card-design-two {
+    height: auto;
+    margin: 10px 0 0 0;
+    background: #e4d0a8;
+    position: relative;
+    padding-left: 20px;
+}
+section.products-card-section .col-lg-12 {
+    margin: 20px 0 0 0;
+}
+.card-design-two p, .card-design-two li, .card-design-two h3, .card-design-two h4 {
+    color: #000;
+}
+.card-design-two h4 {
+    font-size: 22px;
+    font-family: 'Inter';
+    font-weight: 600;
+    margin: 10px 0 8px 0;
+}
+.card-design-two ul.commonlidesign li::before, .card-design-two .common-btn-desgn a::before {
+    filter: brightness(0) saturate(100%) invert(0%) sepia(4%) saturate(15%) hue-rotate(111deg) brightness(95%) contrast(104%);
+}
+    .card-design-two .commonbtn span.frst {
+        position: relative;
+        left: 0;
+        top: 0;
+        bottom: 0;
+    }
+.commonbtn {
+    position: relative;
+}
+.card-design-two .common-btn-desgn a {
+    color: #c52f36;
+    border: 1px solid #c52f36;
+}
+  
+.pricedsgn p {
+    position: absolute;
+    top: -30px;
+    bottom: auto;
+    right: -120px;
+    font-size: 25px !important;
+    max-width: 180px;
+    line-height: 35px !important;
+    font-weight: 600;
+    background: #fff;
+    padding: 40px 20px;
+    max-width: 115px;
+    border-radius: 0 0 60px 60px;
+}
+.col-lg-5 .card-design .pricedsgn p {
+    color: #ae2220;
+}
+.pricedsgn {
+    position: relative;
+}
+.pricedsgn.second p {
+    background: #5d7f57;
+    top: -31px;
+    color: #fff;
+}
+h3 {
+    font-size: 22px;
+    font-weight: 600;
+    font-family: 'Inter';
+}
+section.phd-framework .container {
+    max-width: 1200px;
+}
+section.phd-framework .container {
+    max-width: 1250px;
+}
+section.phd-framework .firstphd {
+    padding: 25px 20px;
+    background: #d7eafb;
+}
+section.phd-framework .secondphd img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+section.phd-framework {
+    margin: 30px 0;
+}
+section.phd-framework .firstphd {
+    padding: 25px 20px;
+    background: #5d7f57;
+    position: relative;
+}
+section.phd-framework h3 span {
+    font-size: 28px;
+    color: #e4d0a8;
+}
+section.phd-framework p {
+    color: #fff;
+}
+section.phd-framework p span {
+    color: #e4d0a8;
+}
+section.side-by-side-section h2.common-heading {
+    text-align: center;
+    margin: 0 0 20px 0;
+}
+section.side-by-side-section table.table-responsive-design th,
+section.side-by-side-section td, section.side-by-side-section tr {
+    font-size: 16px;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    line-height: 27.2px;
+    text-align: left;
+    padding: 20px 10px;
+}
+table.table-responsive-design tbody td {
+    border-bottom: 1px solid #fff;
+}
+table.table-responsive-design tbody td:not(:last-child) {
+    border-right: 1px solid #fff;
+}
+section.what-make-scholaria-section .row:not(.g-0) > [class*='col-'] {
+    padding-left: 0;
+    padding-right: 0;
+}
+.leftsideimage img {
+    width: 100%;
+}
+
+.transformh {
+    transform: rotate(90deg);
+    right: auto;
+    left: 320px;
+    position: absolute;
+    bottom: 55px;
+    top: auto;
+    margin: 0 0 0 auto;
+    max-width: 414px;
+    padding: 20px 20px;
+}
+.midlecontent {
+    padding: 0 40px 0 0 !important;
+    position: relative;
+}
+section.what-make-scholaria-section {
+    margin: 40px 0 40px;
+}
+.twoboxeswrapsection {
+    position: relative;
+}
+section.closinglinesection {
+    padding: 40px 0;
+}
+section.chooseyourscholariasection {
+    padding: 40px 0;
+    background-image: url('../images/lastsecondb.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+    section.chooseyourscholariasection::before {
+        content: "";
+        background: #000000d1;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+.grid-design {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    border-radius: 41px;
+    gap: 15px;
+    margin: 20px 0 20px 0;
+}
+h3 span {
+    font-size: 30px;
+    color: #5c7d56;
+    font-family: "Roboto Slab", serif;
+}
+section.chooseyourscholariasection h3 span {
+    color: #ae2220;
+}
+section.chooseyourscholariasection h2 span {
+    color: #ae2220;
+}
+section.closinglinesection .container h2.commonheading {
+    margin: 0;
+    text-align: center;
+}
+section.closinglinesection .container {
+    background: #cfe8cb;
+    max-width: 1050px;
+    padding: 50px 30px;
+    border-radius: 25px;
+}
+section.closinglinesection {
+    padding: 20px 0;
+}
+section.closinglinesection h2 span {
+    color: #ae2220;
+}
+section.closinglinesection.second .container {
+    background: transparent;
+}
+section.closinglinesection.second h2.commonheading {
+    text-align: left;
+    padding-left: 50px;
+}
+section.closinglinesection.second .container {
+    background: transparent;
+    padding: 0 15px;
+    position: relative;
+}
+.pricedsgn.third p {
+    bottom: auto;
+    color: #5d7f57;
+}
+
+/**********not-sure-where-to-strart**************/
+
+.not-sure-where-to-strart .featured-imagebox:hover .featured-thumbnail img {
+    transform: unset;
+}
+.not-sure-where-to-strart .section-title h2 span {
+    color: #000;
+}
+.not-sure-where-to-strart .featured-imagebox-services.style1 .services-content {
+    border-radius: 28px;
+}
+/*.not-sure-where-to-strart .featured-imagebox .featured-thumbnail {
+    position: absolute;
+    bottom: 45px;
+    left: 28px;
+    max-width: 170px;
+    z-index: 9;
+}*/
+.logowrap {
+    position: absolute;
+    top: 10px;
+    z-index: 9;
+    max-width: 100px;
+    right: 10px;
+}
+.not-sure-where-to-strart .featured-imagebox-services.style1 .featured-thumbnail img {
+    height: auto;
+}
+.not-sure-where-to-strart .featured-imagebox-services.style1 .services-content {
+    border-radius: 0px;
+    padding-bottom: 20px;
+}
+.not-sure-where-to-strart.prt-row.home01-services-section {
+    padding: 40px 0 40px;
+}
+.not-sure-where-to-strart .box-grid-design > div {
+    width: 100%;
+    padding: 0 !important;
+    margin: 0;
+}
+.featured-imagebox-services.style1 {
+    padding-bottom: 0;
+    margin: 0;
+}
+.not-sure-where-to-strart .box-grid-design {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 15px;
+}
+.not-sure-where-to-strart .services-desc p {
+    position: relative;
+    padding: 0 0 0 35px;
+}
+.not-sure-where-to-strart .services-desc p::before {
+    content: "";
+    background-image: url(../images/2026-Logos-SureAdmit/desgn.png);
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 3px;
+    left: 0;
+    bottom: 0;
+    height: 22px;
+    width: 30px;
+    filter: brightness(0) saturate(100%) invert(26%) sepia(65%) saturate(2985%) hue-rotate(340deg) brightness(80%) contrast(90%);
+    background-size: 100% 100%;
+}
+.not-sure-where-to-strart .services-desc {
+    padding: 0 !important;
+}
+.not-sure-where-to-strart .services-desc p::before {
+    filter: brightness(0) saturate(100%) invert(100%) sepia(95%) saturate(1%) hue-rotate(226deg) brightness(108%) contrast(101%);
+}
+
+/*********a-fully-fundedphd**********/
+
+section.a-fully-fundedphd .spacing-1 {
+    padding: 60px 0 60px 60px;
+}
+/*section.a-fully-fundedphd .commonbtn {
+    position: absolute;
+    bottom: 16px;
+}*/
+.responsiveimg img {
+    width: 100%;
+    object-fit: cover;
+}
+.twoboxeswrapbig .col-lg-6 img {
+    width: 100%;
+}
+section.why-do-ninty-percent-ofphd .commonbtn {
+    position: relative;
+    max-width: 380px;
+    margin: -17px auto 0;
+}
+section.products-card-section .commonbtn {
+    max-width: 180px;
+}
+section.products-card-section {
+    padding: 30px 0;
+}
+section.phd-framework .firstphd h2.common-heading {
+    color: #fff;
+}
+section.phd-framework .firstphd h2.common-heading span {
+    color: #e4d0a8;
+}
+section.phd-framework h3.threecommon {
+    color: #fff;
+}
+section.phd-framework .commonbtn {
+    margin: -30px 0 0 0;
+}
+.closingline {
+    padding: 0 0 0 60px !important;
+}
+img.logodesngwrap {
+    position: absolute;
+    filter: brightness(0) saturate(100%) invert(14%) sepia(92%) saturate(2940%) hue-rotate(349deg) brightness(101%) contrast(90%);
+    left: -80px;
+    top: 70px;
+    right: 0;
+    bottom: 0;
+    transform: rotate(-90deg);
+    max-width: 210px;
+}
+.closingline {
+    padding: 0 0 0 60px !important;
+    position: relative;
+}
+.midlecontent::before {
+    content: "";
+    background-image: url('../images/arrowdsn.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    height: 60px;
+    width: 160px;
+    filter: brightness(0) saturate(100%) invert(14%) sepia(92%) saturate(2940%) hue-rotate(349deg) brightness(101%) contrast(90%);
+}
+.dsgntextdsgn {
+    padding: 0 0 0 140px !important;
+}
+section.chooseyourscholariasection h2.commonheading {
+    color: #fff;
+}
+section.chooseyourscholariasection h3 {
+    color: #fff;
+}
+section.closinglinesection.second h2 span {
+    color: #5b7d55;
+}
+section.closinglinesection.second img.logodesngwrap {
+    filter: brightness(0) saturate(100%) invert(14%) sepia(92%) saturate(2940%) hue-rotate(349deg) brightness(101%) contrast(90%);
+    left: -79px;
+    top: 100px;
+    max-width: 230px;
+}
+section.side-by-side-section {
+    background: #e4e4e4;
+    padding: 30px 0 40px;
+}
+section.not-sure-where-to-strart h2.title {
+    color: #5d7f57;
+}
+.rightcontent::before {
+    content: "";
+    background-image: url('../images/questionmark.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    max-width: 430px;
+    height: 450px;
+    opacity: 0.2;
+    color: #000;
+    filter: brightness(0) saturate(100%) invert(43%) sepia(24%) saturate(518%) hue-rotate(64deg) brightness(99%) contrast(90%);
+}
+.twoboxeswrapbig {
+    margin: 0 0 15px 0;
+}
+.bg-base-grey > .prt-bg-layer {
+    background-color: #EFE1C0;
+}
+section.a-fully-fundedphd .bg-base-dark > .prt-bg-layer {
+    border: none;
+}
+section.a-fully-fundedphd .commonbtn {
+    margin: 30px 0 0 0;
+}
+p.phd-highlight {
+    font-size: 40px !important;
+    line-height: 40px !important;
+    color: #c52f36;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+}
+ul.fromclarity li.commondsgn {
+    background: #e8d3ab;
+    padding: 20px 40px;
+}
+ul.fromclarity li.commondsgn span {
+    color: #fff;
+    background: #5d7f57;
+    height: 20px;
+    position: absolute;
+    width: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    top: 7px;
+    left: 7px;
+    font-size: 13px;
+}
+h1 sup {
+    top: 0 !important;
+}
+.a-fully-fundedphd p b {
+    color: #e8d3ab;
+}
+.not-sure-where-to-strart p span {
+    color: #eee0bf;
+    font-size: 18px;
+}
+section.why-do-ninty-percent-ofphd .row .col-lg-6 img {
+    width: 100%;
+}
+.not-sure-where-to-strart .services-desc a {
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 0 50px 0 30px;
+    line-height: 45px;
+    display: inline-block;
+    border-radius: 50px;
+    position: relative;
+    font-family: "Inter", sans-serif;
+}
+.not-sure-where-to-strart .services-desc a::before {
+    content: "";
+    background-image: url('../images/favicon.png');
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    right: 11px;
+    bottom: 0;
+    margin: auto;
+    height: 20px;
+    width: 30px;
+    background-size: 100% 100%;
+    filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(22%) hue-rotate(279deg) brightness(106%) contrast(108%);
+}
+.not-sure-where-to-strart .services-desc {
+    text-align: left;
+}
+.not-sure-where-to-strart .services-desc p {
+    min-height: 135px;
+}
+section.products-card-section h3 {
+    color: #5d7f57;
+    font-weight: 700;
+    font-size: 25px;
+    margin: 0 0 5px 0;
+}
+.card-design p.highlited b {
+    color: #c52f36;
+}
+.card-design-two p.highlited {
+    margin: 10px 0 3px 0;
+}
+.card-design-two p.highlited {
+    color: #c52f36;
+}
+.card-design-two .common-btn-desgn a:hover {
+    color: #fff;
+}
+.card-design-two .common-btn-desgn a::before {
+    filter: brightness(0) saturate(100%) invert(22%) sepia(41%) saturate(5319%) hue-rotate(344deg) brightness(87%) contrast(84%);
+}
+.card-design-two .common-btn-desgn a:hover::before {
+    filter: brightness(0) saturate(100%) invert(92%) sepia(93%) saturate(0%) hue-rotate(202deg) brightness(106%) contrast(106%);
+}
+.not-sure-where-to-strart .services-desc a:hover {
+    background: #c52f36;
+}
+.not-sure-where-to-strart .services-desc a:hover::before {
+    filter: brightness(0) saturate(100%) invert(99%) sepia(0%) saturate(2441%) hue-rotate(201deg) brightness(109%) contrast(100%);
+}
+/*********************gradeedgefundingtm*****************/
+section.phd-section.gradedgefundingphd .container {
+    max-width: 1250px;
+}
+section.phd-section.gradedgefundingphd ul.fromclarity li.commondsgn {
+    text-align: left;
+}
+section.phd-section.gradedgefundingphd ul.fromclarity {
+    gap: 15px;
+}
+section.the-gradedge-advantage .row .col-lg-6 img {
+    width: 100%;
+}
+section.the-gradedge-advantage .row .col-lg-6 {
+    position: relative;
+}
+section.the-gradedge-advantage h2.common-heading {
+    text-align: center;
+    margin: 0 0 20px 0;
+}
+section.the-gradedge-advantage .first-row {
+    margin: 0 0 20px 0;
+}
+.commoncarddesign {
+    padding: 30px 30px;
+    height: calc(100% - 0px);
+    box-shadow: 0 0 40px 0 #0000000d;
+    overflow: hidden;
+}
+.second-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 30px;
+}
+.second-row > div {
+    margin: 0;
+    padding: 0 !important;
+    width: 100%;
+}
+.second-row > div:first-child > div, .second-row > div:nth-child(4) > div {
+    background: #e8d3ab;
+}
+.second-row > div:nth-child(2) > div, .second-row > div:nth-child(3) > div {
+    background: #597953;
+}
+.second-row > div:nth-child(2) > div ul li::before,
+.second-row > div:nth-child(3) > div ul li::before {
+    filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(187deg) brightness(102%) contrast(103%);
+}
+.second-row > div:nth-child(2) > div h4,
+.second-row > div:nth-child(2) > div li,
+.second-row > div:nth-child(2) > div p,
+.second-row > div:nth-child(3) > div h4,
+.second-row > div:nth-child(3) > div li,
+.second-row > div:nth-child(3) > div p {
+    color: #fff;
+}
+span.commontextdesign {
+    font-size: 26px;
+    font-weight: 700;
+}
+table {
+    width: 100%;
+}
+.third-row > div {
+    padding: 0 !important;
+}
+section.the-gradedge-advantage .secndt {
+    padding: 0 10px 0 0 !important;
+}
+.third-row {
+    text-align: center;
+    margin: 30px 0 0 0;
+}
+.secondthreestage {
+    position: relative;
+}
+.secondthreestage img.logodesngwrap {
+    top: 320px;
+}
+.secondthreestage p {
+    padding: 0 0 0 40px;
+}
+p.paraicon {
+    position: relative;
+    padding: 10px 0 0 35px;
+}
+p.paraicon::before {
+    content: "";
+    background-image: url('../images/favicon.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    top: 12px;
+    left: 0;
+    bottom: 0;
+    height: 22px;
+    width: 30px;
+}
+ul.secondgren li p.arrowtext::before {
+    filter: brightness(0) saturate(100%) invert(42%) sepia(3%) saturate(4653%) hue-rotate(75deg) brightness(102%) contrast(72%);
+}
+.a-fully-fundedphd h2.common-heading span {
+    color: #e8d3ab;
+}
+.a-fully-fundedphd ul.commonlidesign li {
+    color: #fff;
+}
+.a-fully-fundedphd ul.commonlidesign li::before {
+    filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
+}
+ .questmark::before {
+    content: "";
+    background-image: url('../images/questionmark.png');
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 450px;
+    width: 100%;
+    max-width: 450px;
+    background-size: 100% 100%;
+    z-index: 9;
+    opacity: 0.3;
+    margin: 0 auto;
+    filter: brightness(0) saturate(100%) invert(90%) sepia(21%) saturate(518%) hue-rotate(340deg) brightness(99%) contrast(84%);
+}
+.questmark{
+    position: relative;
+}
+section.resultsection h3 {
+    color: #5d7f57;
+    margin: 0 0 5px 0;
+}
+section.resultsection p b {
+    color: #c52f36;
+}
+section.resultsection {
+    position: relative;
+    background: #e8d3ab96;
+    padding: 10px 0;
+}
+section.resultsection::before {
+    content: "";
+    background-image: url('../images/header-logo.png');
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 30px;
+    bottom: 0;
+    left: auto;
+    right: 100px;
+    height: 120px;
+    width: 100%;
+    background-size: 100% 100%;
+    max-width: 460px;
+    margin: 0 auto;
+    opacity: 0.2;
+}
+section.how-gradedgefunding-section h2.common-heading {
+    text-align: center;
+}
+section.how-gradedgefunding-section {
+    padding: 30px 0;
+}
+
+section.how-gradedgefunding-section .row {
+    position: relative;
+}
+    section.how-gradedgefunding-section .secndbox {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: 20px auto;
+        background: #5d7f57;
+        max-width: 400px;
+        z-index: 9;
+    }
+section.how-gradedgefunding-section .secndbox h4, 
+section.how-gradedgefunding-section .secndbox li, 
+section.how-gradedgefunding-section .secndbox p {
+    color: #fff;
+}
+section.how-gradedgefunding-section .firstbox .commoncarddesign {
+    padding-right: 180px;
+    background: #e8d3ab;
+}
+.thirdbox .commoncarddesign h4,
+.thirdbox .commoncarddesign p,
+.thirdbox .commoncarddesign li {
+    color: #fff;
+}
+section.how-gradedgefunding-section .secndbox ul.commonlidesign li::before,
+section.how-gradedgefunding-section .thirdbox .commoncarddesign li::before {
+    filter: brightness(0) saturate(100%) invert(100%) sepia(8%) saturate(0%) hue-rotate(157deg) brightness(107%) contrast(108%);
+}
+section.how-gradedgefunding-section .thirdbox {
+    background: #c52f36;
+    padding-left: 198px !important;
+}
+section.how-gradedgefunding-section .row .commoncarddesign {
+    box-shadow: none;
+}
+.hightlightedbox {
+    padding: 20px 20px;
+    margin: 10px 0 0 17px;
+    box-shadow: 0 0 10px 0 #0000001c;
+    border-radius: 20px;
+    border-left: 5px solid #5d7f57;
+}
+.accordion-item {
+    margin-bottom: 10px;
+    border-radius: 8px !important;
+    overflow: hidden;
+}
+.accordion-header {
+    cursor: pointer;
+    padding: 15px 15px;
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s ease;
+    border-radius: 8px;
+    color: #000;
+    background: #e7d2aa;
+}
+.accordion-item.active {
+    border: 1px solid #ffffff9e;
+    border-radius: 8px;
+}
+.accordion-header:hover, .accordion-item.active .accordion-header {
+    background: #5d7f57;
+    color: #fff;
+}
+.accordion-header::after {
+    content: '+';
+    font-size: 35px;
+    transition: transform 0.3s ease;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    color: #000;
+    border-radius: 5px;
+}
+
+.accordion-item.active .accordion-header::after {
+    content: '−';
+    background: #fff;
+    color: #002c51;
+}
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 30px;
+    background: #fff;
+    font-size: 16px;
+    line-height: 1.8;
+    transition: max-height 0.35s ease, padding 0.35s ease;
+}
+.accordion-item.active .accordion-content {
+    max-height: 530px;
+    padding: 20px 30px;
+    overflow-y: auto;
+}
+.accordion-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.accordion-content::-webkit-scrollbar-thumb {
+    background: #c52f36;
+}
+.logoheading {
+    position: relative;
+}
+section.compare-your-options {
+    padding: 30px 0;
+    background: #f1e5ce;
+}
+.logoheading {
+    position: relative;
+    margin: 20px auto;
+    max-width: 820px;
+    padding: 20px 15px;
+    background: #fff;
+    border-left: 4px solid #b32422;
+    border-radius: 20px;
+}
+section.decisionframesection {
+    padding: 30px 0;
+}
+section.howtochoosesection {
+    background: #e4e4e4;
+    padding: 30px 0;
+}
+section.howtochoosesection h3 {
+    margin: 20px 0 10px 0;
+}
+section.howtochoosesection .hightlightedbox {
+    background: #fff;
+}
+img.sectionlogo {
+    position: absolute;
+    width: 100%;
+    max-width: 80px;
+    height: 210px;
+    left: 0;
+}
+.carddesign {
+    padding: 0 0 0 70px;
+    position: relative;
+}
+section.howtochoosesection .row > div:last-child h3 span {
+    color: #c52f36;
+}
+section.chooseyourscholariasection .transformh {
+    transform: rotate(-90deg);
+    right: auto;
+    left: -30px;
+    bottom: 35px;
+    top: auto;
+    max-width: 264px;
+    padding: 20px 20px;
+}
+.btnheading.second {
+    margin: 30px 0 0 0;
+}
+section.secondbnrchoose .common-btn-desgn a {
+    color: #fff;
+    border: 1px solid #fff;
+}
+.dsgntextdsgn.secondcolunm {
+    padding: 0 0 0 0 !important;
+}
+sup {
+    top: 0 !important;
+}
+section.gradedgevaluephd .col-lg-6 img {
+    width: 100%;
+}
+section.gradedgevaluephd .col-lg-6 ul.commonlidesign li {
+    text-align: left;
+}
+section.gradedgevaluephd .col-lg-6 ul.commonlidesign {
+    margin: 0 0 10px 0;
+}
+section.gradedgevaladvantage {
+    background: #e4e4e4;
+    padding: 30px 0;
+}
+section.gradevaltwostage .secondthreestage ul.fromclarity li:first-child::before {
+    left: 40px;
+}
+section.gradevaltwostage .secondthreestage ul.fromclarity li:nth-child(2)::before {
+    left: 40px;
+}
+section.mostmasterapplication::before {
+    background: none;
+}
+section.assist-solves-this {
+    background: #e4e4e4;
+}
+section.assist-solves-this .secondthreestage p {
+    padding: 0;
+}
+section.differencebetween {
+    padding: 40px 0;
+}
+section.differencebetween h3 span {
+    color: #c52f36;
+}
+section.differencebetween::before {
+    top: 50px;
+}
+section.masters-outcomes-depends {
+    padding: 40px 0;
+}
+section.masters-outcomes-depends  img.sectionlogo {
+    left: 0;
+    top: 70px;
+}
+section.secondbnrchoose.third .row > div:nth-child(2) {
+    padding: 0 0 0 160px !important;
+}
+section.secondbnrchoose.third {
+    padding: 100px 0;
+}
+section.final-note-section {
+    padding: 40px 0;
+}
+section.lastbottomsection {
+    padding: 30px 0;
+}
+section.gradedgevaluephd .container {
+    max-width: 1250px;
+}
+section.finaldecisionguide img.sectionlogo {
+    top: 80px;
+}

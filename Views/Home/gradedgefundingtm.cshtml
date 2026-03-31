@@ -1,0 +1,828 @@
+﻿
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <tittle>GradEdge Funding™</tittle>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="~/assets/images/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Niconne&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Slab:wght@100..900&family=Satisfy&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Niconne&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Satisfy&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Carlito:ital,wght@0,400;0,700;1,400;1,700&family=Caveat:wght@400..700&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Dancing+Script:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jost:ital,wght@0,100..900;1,100..900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Luxurious+Roman&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Moon+Dance&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&family=Rajdhani:wght@300;400;500;600;700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Space+Grotesk:wght@300..700&family=Teko:wght@300..700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Bebas+Neue&family=Carlito:ital,wght@0,400;0,700;1,400;1,700&family=Caveat:wght@400..700&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Dancing+Script:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jost:ital,wght@0,100..900;1,100..900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Luxurious+Roman&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Moon+Dance&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&family=Rajdhani:wght@300;400;500;600;700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Space+Grotesk:wght@300..700&family=Teko:wght@300..700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="~/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/aos.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/fontello.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/flaticon.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/flag-icon.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/themify-icons.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/slick.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/prettyPhoto.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/twentytwenty.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/megamenu.css">
+
+    <link href="~/assets/css/main.css" rel="stylesheet" />
+    <link href="~/assets/css/shortcodes.css" rel="stylesheet" />
+    <link href="~/assets/css/responsive.css" rel="stylesheet" />
+    <link href="~/assets/css/fees-payment.css" rel="stylesheet" />
+    <link href="~/assets/css/fees-pay-responsive.css" rel="stylesheet" />
+    <link href="~/assets/css/Scholaria.css" rel="stylesheet" />
+    <link href="~/assets/css/Scholaria-responsive.css" rel="stylesheet" />
+    <script>
+
+        jQuery(document).ready(function ($) {
+            $(window).on("scroll", function () {
+                var scroll = $(window).scrollTop();
+                if (scroll >= 80) {
+                    $("#header").addClass("fixed");
+                } else {
+                    $("#header").removeClass("fixed");
+                }
+            });
+        });
+    </script>
+    <script>
+    
+    </script>
+</head>
+<body>
+    <header class="header" id="header">
+        <div class="container">
+            <div class="big-wrap-of-logo-menu">
+                <div class="logo-wrap">
+                    <a href="/Home/feespaymentstructure">
+                        <img src="~/assets/images/header-logo.png" /></a>
+                </div>
+                <div class="menu-wrap-menu">
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="banner-scholaria gradedgebnr">
+            <div class="imgbnr">
+                <img src="~/assets/images/WebsiteImages-Sureadmit/2.png" />
+            </div>
+            <div class="container">
+                <div class="bannercontent">
+                    <h1>Maximize Your Chances for <br /> Funded Master’s </h1>
+                </div>
+            </div>
+        </section>
+        <section class="phd-section gradedgefundingphd">
+            <div class="container">
+                <div class="phd-card">
+                    <ul class="fromclarity">
+                        <li class="commondsgn"><span>1</span>From <b>clarity</b></li>
+                        <li class="commondsgn"><span>2</span><b>positioning</b></li>
+                        <li class="commondsgn"><span>3</span>execution,
+                            <b>GradEdge<sup>™</sup> Funding</b> helps you build competitive <b>Master’s (Thesis/Research)</b> applications across top global programs.
+                        </li>
+                    </ul>
+
+                    <p>
+                        Most applicants do not fall short because of capability. They fall short because of 
+     <b>unclear direction, weak positioning,
+      generic applications,</b> and <b>inconsistent execution.</b>
+                    </p>
+                    <p class="phd-highlight">That is what we fix.</p>
+                    <p>
+                        Whether you are still evaluating your readiness, defining your program strategy, 
+      or looking for expert-led execution, GradEdge™ 
+      helps you move forward with structure and precision.
+                    </p>
+
+                </div>
+            </div>
+        </section>
+        <section class="the-gradedge-advantage">
+            <div class="container">
+                 <h2 class="common-heading">THE <span>GradEdge<sup>™</sup></span> Advantage</h2>
+                <div class="row first-row align-items-center">
+                    <div class="col-lg-6">
+                        <p>A Master’s degree is not just about getting an admit.</p>
+                        <p>It is about:</p>
+                        <ul class="commonlidesign">
+                            <li>selecting the right programs </li>
+                            <li>managing total cost of education </li>
+                            <li>accessing funding opportunities </li>
+                            <li>improving return on investment </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-6">
+                        <img src="~/assets/images/gradeadvatage.png" />
+                     
+                    </div>
+                </div>
+                <div class="row second-row">
+                    <div class="col-lg-6">
+                        <div class="commoncarddesign">
+                            <h4>The Cost Reality</h4>
+                            <p>Most Master’s programs cost:</p>
+                            <ul class="commonlidesign">
+                                <li>$20,000+ per year</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="commoncarddesign">
+                            <h4>With the right approach</h4>
+                            <p>Strong research-backgrounded applicants can often achieve:</p>
+                            <ul class="commonlidesign">
+                                <li>50% - 100% tuition reduction </li>
+                                <li>bringing annual tuition closer to: </li>
+                            </ul>
+                            <span class="commontextdesign">$0 - $5000</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="commoncarddesign">
+                            <h4>How this becomes possible</h4>
+                            <p>Through:</p>
+                            <ul class="commonlidesign">
+                                <li>merit-based scholarships </li>
+                                <li>departmental funding </li>
+                                <li>non-resident tuition surcharge waivers </li>
+                                <li>in-state tuition benefits </li>
+                            </ul>
+                            <p>These are:</p>
+                            <ul class="commonlidesign">
+                                <li>not faculty-dependent </li>
+                                <li>widely available </li>
+                                <li>accessible even to moderate profiles </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="commoncarddesign">
+                            <h4>Your goal is not just admission</h4>
+                            <p>It is:</p>
+                            <ul class="commonlidesign">
+                                <li>a confirmed admit </li>
+                                <li>with near-zero tuition cost </li>
+                                <li>and better academic returns on investment</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row third-row">
+                    <h3><span>GradEdge Value<sup>™</sup></span> Vs <span>GradEdge Funding<sup>™</sup></span> (Your Program)</h3>
+                    <div class="col-lg-12">
+                        <table class="table-responsive-design">
+                            <thead>
+                                <tr>
+                                    <th>Parameter</th>
+                                    <th>GradEdge Value™</th>
+                                    <th>GradEdge Funding™</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Primary Target Applicant</td>
+                                    <td>Non-Research profiles</td>
+                                    <td>Strong / high-potential / research-oriented profiles</td>
+                                </tr>
+                                <tr>
+                                    <td>Primary Goal</td>
+                                    <td>Secure admits with reduced tuition</td>
+                                    <td>Secure strong admits + scholarship / funding potential</td>
+                                </tr>
+                                <tr>
+                                    <td>Program Type Focus</td>
+                                    <td>Coursework-based Master’s</td>
+                                    <td>Thesis / Research Master’s</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-lg-6 secndt">
+                        <table class="table-responsive-design">
+                            <thead>
+                                <tr>
+                                    <th>Parameter</th>
+                                    <th>GradEdge Value™</th>
+                                    <th>GradEdge Funding™</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Geographic Focus</td>
+                                    <td>Mainly US</td>
+                                    <td>US + Canada + Australia + global programs</td>
+                                </tr>
+                                <tr>
+                                    <td>Core Strategy</td>
+                                    <td>Cost optimization + scholarships</td>
+                                    <td>Positioning + research alignment + funding positioning</td>
+                                </tr>
+                                <tr>
+                                    <td>Funding Type Focus</td>
+                                    <td>Merit scholarships, tuition waivers, external scholarships</td>
+                                    <td>Scholarships + RA/TA + fellowships + faculty alignment</td>
+                                </tr>
+                                <tr>
+                                    <td>Admissions Philosophy</td>
+                                    <td>Admissions as cost optimization problem</td>
+                                    <td>Admissions as positioning + research alignment problem</td>
+                                </tr>
+                                <tr>
+                                    <td>System Structure</td>
+                                    <td>2-stage system</td>
+                                    <td>3-stage system</td>
+                                </tr>
+                                <tr>
+                                    <td>Stages</td>
+                                    <td>Strategy → Assist</td>
+                                    <td>Barometer → Blueprint → Command</td>
+                                </tr>
+                                <tr>
+                                    <td>University Selection Approach</td>
+                                    <td>Admit probability + cost optimization</td>
+                                    <td>Program fit + research alignment + competitiveness</td>
+                                </tr>
+                                <tr>
+                                    <td>University List</td>
+                                    <td>20–25 landscape → 8–10 shortlist</td>
+                                    <td>Global landscape → 8–12 target programs</td>
+                                </tr>
+                                <tr>
+                                    <td>Faculty Alignment</td>
+                                    <td>Not central</td>
+                                    <td>Very important (especially thesis programs)</td>
+                                </tr>
+                                <tr>
+                                    <td>Application Development Depth</td>
+                                    <td>SOP + CV + application support</td>
+                                    <td>SOP + CV + research statement + LOR strategy + faculty outreach + interviews</td>
+                                </tr>
+                                <tr>
+                                    <td>Execution Support Level</td>
+                                    <td>Moderate</td>
+                                    <td>Very high-touch</td>
+                                </tr>
+                                <tr>
+                                    <td>Engagement Depth</td>
+                                    <td>Strategy + execution support</td>
+                                    <td>Diagnostic → positioning → full execution</td>
+                                </tr>
+                                <tr>
+                                    <td>Outcome Orientation</td>
+                                    <td>Admit with reduced tuition</td>
+                                    <td>Strong admit with scholarship/funding potential</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-lg-6 thirdt">
+                        <table class="table-responsive-design">
+                            <thead>
+                                <tr>
+                                    <th>Parameter</th>
+                                    <th>GradEdge Value™</th>
+                                    <th>GradEdge Funding™</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>ROI Framing</td>
+                                    <td>Reduce tuition to ~$8K–$10K/year</td>
+                                    <td>Potential funding value $100K–$150K+</td>
+                                </tr>
+                                <tr>
+                                    <td>Applicant Role</td>
+                                    <td>Shared execution</td>
+                                    <td>Advisor-led execution (Command stage)</td>
+                                </tr>
+                                <tr>
+                                    <td>Ideal Applicant Mindset</td>
+                                    <td>Wants affordable Master’s</td>
+                                    <td>Wants strong / funded / research-oriented Master’s</td>
+                                </tr>
+                                <tr>
+                                    <td>Positioning of Product</td>
+                                    <td>Optimization product</td>
+                                    <td>High-end positioning & execution product</td>
+                                </tr>
+                                <tr>
+                                    <td>Complexity Level</td>
+                                    <td>Moderate</td>
+                                    <td>Advanced / strategic</td>
+                                </tr>
+                                <tr>
+                                    <td>Time Engagement</td>
+                                    <td>Shorter</td>
+                                    <td>Longer, structured engagement</td>
+                                </tr>
+                                <tr>
+                                    <td>Overall Positioning</td>
+                                    <td>Value optimization pathway</td>
+                                    <td>Elite positioning & funding pathway</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="tableimage">
+                            <img src="~/assets/images/tablebottomimage.png" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="the-scholaria-three-stage">
+            <div class="container">
+                <h2 class="common-heading">The <span>GradEdge<sup>™</sup></span> Funding <span>3-Stage Admissions</span> System</h2>
+                <div class="row ">
+                    <div class="scholariramaindiv col-lg-6">
+                        <ul class="scholararow">
+                            <li class="first">
+                                <p class="boldtext">Barometer<sup>™</sup></p>
+                                <p class="arrowtext">Clarity</p>
+                            </li>
+                            <p class="paraicon">Understand your readiness, profile gaps, and program direction before you apply.</p>
+                        </ul>
+                        <ul class="scholararow secondgren">
+                            <li class="second">
+                                <p class="boldtext">Blueprint<sup>™</sup></p>
+                                <p class="arrowtext">Positioning</p>
+                            </li>
+                        </ul>
+                        <p class="paraicon">Define your academic positioning, target program portfolio, scholarship approach, and overall application strategy.</p>
+                        <ul class="scholararow">
+                            <li class="third">
+                                <p class="boldtext">Command<sup>™</sup></p>
+                                <p class="arrowtext">Execution</p>
+                            </li>
+                        </ul>
+                        <p class="paraicon">Build and execute high-quality Master’s (Thesis/Research) applications with consistency, refinement, and scholarship positioning.</p>
+                    </div>
+                    <div class="col-lg-6 secondthreestage">
+                        <img class="logodesngwrap" src="~/assets/images/newl.png" />
+                        <ul class="fromclarity">
+                            <li class="commondsgn"><span>1</span>Clarity</li>
+                            <li class="commondsgn"><span>2</span>Positioning</li>
+                            <li class="commondsgn"><span>3</span>Execution</li>
+                        </ul>
+                        <p>
+                            GradEdge<sup>™</sup> is designed as a staged system so applicants can engage at the level they need most -
+                    whether that is diagnostic clarity, structured positioning, or full application build and 
+                    execution.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- broken-section -->
+        <section class="prt-row padding_zero-section a-fully-fundedphd why-most-ms-application broken-section a-full-ride-scholarship-section bg-layer-equal-height clearfix">
+            <div class="container">
+                <div class="row g-0">
+                    <div class="col-lg-6">
+                        <!-- col-img-img-two -->
+                        <div class="col-bg-img-one prt-bg prt-col-bgimage-yes prt-left-span z-index-2">
+                            <div class="prt-col-wrapper-bg-layer prt-bg-layer"></div>
+                            <div class="layer-content position-relative">
+                                <div class="row">
+                                    <div class="col-xl-7 col-lg-12"></div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- row end -->
+                    </div>
+                    <div class="col-lg-6 questmark">
+                        <!-- col-img-img-two -->
+                        <div class="prt-bg prt-col-bgcolor-yes bg-base-dark prt-right-span spacing-1">
+                            <div class="prt-col-wrapper-bg-layer prt-bg-layer"></div>
+                            <div class="layer-content">
+
+                                <div class="pt-5">
+                                    <h2 class="common-heading">Why Most <span>Ms Applications</span> Fall <span>Short</span></h2>
+                                    <p>Even strong applicants often:</p>
+                                    <ul class="commonlidesign">
+                                        <li>apply too broadly without clear program alignment </li>
+                                        <li>fail to distinguish properly between coursework and thesis/research pathways </li>
+                                        <li>submit SOPs that are generic or directionless </li>
+                                        <li>overlook specialization clarity and program fit </li>
+                                        <li>ignore selective faculty relevance in research-oriented programs </li>
+                                        <li>underestimate the role of scholarship and funding positioning </li>
+                                        <li>build application materials that may be strong individually, but weak collectively </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- row end -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- broken-section-end -->
+        <section class="resultsection">
+            <div class="container">
+                <h3>Result:</h3>
+                <p>
+                    They may still receive admits -<br />
+                    but not the <b>strongest, best-aligned</b>, or most <b>strategically valuable</b> outcomes.
+                </p>
+                <p>
+                    In competitive Master’s admissions, the issue is often not effort.
+                    <br />
+                    It is <b>positioning and execution.</b>
+                </p>
+
+            </div>
+        </section>
+        <section class="how-gradedgefunding-section">
+            <div class="container">
+                <h2 class="common-heading">How <span>GradEdge<sup>™</sup></span> <span>Funding</span> Works</h2>
+                <p class="text-center">GradEdge<sup>™</sup> treats <b>Master’s (Thesis/Research) admissions</b> as a <b>structured system</b>, not a checklist.</p>
+                <div class="row">
+                    <div class="col-lg-6 firstbox">
+                        <div class="commoncarddesign">
+                            <span></span>
+                            <h4>Diagnose</h4>
+                            <p>Assess readiness, profile competitiveness, academic direction, and program fit.</p>
+                            <p>This helps identify:</p>
+                            <ul class="commonlidesign">
+                                <li>where you stand </li>
+                                <li>what gaps exist </li>
+                                <li>which route makes sense </li>
+                                <li>how your profile should be strengthened </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="secndbox">
+                        <div class="commoncarddesign">
+                            <h4>Position</h4>
+                            <p>Translate your profile into a clear admissions strategy.</p>
+                            <p>This includes:</p>
+                            <ul class="commonlidesign">
+                                <li>program and specialization alignment </li>
+                                <li>coursework vs thesis direction </li>
+                                <li>scholarship and funding positioning </li>
+                                <li>faculty consideration where relevant  </li>
+                                <li>narrative and document strategy </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 thirdbox">
+                        <div class="commoncarddesign">
+                            <h4>Execute</h4>
+                            <p>Build, refine, and support your applications end-to-end with consistency and precision.</p>
+                            <p>This includes:</p>
+                            <ul class="commonlidesign">
+                                <li>SOP development </li>
+                                <li>CV development </li>
+                                <li>research-interest articulation </li>
+                                <li>LOR input strategy </li>
+                                <li>faculty outreach support where relevant </li>
+                                <li>application build and submission refinement </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+                <p class="hightlightedbox">
+                    This is what <span>separates applicants</span> who simply apply -
+                    <br />
+                    from those who build <span>well-positioned, coherent, and competitive applications.</span>
+                </p>
+            </div>
+        </section>
+        <section class="compare-your-options">
+            <div class="container">
+                <h2 class="common-heading text-center"><span>Choose</span> Your <span>GradEdge<sup>™</sup> Funding</span> Engagement</h2>
+                <div class="logoheading">
+                    <h3>Compare carefully - the difference is not just effort.
+                    It is the level of <span>clarity, positioning</span>, and <span>execution support</span> you need.</h3>
+                </div>
+                <div class="row">
+
+                    <div class="col-lg-12">
+                        <div class="accordion-section">
+
+                            <!-- Accordion Item 1 -->
+                            <div class="accordion-item">
+                                <div class="accordion-header">
+                                    <div>GradEdge Funding<sup>™</sup> - Comparison Table</div>
+                                </div>
+                                <div class="accordion-content">
+                                    <table class="table-responsive-design">
+                                        <thead>
+                                            <tr>
+                                                <th>Dimension</th>
+                                                <th>GradEdge™ Funding Barometer</th>
+                                                <th>GradEdge™ Funding Blueprint</th>
+                                                <th>GradEdge™ Funding Command</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Positioning</td>
+                                                <td>Clarity</td>
+                                                <td>Positioning</td>
+                                                <td>Execution</td>
+                                            </tr>
+                                            <tr>
+                                                <td>What it does</td>
+                                                <td>Understand your readiness and academic direction before applying for Master's (Thesis/Research)</td>
+                                                <td>Define your program positioning and Master's (Thesis/Research) application strategy</td>
+                                                <td>Build and execute applications for high-quality Master's (Thesis/Research) admits with scholarship positioning</td>
+                                            </tr>
+                                            <tr>
+                                                <td>How it works</td>
+                                                <td>A structured diagnostic evaluating academic readiness, program fit, and profile competitiveness to identify gaps and define next steps.</td>
+                                                <td>A positioning system translating your profile into a structured Master's (Thesis/Research) strategy with program alignment, selective faculty consideration, and scholarship approach.</td>
+                                                <td>End-to-end application build and execution including SOP development, iterative refinement, and submission support to maximize admission outcomes.</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Core focus</td>
+                                                <td>Readiness & Direction</td>
+                                                <td>Program Positioning & Alignment</td>
+                                                <td>Full Application Build & Execution</td>
+                                            </tr>
+                                            <tr>
+                                                <td>What you get</td>
+                                                <td>1. Master's (Thesis/Research) Readiness Diagnostic Report<br>
+                                                    2. Academic Positioning Map<br>
+                                                    3. Program Direction Note<br>
+                                                    4. Profile Gap Analysis & Strengthening Plan<br>
+                                                    5. Global Program Landscape Snapshot (~20 universities)<br>
+                                                    6. Structured Action Plan
+                                                </td>
+                                                <td>1. Admissions Strategy Blueprint<br>
+                                                    2. Target Program Portfolio (8–12 universities)<br>
+                                                    3. Application Positioning Framework<br>
+                                                    4. Selective Faculty Identification<br>
+                                                    5. Merit Scholarship Strategy<br>
+                                                    6. Application Timeline & Execution Plan<br>
+                                                    7. Faculty Outreach Strategy (no execution)<br>
+                                                    8. Advisor-Guided Review & Refinement
+                                                </td>
+                                                <td>End-to-End MS (Thesis) Application Build & Execution<br>
+                                                    <br>
+                                                    1. Academic CV Development<br>
+                                                    2. SOP Development with faculty alignment<br>
+                                                    3. Research Interest / Statement<br>
+                                                    4. Recommendation Strategy & LOR Input Drafting<br>
+                                                    5. Program & Positioning Alignment<br>
+                                                    6. Faculty Outreach Email Drafting & Communication<br>
+                                                    7. Application Build & Submission Support<br>
+                                                    8. Multiple Advisor-Guided Iterations<br>
+                                                    9. Interview Preparation<br>
+                                                    10. Advanced Funding & Scholarship Positioning<br>
+                                                    11. Visa & Final Transition Support
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Support level</td>
+                                                <td>Foundational diagnostic</td>
+                                                <td>Structured advisory</td>
+                                                <td>High-touch engagement</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Your role</td>
+                                                <td>You execute</td>
+                                                <td>Shared execution</td>
+                                                <td>We drive execution</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Outcome</td>
+                                                <td>Clarity on readiness, gaps, and program direction</td>
+                                                <td>Clear, well-aligned Master's application strategy</td>
+                                                <td>Maximum probability of admit with scholarship potential</td>
+                                            </tr>
+                                            <tr>
+                                                <td>When to choose</td>
+                                                <td>If unsure where you stand or unclear about program direction</td>
+                                                <td>If you need structured positioning and a clear strategy</td>
+                                                <td>If you want expert-led execution and strong outcomes</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Engagement depth</td>
+                                                <td>~10–12 hours</td>
+                                                <td>~40 hours</td>
+                                                <td>4–6 month high-touch collaboration</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Upgrade path</td>
+                                                <td>Credited toward Blueprint or Command</td>
+                                                <td>Credited toward Command</td>
+                                                <td>Final stage</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Ideal mindset</td>
+                                                <td>I need clarity before I begin</td>
+                                                <td>I need to position myself correctly</td>
+                                                <td>I want to maximize my probability of funded admission</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Investment</td>
+                                                <td>US$ 391</td>
+                                                <td>US$ 3,100</td>
+                                                <td>US$ 9,310</td>
+                                            </tr>
+                                            <tr>
+                                                <td>ROI Perspective</td>
+                                                <td>Avoid misaligned applications</td>
+                                                <td>Improve application quality & scholarship potential</td>
+                                                <td>Stronger admits with funding potential ($100K–$150K+)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Cost of Not Choosing Command</td>
+                                                <td>Risk of unclear direction and weak applications</td>
+                                                <td>Risk of strong plan but inconsistent execution</td>
+                                                <td>-</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                       
+                   
+                </div>
+            </div>
+        </section>
+        <section class="decisionframesection">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <p>Master’s admissions are competitive - but outcomes are not random.</p>
+                        <p>They are shaped by:</p>
+                        <ul class="commonlidesign">
+                            <li>how clearly your profile is understood </li>
+                            <li>how well your programs are selected and aligned </li>
+                            <li>how strongly your narrative is positioned </li>
+                            <li>how effectively scholarship potential is incorporated </li>
+                            <li>how consistently your entire application is executed </li>
+
+                        </ul>
+                        <p>At this level, the difference is not just qualifications.</p>
+                        <p>It is <span>clarity, positioning, and execution.</span></p>
+                    </div>
+                    <div class="col-lg-6">
+                        <img src="~/assets/images/mastreradmmission.png" />
+                    </div>
+                </div>
+              
+            </div>
+        </section>
+        <section class="howtochoosesection">
+            <div class="container">
+                <h2 class="common-heading text-center">How <span>GradEdge<sup>™</sup> Funding</span> Works</h2>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h3>Choose <span>Barometer<sup>™</sup></span> if:</h3>
+                        <ul class="commonlidesign">
+                            <li>you need clarity before starting </li>
+                            <li>you are unsure about readiness, gaps, or direction </li>
+                            <li>you want to avoid misaligned applications early </li>
+                        </ul>
+                        <h3>Choose <span>Blueprint<sup>™</sup></span> if:</h3>
+                        <ul class="commonlidesign">
+                            <li>you need structured program positioning</li>
+                            <li>you want a clear strategy across programs and specialization choices </li>
+                            <li>you want stronger scholarship and narrative alignment before execution </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="carddesign">
+                            <img class="sectionlogo" src="~/assets/images/transformlogo.png" />
+                            <h3>Choose <span> Command<sup>™</sup> </span> if:</h3>
+                            <ul class="commonlidesign">
+                                <li>you want expert-led execution </li>
+                                <li>you want the strongest possible application build and refinement </li>
+                                <li>you are targeting high-quality Master’s admits with scholarship potential </li>
+                               
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="hightlightedbox">
+                    <p>Applicants who succeed are not always more qualified.</p>
+                    <p>They are often <span>better positioned</span> and <span>better executed.</span></p>
+                </div>
+            </div>
+        </section>
+       <section class="chooseyourscholariasection secondbnrchoose">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="transformh headinglast">
+                    <h2 class="commonheading">Take the <span>Next Step</span></h2>
+                </div>
+                <div class="dsgntextdsgn col-lg-6">
+                    <div class="btnheading">
+                        <h3>Assess Your <span>Readiness</span></h3>
+                        <div class="common-btn-desgn">
+                            <a href="">Start with GradEdge<sup>™</sup> Funding Barometer</a>
+                        </div>
+                    </div>
+                    <div class="btnheading second">
+                        <h3>Build Your <span>Application Strategy</span></h3>
+                        <div class="common-btn-desgn">
+                            <a href="">Move forward with GradEdge<sup>™</sup> Funding Blueprint</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="dsgntextdsgn col-lg-6 secondcolunm">
+                    <h3>Execute with <span>Precision</span></h3>
+                    <div class="common-btn-desgn">
+                        <a href="">Maximize outcomes with GradEdge<sup>™</sup> Funding Command</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </main>
+     <!-- footer start -->
+ <footer class="footer widget-footer clearfix">
+     <div class="container">
+         <div class="wrapper">
+             <div class="widget-area first-box-footer">
+                 <div id="block-13" class="widget widget_block widget_media_image">
+                        <a href="/Home/feespaymentstructure">
+                         <img loading="lazy" decoding="async" src="~/assets/images/header-logo.png" alt="" class="wp-image-3840"></a>
+                 </div>
+                 <div id="block-14" class="widget widget_block widget_text">
+                     <p>
+                         <strong>Your Roadmap to Success</strong><br />
+                         With 25+ years of experience, we simplify the admissions journey—while maximizing scholarship success.
+                     </p>
+                 </div>
+                 <div id="block-15" class="widget widget_block widget_text">
+                     <p>
+                         <img loading="lazy" decoding="async" width="124" height="41" class="wp-image-149" style="width: 124px;" src="https://themes.getmotopress.com/coachzee-teacher/wp-content/uploads/sites/47/2022/01/sign-light.svg" alt="">
+                     </p>
+                 </div>
+             </div>
+             <div class="widget-area">
+                 <div id="block-16" class="widget widget_block">
+                     <h3 class="wp-block-heading">Book a session Today</h3>
+                 </div>
+                 <div id="block-17" class="widget widget_block widget_text">
+                     <p>Discover Scholarships and Foreign Universities with us and take the class leading counselling for free, Today!</p>
+                 </div>
+                 <%--<div id="block-23" class="widget widget_block">
+                     <div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex">
+                         <div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#appointment">Book Now <strong>→</strong></a></div>
+                     </div>
+                 </div>--%>
+             </div>
+             <div class="widget-area">
+                 <div id="block-18" class="widget widget_block">
+                     <h3 class="wp-block-heading">Get in Touch </h3>
+                 </div>
+                 <div id="block-19" class="widget widget_block">
+                     <div class="custom-table">
+                         <div class="custom-table-item">
+                             <img class="png-icon-design" src="~/assets/images/fees-call.png" />
+                             <span class="custom-table-value"><a href="tel:+919810010113">+91-98100 10113</a><br />
+                                 <a href="tel:+1(833)3276640">+1 (833) 327 6640</a></span>
+                         </div>
+                         <div class="custom-table-item">
+                             <img class="png-icon-design" src="~/assets/images/fees-mail.png" />
+                             <span class="custom-table-value"><a href="mailto:enquiry@sureadmit.com">enquiry@sureadmit.com</a>
+                             </span>
+                         </div>
+                         <div class="custom-table-item">
+                             <img class="png-icon-design" src="~/assets/images/fees-address.png" />
+                             <span class="custom-table-value">101-B, Grover Chambers, 4-B Pusa Road,<br />
+                                 New Delhi 110005, India</span>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+     <div class="copyright-text">
+         <div class="container">
+             <div class="wrapper">
+                 <div class="site-info">
+                     SureAdmit © 2026 - All Rights Reserved			
+                 </div>
+
+             </div>
+         </div>
+     </div>
+ </footer>
+ <!-- footer end -->
+</body>
+<script src="js/sure.js"></script>
+</html>
+

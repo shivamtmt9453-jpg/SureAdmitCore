@@ -1,0 +1,35 @@
+﻿@media (min-width: 1700px) and (max-width: 1800px) {
+}
+
+@media (min-width: 1600px) and (max-width: 1700px) {
+  
+}
+@media (min-width: 1500px) and (max-width: 1600px) {
+    section.afuuly-funded-phd::before {
+        max-width: 793px;
+    }
+    section.why-do-ninty-percent-ofphd::before {
+        max-width: 590px;
+    }
+    .transformh {
+        left: 490px;
+    }
+}
+@media (min-width: 1400px) and (max-width: 1500px) {
+    section.afuuly-funded-phd::before {
+        max-width: 703px;
+    }
+
+    section.why-do-ninty-percent-ofphd::before {
+        max-width: 510px;
+    }
+    .transformh {
+        left: 390px;
+    }
+}
+
+    @media (min-width: 1300px) and (max-width: 1400px) {
+    }
+
+    @media (min-width: 1200px) and (max-width: 1300px) {
+    }

@@ -1,0 +1,807 @@
+﻿ 
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <tittle>SureAdmit™ Ph.D/ Doctoral Admissions Advisory Program</tittle>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <link rel="icon" href="~/assets/images/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Niconne&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Slab:wght@100..900&family=Satisfy&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Niconne&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Satisfy&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Carlito:ital,wght@0,400;0,700;1,400;1,700&family=Caveat:wght@400..700&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Dancing+Script:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jost:ital,wght@0,100..900;1,100..900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Luxurious+Roman&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Moon+Dance&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&family=Rajdhani:wght@300;400;500;600;700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Space+Grotesk:wght@300..700&family=Teko:wght@300..700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Bebas+Neue&family=Carlito:ital,wght@0,400;0,700;1,400;1,700&family=Caveat:wght@400..700&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Dancing+Script:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jost:ital,wght@0,100..900;1,100..900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Luxurious+Roman&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Moon+Dance&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&family=Rajdhani:wght@300;400;500;600;700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Space+Grotesk:wght@300..700&family=Teko:wght@300..700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="~/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/aos.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/fontello.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/flaticon.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/flag-icon.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/themify-icons.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/slick.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/prettyPhoto.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/twentytwenty.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/megamenu.css">
+
+    <link href="~/assets/css/main.css" rel="stylesheet" />
+    <link href="~/assets/css/shortcodes.css" rel="stylesheet" />
+    <link href="~/assets/css/responsive.css" rel="stylesheet" />
+    <link href="~/assets/css/fees-payment.css" rel="stylesheet" />
+    <link href="~/assets/css/fees-pay-responsive.css" rel="stylesheet" />
+    <link href="~/assets/css/Scholaria.css" rel="stylesheet" />
+    <link href="~/assets/css/Scholaria-responsive.css" rel="stylesheet" />
+    <script>
+
+        jQuery(document).ready(function ($) {
+            $(window).on("scroll", function () {
+                var scroll = $(window).scrollTop();
+                if (scroll >= 80) {
+                    $("#header").addClass("fixed");
+                } else {
+                    $("#header").removeClass("fixed");
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <header class="header" id="header">
+     <div class="container">
+         <div class="big-wrap-of-logo-menu">
+             <div class="logo-wrap">
+                    <a href="/Home/feespaymentstructure">
+                     <img src="~/assets/images/header-logo.png" /></a>
+             </div>
+             <div class="menu-wrap-menu">
+             </div>
+         </div>
+     </div>
+ </header>
+<main>
+<section class="banner-scholaria">
+    <div class="imgbnr">
+        <img src="~/assets/images/WebsiteImages-Sureadmit/2.png" />
+    </div>
+    <div class="container">
+        <div class="bannercontent">
+            <h1>Scholaria<sup>™</sup></h1>
+        </div>
+    </div>
+</section>
+<section class="phd-section">
+  <div class="container">
+    <div class="phd-card">
+      <h2 >
+        Maximize Your <span>Probability</span> <br /> of  a Fully <span>Funded PhD Admit</span>
+      </h2> 
+      <ul class="fromclarity">
+            <li class="commondsgn"><span>1</span>From clarity</li>
+            <li class="commondsgn"><span>2</span>positioning</li>
+            <li class="commondsgn"><span>3</span>execution - we don’t just advise, we engineer outcomes</li>
+        </ul>
+
+      <p class="phd-text">
+        Most applicants fail not because they lack <span>ability</span> - but because they lack <span>research positioning</span>, <span>faculty alignment</span>, and <span>strategic execution</span>.
+      </p>
+
+      <p class="phd-highlight">
+        We fix that.
+      </p>
+
+    </div>
+  </div>
+</section>
+
+<!-- broken-section -->
+<section class="prt-row padding_zero-section a-fully-fundedphd broken-section a-full-ride-scholarship-section bg-layer-equal-height clearfix">
+      <div class="container">
+          <div class="row g-0">
+              <div class="col-lg-6">
+                  <!-- col-img-img-two -->
+                  <div class="col-bg-img-one prt-bg prt-col-bgimage-yes prt-left-span z-index-2">
+                      <div class="prt-col-wrapper-bg-layer prt-bg-layer"></div>
+                      <div class="layer-content position-relative">
+                          <div class="row">
+                              <div class="col-xl-7 col-lg-12"></div>
+                             
+                          </div>
+                      </div>
+                  </div>
+                  <!-- row end -->
+              </div>
+              <div class="col-lg-6">
+                  <!-- col-img-img-two -->
+                  <div class="prt-bg prt-col-bgcolor-yes bg-base-dark prt-right-span spacing-1">
+                      <div class="prt-col-wrapper-bg-layer prt-bg-layer"></div>
+                      <div class="layer-content">
+                          
+                          <div class="pt-5">
+                              <p>A fully funded PhD is worth <b>$150,000–$300,000+</b> in stipend, tuition, and long-term career upside.</p>
+                              <p>Our role is to maximize your probability of securing it.</p>
+                              <p>Leverage the priceless <b>SureAdmit™ experience of advising 2000+ applicants over the last two decades. </b>
+                                  Position yourself as an unputdownable candidate in even the most competitive and elite PhD
+                                  programs globally. Across disciplines and majors.</p>
+                              <div class="commonbtn">
+                                  <span class="frst">
+                                      <img src="~/assets/images/WebsiteImages-Sureadmit/1-Barometer.png" /></span>
+                                  <span class="scnd">
+                                      <img src="~/assets/images/WebsiteImages-Sureadmit/1-Blueprint.png" /></span>
+                                  <span class="thrd">
+                                      <img src="~/assets/images/WebsiteImages-Sureadmit/1-Command.png" /></span>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <!-- row end -->
+              </div>
+          </div>
+      </div>
+  </section>
+<!-- broken-section-end -->
+
+<section class="the-scholaria-three-stage">
+    <div class="container">
+        <h2 class="common-heading">The Scholaria<sup>™</sup> <span>3-Stage Admissions</span> System</h2>
+        <div class="row align-items-center">
+            <div class="scholariramaindiv col-lg-7">
+                <ul class="scholararow">
+                    <li class="first">
+                        <p class="boldtext">Barometer: Clarity </p>
+                        <p class="arrowtext">Where do you <span>stand?</span></p>
+                    </li>
+                    <li class="second">
+                        <p class="boldtext">Blueprint: Positioning </p>
+                        <p class="arrowtext">What is your unique <span>research trajectory?</span></p>
+                    </li>
+                    <li class="third">
+                        <p class="boldtext">Command: Execution </p>
+                        <p class="arrowtext">How do you convert that into <span>admits?</span></p>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-5 threebtnpara">
+                <div class="para">
+                    <p>
+                        Making winning PhD applications takes more than just being academically bright with 
+         99 percentile grades. Whether you wish to Do-It-Yourself (DIY), or need an expert to 
+         handle some part of the process, you have a Scholaria<sup>™</sup> option ready for assistance. 
+         Select the level of advisory support that aligns best
+         with your goals, timeline, target universities and DIY confidence.
+                    </p>
+                </div>
+                <div class="commonbtn">
+                    <span class="frst">
+                        <img src="~/assets/images/WebsiteImages-Sureadmit/1-Barometer.png" /></span>
+                    <span class="scnd">
+                        <img src="~/assets/images/WebsiteImages-Sureadmit/1-Blueprint.png" /></span>
+                    <span class="thrd">
+                        <img src="~/assets/images/WebsiteImages-Sureadmit/1-Command.png" /></span>
+                </div>
+            </div>
+        </div>
+       
+    </div>
+    </section>
+<section class="why-do-ninty-percent-ofphd">
+    <div class="responsiveimg">
+       
+    </div>
+    <div class="container">
+        <div class="twoboxeswrapbig row">
+            <div class="col-lg-6">
+                <img src="~/assets/images/WhyFailure.png" />
+               
+            </div>
+            <div class="col-lg-6 rightcontent">
+                <h2 class="common-heading">Why Do 90% of <span>PhD Applications</span> Fail</h2>
+                <p>Even otherwise best-qualified applicants fail to attract faculty attention and stand out because
+                    they make potentially fatal mistakes of:</p>
+                <ul class="commonlidesign">
+                    <li>presenting broad interests rather than a clearly defined research problem</li>
+                    <li>selecting universities primarily based on rankings rather than research alignment</li>
+                    <li>failing to identify potential faculty supervisors</li>
+                    <li>sending generic outreach emails to professors</li>
+                    <li>submitting unfocused research statements</li>
+                    <li>overlooking how doctoral funding structures influence admissions decisions</li>
+                </ul>
+               
+            </div>
+        </div>
+      
+
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <p>
+                    Drawing on<b> 26 years of experience advising doctoral applicants</b>, the SureAdmit process helps 
+candidates address these challenges through a structured
+approach to research positioning, faculty alignment, and strategic program selection.
+                </p>
+
+                <p class="red-para">
+                    You can now position yourself as an unputdownable candidate in even the most competitive and elite PhD 
+                    programs globally. Across disciplines and majors.
+                </p>
+            </div>
+            <div class="col-lg-6">
+                <img src="~/assets/images/WebsiteImages-Sureadmit/HowScholariaFixes.png" />
+                <div class="commonbtn">
+                    <span class="frst">
+                        <img src="~/assets/images/WebsiteImages-Sureadmit/1-Barometer.png" />
+                    </span>
+                    <span class="scnd">
+                        <img src="~/assets/images/WebsiteImages-Sureadmit/1-Blueprint.png" />
+                    </span>
+                    <span class="thrd">
+                        <img src="~/assets/images/WebsiteImages-Sureadmit/1-Command.png" />
+                    </span>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</section>
+
+<!--services-section-->
+<section class="prt-row home01-services-section not-sure-where-to-strart bg-base-grey prt-bg prt-bgimage-yes clearfix Study-at-top-institutions">
+        <div class="prt-row-wrapper-bg-layer prt-bg-layer"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9 col-md-9 col-sm-12 m-auto">
+                    <!--section-title-->
+                    <div class="section-title title-style-center_text">
+                        <div class="title-header">
+                            <h2 class="title">Not <span>Sure</span> Where to <span>Start?</span></h2>
+                        </div>
+                    </div>
+                    <!--section-title end-->
+                </div>
+            </div>
+            <div class="row box-grid-design">
+                <div class="col-lg-6">
+                    <!-- featured-imagebox-post -->
+                    <div class="featured-imagebox featured-imagebox-services style1">
+                        <!-- featured-thumbnail -->
+                        <div class="featured-thumbnail">
+                           <img class="img-fluid" src="~/assets/images/img2.png" alt="blog_img">
+                        </div>
+                        <div class="logowrap">
+                            <img class="img-fluid" src="~/assets/images/WebsiteImages-Sureadmit/1-Barometer.png" alt="blog_img">
+                        </div>
+                        <!-- featured-thumbnail international.aspx end-->
+
+                        <div class="services-details-wrap">
+                            <div class="services-details-box">
+                                <div class="services-content">
+                                   
+                                    <div class="services-desc">
+                                        <p>If you're unsure about your profile, you need the time-tested SureAdmit™ clarity engine. Start right with Scholaria’s unmatched readiness diagnostics. Choose </p>
+                                        <a href="">Barometer</a>
+                                    </div>
+                                </div>
+                              
+                            </div>
+                        </div>
+                    </div>
+                    <!-- featured-imagebox-post end -->
+                </div>
+                <div class="col-lg-6">
+                    <!-- featured-imagebox-post -->
+                    <div class="featured-imagebox featured-imagebox-services style1">
+                        <!-- featured-thumbnail -->
+                        <div class="featured-thumbnail">
+                          <img class="img-fluid" src="~/assets/images/img3.png" alt="blog_img">
+                        </div>
+                         <div class="logowrap">
+                              <img class="img-fluid" src="~/assets/images/WebsiteImages-Sureadmit/1-Blueprint.png" alt="blog_img">
+                         </div>
+                        <!-- featured-thumbnail scholarship.aspx end-->
+
+                        <div class="services-details-wrap">
+                            <div class="services-details-box">
+                                <div class="services-content">
+                                  
+                                    <div class="services-desc">
+                                        <p>If you know your direction but need a plan, you need a positioning system. Allow Scholaria to chisel and align your profile strategically to universities for maximum impact. Choose </p>
+                                        <a href="">Blueprint</a>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                        </div>
+                    </div>
+                    <!-- featured-imagebox-post end -->
+                </div>
+                <div class="col-lg-6">
+                    <!-- featured-imagebox-post -->
+                    <div class="featured-imagebox featured-imagebox-services style1">
+                        <!-- featured-thumbnail -->
+                        <div class="featured-thumbnail">
+                           <img class="img-fluid" src="~/assets/images/img4.png" alt="blog_img">
+                        </div>
+                        <div class="logowrap">
+                              <img class="img-fluid" src="~/assets/images/WebsiteImages-Sureadmit/1-Command.png" alt="blog_img">
+                        </div>
+                        <!-- featured-thumbnail services.aspx end-->
+
+                        <div class="services-details-wrap">
+                            <div class="services-details-box">
+                                <div class="services-content">
+                                    <div class="services-desc">
+                                        <p>If you want the highest probability outcome, you need end-to-end application management assistance. To stamp your class and bid strongest for admission & funding. Choose </p>
+                                        <a href="">Command</a>
+                                    </div>
+                                </div>
+                            
+                            </div>
+                        </div>
+                    </div>
+                    <!-- featured-imagebox-post end -->
+                </div>
+               
+            </div>
+        </div>
+    </section>
+<!--services-section end-->
+
+<section class="products-card-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5">
+                   
+                    <h3>Barometer</h3>
+                    <p>PhD Readiness & Research Evaluation</p>
+                    <div class="card-design">
+                         <div class="pricedsgn"><p>Price: $4,470</p></div>
+                        <p class="highlited"><b>Best for:</b></p>
+                        <p>Applicants exploring readiness and research direction</p>
+                        <p class="highlited"><b>You get:</b></p>
+                         <ul class="commonlidesign">
+                             <li>PhD Readiness Diagnostic Report (evaluation + next steps)</li>
+                             <li>Research Direction Blueprint (defined problem + trajectory)</li>
+                             <li>Discipline & Sub-Discipline Mapping (precise academic positioning)</li>
+                             <li>Global PhD Landscape Map (≈20 Universities)</li>
+                             <li>Outcome funnel (realistic admit strategy for a customized list of 20 Universites)</li>
+                             <li>Profile Gap Analysis & Strengthening Plan</li>
+                         </ul>
+                        <p class="highlited"><b>Outcome:</b></p>
+                        <p>Complete clarity on strengths, gaps, PhD readiness, direction, and next steps. </p>
+                         <p class="highlited"><b>Price:</b> $247</p>
+                        <p><i>Credited toward higher programs</i></p>
+                        <div class="common-btn-desgn">
+                            <a href="">Start with Barometer</a>
+                        </div>
+                       
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                   
+                    <h3>Blueprint</h3>
+                    <p>PhD Readiness & Research Evaluation</p>
+                    <div class="card-design">
+                          <div class="pricedsgn second"><p>Price: $4,470</p></div>
+                        <p>Complete optimized planning about target universities and programs, as 
+                            well as strategy design for accurate alignment with faculty and funding opportunities </p>
+                        <p class="highlited"><b>Best for:</b></p>
+                        <p>Applicants who want a complete PhD application plan including academic alignment strategy</p>
+                        <p class="highlited"><b>You get:</b></p>
+                        <ul class="commonlidesign">
+                            <li>PhD Readiness Diagnostic Report (evaluation + next steps)</li>
+                            <li>Research Direction Blueprint (defined problem + trajectory)</li>
+                            <li>Discipline & Sub-Discipline Mapping (precise academic positioning)</li>
+                            <li>Global PhD Landscape Map (≈20 Universities)</li>
+                            <li>Outcome funnel (realistic admit strategy for a customized list of 20 Universities)</li>
+                            <li>Profile Gap Analysis & Strengthening Plan</li>
+                            <li>End-to-end  admissions roadmap</li>
+                            <li>Target university portfolio (refined to 8–12 programs)</li>
+                            <li>Funding strategy (RA/TA/Fellowships)</li>
+                            <li>Application timeline & execution plan</li>
+                            <li>Refined research positioning</li>
+                            <li>Limited advisory & feedback cycles</li>
+                        </ul>
+                        <p class="highlited"><b>Outcome:</b></p>
+                        <p>A clear, complete, strategically strong, and competitive PhD application plan for standout candidacy projection</p>
+                        <p class="highlited"><b>Price:</b> $3,100</p>
+                        
+                        <div class="common-btn-desgn">
+                            <a href="">Build Your Blueprint</a>
+                        </div>
+                      
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                  
+                    <h3>Command</h3>
+                    <div class="card-design-two">
+                        <div class="pricedsgn third"><p><b>Price: <br />$9,360</b></p></div>
+                        <p>End-to-end Application Management for Maximized Funded Admission Probability</p>
+
+                        
+                        <div class="grid-design">
+                            
+                            <div class="leftside">
+                                <p class="highlited"><b>You get:</b></p>
+                                <h4 class="commonhfouur">Diagnostic & Strategic Planning</h4>
+                                <ul class="commonlidesign">
+                                    <li>PhD Readiness Diagnostic Report (evaluation + next steps)</li>
+                                    <li>Research Direction Blueprint (defined problem + trajectory)</li>
+                                    <li>Discipline & Sub-Discipline Mapping (precise academic positioning)</li>
+                                    <li>Global PhD Landscape Map (≈20 Universities)</li>
+                                    <li>Outcome funnel (realistic admit strategy for a customized list of 20 Universities)</li>
+                                    <li>Profile Gap Analysis & Strengthening Plan</li>
+                                    <li>End-to-end admissions roadmap</li>
+                                    <li>Target university portfolio (refined to 8–12 programs)</li>
+                                    <li>Funding strategy (RA/TA/Fellowships)</li>
+                                    <li>Application timeline & execution plan</li>
+                                    <li>Refined research positioning</li>
+                                    <li>Limited advisory & feedback cycles</li>
+
+                                </ul>
+                                <h4 class="commonhfouur">Deep Research Positioning</h4>
+                                <ul class="commonlidesign">
+                                    <li>Faculty alignment map (precise fit + angles)</li>
+                                    <li>Research narrative architecture</li>
+                                </ul>
+                            </div>
+                            <div class="righttside">
+                                <h4 class="commonhfouur">Full Application Build</h4>
+                                <ul class="commonlidesign">
+                                    <li>Academic CV architecture</li>
+                                    <li>Statement of Purpose (SOP) architecture</li>
+                                    <li>Research statement development</li>
+                                    <li>Application narrative coherence</li>
+                                </ul>
+                                <h4 class="commonhfouur">Execution & Outreach</h4>
+                                <ul class="commonlidesign">
+                                    <li>Faculty outreach strategy + email drafts</li>
+                                    <li>Application submission management</li>
+                                </ul>
+                                <h4 class="commonhfouur">Iteration & Optimization</h4>
+                                <ul class="commonlidesign">
+                                    <li>Unlimited review cycles (within timeline)</li>
+                                    <li>Advisor-guided refinement</li>
+                                </ul>
+                                <h4 class="commonhfouur">Final Conversion</h4>
+                                <ul class="commonlidesign">
+                                    <li>Interview strategy & preparation</li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        
+
+                        <p class="highlited"><b>Support Type:</b></p>
+                        <ul class="commonlidesign">
+                            <li>High-touch, hands-on collaboration</li>
+                            <li>4–6 month engagement</li>
+                            <li>Priority access</li>
+                        </ul>
+                        <p class="highlited"><b>Best for:</b></p>
+                        <ul class="commonlidesign">
+                            <li>Applicants unwilling to take risks and who are targeting <b>top-tier, funded PhD admits</b></li>
+                            <li>Those who want <b>expert partnership, not just advice</b></li>
+                        </ul>
+                        <p class="highlited"><b>Outcome:</b></p>
+                        <p>Maximum probability of funded PhD admission</p>
+                       
+                        <div class="common-btn-desgn">
+                            <a href="">Choose Command</a>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<section class="phd-framework">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-7 firstphd">
+               <h2 class="common-heading">What Can Make Your <span>PhD Admission</span> More Probable</h2>
+              <h3 class="threecommon">The Scholaria<sup>TM</sup> <span>PhD Alignment Framework</span></h3>
+              <p>These elements form the foundation of successful doctoral admissions across research
+                  universities in the <span>United States, Canada, and Australia</span>. Position yourself as an unputdownable
+                  candidate in even the most competitive
+                  and elite PhD programs globally. Across disciplines and majors.</p>
+              
+          </div>
+          <div class="col-lg-5 secondphd">
+             <img src="~/assets/images/ScholariaFramework2.png" />
+              <div class="commonbtn">
+                  <span class="frst">
+                      <img src="~/assets/images/WebsiteImages-Sureadmit/1-Barometer.png" /></span>
+                  <span class="scnd">
+                      <img src="~/assets/images/WebsiteImages-Sureadmit/1-Blueprint.png" /></span>
+                  <span class="thrd">
+                      <img src="~/assets/images/WebsiteImages-Sureadmit/1-Command.png" /></span>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+<section class="side-by-side-section">
+        <div class="container">
+            <h2 class="common-heading">Choose Your <span>Scholaria<sup>™</sup> Variant</span> Now!</h2>
+            <div class="table-wrapper">
+              <table class="table-responsive-design">
+    <thead>
+        <tr>
+            <th>Dimension</th>
+            <th>Scholaria™ Barometer</th>
+            <th>Scholaria™ Blueprint</th>
+            <th>Scholaria™ Command</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>Positioning</strong></td>
+            <td>Clarity</td>
+            <td>Research Positioning</td>
+            <td>Execution</td>
+        </tr>
+        <tr>
+            <td><strong>What it does</strong></td>
+            <td>Understand your readiness and research direction before applying</td>
+            <td>Define your research positioning, faculty alignment approach, and PhD strategy</td>
+            <td>Build and execute fully aligned PhD applications for funded admission outcomes</td>
+        </tr>
+        <tr>
+            <td><strong>How it works</strong></td>
+            <td>A structured diagnostic assessing academic readiness, research direction, and profile competitiveness to identify gaps and define next steps.</td>
+            <td>A strategic planning system translating your profile into a clear research trajectory, program selection, faculty targeting, and funding approach.</td>
+            <td>End-to-end application build and execution, ensuring every component is deeply aligned with research fit, faculty expectations, and funding considerations.</td>
+        </tr>
+        <tr>
+            <td><strong>Core focus</strong></td>
+            <td>Readiness & Direction</td>
+            <td>Research Positioning & Faculty Alignment</td>
+            <td>Full Application Build, Alignment & Execution</td>
+        </tr>
+        <tr>
+            <td><strong>What you get</strong></td>
+            <td>
+                PhD Readiness Diagnostic Report (score, evaluation, and next steps)<br /><br />
+                1. Academic Positioning Map (discipline and sub-discipline clarity)<br />
+                2. Research Direction Note (problem definition and trajectory)<br />
+                3. Profile Gap Analysis & Strengthening Plan<br />
+                4. Global PhD Landscape Snapshot (~20 research-aligned universities across the US, Canada, and/or Australia)<br />
+                5. Structured Action Plan (next steps toward PhD readiness)
+            </td>
+            <td>
+                Admissions Strategy Blueprint (end-to-end PhD roadmap)<br /><br />
+                1. Target Program Portfolio (8–12 research-aligned universities across the US, Canada, and/or Australia)<br />
+                2. Application Positioning Framework (clear research narrative)<br />
+                3. Target Faculty Identification (3–5 suitable faculty per program across applications)<br />
+                4. Funding & Assistantship Strategy (RA/TA/Fellowships approach)<br />
+                5. Application Timeline & Execution Plan (milestones and deadlines)<br />
+                6. Faculty Outreach Strategy (approach, timing, and messaging)<br />
+                7. Advisor-Guided Review & Refinement (structured, strategic feedback cycles)
+            </td>
+            <td>End-to-End PhD Application Build & Execution<br />
+                <br />
+                1. Academic CV Development — research-focused and faculty-aligned positioning<br />
+                2. Statement of Purpose (SOP) Development — with embedded faculty alignment (3–5 target faculty per program across 8–12 PhD applications in the US, 
+                Canada, and/or Australia), iteratively refined for research fit and funding positioning<br />
+                3.Research Statement Development — problem, methodology, and contribution aligned with target faculty work<br />
+                4.Recommendation Strategy & LOR Input Drafting — referee selection, positioning, and structured inputs for strong, credible endorsements<br />
+                5. Faculty Outreach Email Drafting & Post-Application Communication — aligned with research fit and designed 
+                to improve faculty engagement<br />
+                6.Application Build & Submission Support — complete, consistent, 
+                and error-free across all universities<br />
+                7. Multiple Advisor-Guided Iterations — across SOP, CV, research, and outreach<br />
+                8. PhD Interview Preparation — faculty interaction, research articulation, and fit<br />
+                9. Advanced Funding Positioning — RA/TA/Fellowship alignment with labs and supervisors<br />
+                10. Visa & Final Transition Support (Complementary)<br />
+                a. DS-160 and student US visa documentation guidance reviewed by former US visa counselors<br />
+                b. Two US student visa mock interview sessions conducted by former US visa counselors
+            </td>
+        </tr>
+        <tr>
+            <td><strong>Support level</strong></td>
+            <td>Foundational diagnostic</td>
+            <td>Structured advisory</td>
+            <td>High-touch, hands-on engagement</td>
+        </tr>
+        <tr>
+            <td><strong>Your role</strong></td>
+            <td>You execute</td>
+            <td>Shared execution</td>
+            <td>We drive execution with you</td>
+        </tr>
+        <tr>
+            <td><strong>Outcome</strong></td>
+            <td>Clarity on readiness, gaps, and research direction</td>
+            <td>Clear, well-aligned PhD strategy ready for execution</td>
+            <td>Maximum probability of funded PhD admission</td>
+        </tr>
+        <tr>
+            <td><strong>When to choose</strong></td>
+            <td>You are unsure about your readiness, research direction, or next steps</td>
+            <td>You need structured research positioning, faculty targeting, and a clear application strategy</td>
+            <td>You want expert-led execution for top-tier, funded PhD outcomes</td>
+        </tr>
+        <tr>
+            <td><strong>Engagement depth</strong></td>
+            <td>~10–12 hours</td>
+            <td>~40 hours</td>
+            <td>4–6 month high-touch collaboration</td>
+        </tr>
+        <tr>
+            <td><strong>Upgrade path</strong></td>
+            <td>Credited toward Blueprint or Command</td>
+            <td>Credited toward Command</td>
+            <td>Final stage (end-to-end)</td>
+        </tr>
+        <tr>
+            <td><strong>Ideal mindset</strong></td>
+            <td>I need clarity before I begin</td>
+            <td>I need to position myself correctly for PhD</td>
+            <td>I want to maximize my probability of funded admission</td>
+        </tr>
+        <tr>
+            <td><strong>Investment</strong></td>
+            <td>US$ 391 (Entry)</td>
+            <td>US$ 3,100 (Strategic)</td>
+            <td>US$ 9,310 (Full Execution)</td>
+        </tr>
+        <tr>
+            <td><strong>ROI Perspective</strong></td>
+            <td>Avoid early missteps in research direction, positioning, and program selection</td>
+            <td>Strengthens research positioning, faculty alignment, and overall competitiveness</td>
+            <td>A funded PhD represents significant academic and financial value ($150K–$300K+). 
+                At this level, outcomes are shaped by the quality of positioning, alignment, and execution.</td>
+        </tr>
+        <tr>
+            <td><strong>Cost of Not Choosing Command</strong></td>
+            <td>Risk of unclear direction and weak research positioning</td>
+            <td>Risk of strong plan but weak execution and missed funding opportunities</td>
+            <td>—</td>
+        </tr>
+    </tbody>
+</table>
+            </div>
+        </div>
+    </section>
+
+    <section class="what-make-scholaria-section">
+        <div class="container">
+            <div class="twoboxeswrapsection row align-items-center">
+                <div class="midlecontent col-lg-6">
+                    <h2 class="common-heading">What Makes <span>Scholaria<sup>TM</sup> Powerfully</span> Unique! </h2>
+                    <p>
+                        Unlike most admissions consultants who merely focus <span>editing essays</span>, <span>p</span>roviding <span>generic advice,
+         because they</span> <span>l</span>ack <span>research-level understanding</span>, <span class="difrntcolor">Scholaria<sup>TM</sup></span> operates differently:
+                    </p>
+                </div>
+                <div class="leftsideimage col-lg-6">
+                    <img src="~/assets/images/ScholariaApproach12.png" />
+                </div>
+                <div class="row align-items-center">
+                    <div class="lastparagraph col-lg-6">
+                        <h4>Remember:</h4>
+                        <ul class="commonlidesign">
+                            <li>Your Barometer fee is fully credited if you upgrade to Blueprint or Command</li>
+                            <li>Your Blueprint fee is fully credited if you upgrade to Command</li>
+                            <li>We work with a limited number of applicants per cycle to maintain quality</li>
+                            <li>One funded admit can be worth 20 to 30 times the Scholaria<sup>TM</sup> program fee</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-6 closingline">
+                        <img class="logodesngwrap" src="~/assets/images/newl.png" />
+                        <h3 class="commonheading">The goal is <span>not just</span> making <span>PhD applications</span>. </h3>
+                        <h3 class="commonheading">It is to enhance the certainty of getting <span>funded admission.</span></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+ 
+<section class="chooseyourscholariasection">
+        <div class="container">
+            <div class="row">
+                <div class="transformhf col-lg-4">
+                    <h2 class="commonheading">Choose Your <span>Scholaria<sup>™</sup> Engagement</span>  Now !</h2>
+                </div>
+                <div class="dsgntextdsgn col-lg-8">
+                    <h3><span>Assess</span> PhD Readiness with <span class="buttondsgn"><img src="~/assets/images/WebsiteImages-Sureadmit/1-Barometer.png" /></span></h3>
+                    <h3><span>Build</span> Your PhD <span class="buttondsgn"><img src="~/assets/images/WebsiteImages-Sureadmit/1-Blueprint.png"></span></h3>
+                    <h3><span class="buttondsgn"> <img src="~/assets/images/WebsiteImages-Sureadmit/1-Command.png"></span> Your PhD <span>Application</span></h3>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="closinglinesection second">
+        <div class="container">
+            <img class="logodesngwrap" src="~/assets/images/newl.png" />
+            <h2 class="commonheading">We focus on <span>maximizing probability</span> through <span>strategy and preparation</span>.
+            Stopping short of <span>guaranteeing admission</span> outcomes or influencing university decisions.</h2>
+        </div>
+    </section>
+</main>
+  <!-- footer start -->
+  <footer class="footer widget-footer clearfix">
+      <div class="container">
+          <div class="wrapper">
+              <div class="widget-area first-box-footer">
+                  <div id="block-13" class="widget widget_block widget_media_image">
+                        <a href="/Home/feespaymentstructure">
+                          <img loading="lazy" decoding="async" src="~/assets/images/header-logo.png" alt="" class="wp-image-3840"></a>
+                  </div>
+                  <div id="block-14" class="widget widget_block widget_text">
+                      <p>
+                          <strong>Your Roadmap to Success</strong><br />
+                          With 25+ years of experience, we simplify the admissions journey—while maximizing scholarship success.
+                      </p>
+                  </div>
+                  <div id="block-15" class="widget widget_block widget_text">
+                      <p>
+                          <img loading="lazy" decoding="async" width="124" height="41" class="wp-image-149" style="width: 124px;" src="https://themes.getmotopress.com/coachzee-teacher/wp-content/uploads/sites/47/2022/01/sign-light.svg" alt="">
+                      </p>
+                  </div>
+              </div>
+              <div class="widget-area">
+                  <div id="block-16" class="widget widget_block">
+                      <h3 class="wp-block-heading">Book a session Today</h3>
+                  </div>
+                  <div id="block-17" class="widget widget_block widget_text">
+                      <p>Discover Scholarships and Foreign Universities with us and take the class leading counselling for free, Today!</p>
+                  </div>
+                 
+              </div>
+              <div class="widget-area">
+                  <div id="block-18" class="widget widget_block">
+                      <h3 class="wp-block-heading">Get in Touch </h3>
+                  </div>
+                  <div id="block-19" class="widget widget_block">
+                      <div class="custom-table">
+                          <div class="custom-table-item">
+                              <img class="png-icon-design" src="~/assets/images/fees-call.png" />
+                              <span class="custom-table-value"><a href="tel:+919810010113">+91-98100 10113</a><br />
+                                  <a href="tel:+1(833)3276640">+1 (833) 327 6640</a></span>
+                          </div>
+                          <div class="custom-table-item">
+                              <img class="png-icon-design" src="~/assets/images/fees-mail.png" />
+                              <span class="custom-table-value"><a href="mailto:enquiry@sureadmit.com">enquiry@sureadmit.com</a>
+                              </span>
+                          </div>
+                          <div class="custom-table-item">
+                              <img class="png-icon-design" src="~/assets/images/fees-address.png" />
+                              <span class="custom-table-value">101-B, Grover Chambers, 4-B Pusa Road,<br />
+                                  New Delhi 110005, India</span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="copyright-text">
+          <div class="container">
+              <div class="wrapper">
+                  <div class="site-info">
+                      SureAdmit © 2026 - All Rights Reserved			
+                  </div>
+
+              </div>
+          </div>
+      </div>
+  </footer>
+  <!-- footer end -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
