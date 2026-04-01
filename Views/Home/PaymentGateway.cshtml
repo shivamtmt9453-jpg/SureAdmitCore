@@ -1,0 +1,47 @@
+﻿@{
+    ViewData["Title"] = "Payment Gateway";
+    Layout = "_Layout";
+}
+
+<div class="container mt-5 text-center">
+    <h2>Complete Payment</h2>
+    <p style="display:none;">Application ID: <strong>@ViewBag.ApplicationId</strong></p>
+    <p>Total Amount: <strong>₹@ViewBag.TotalAmount</strong></p>
+
+    <button id="payBtn" class="btn btn-success btn-lg mt-3">
+        Pay Now
+    </button>
+</div>
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<script>
+        var options = {
+        "key": "@ViewBag.RazorpayKey",
+        "amount": "@ViewBag.Amount",
+        "currency": "@ViewBag.Currency", 
+        // "currency": "INR",
+        "name": "Sure Admit",
+        "description": "Application Payment",
+
+        "handler": function (response) {
+            window.location.href = '/Home/PaymentResponse?status=success&applicationid=@ViewBag.ApplicationId&paymentId='
+                + response.razorpay_payment_id;
+        },
+
+        "modal": {
+            "ondismiss": function () {
+                window.location.href = '/Home/PaymentResponse?status=failed&applicationid=@ViewBag.ApplicationId';
+            }
+        },
+
+        "theme": {
+            "color": "#3399cc"
+        }
+    };
+
+    document.getElementById('payBtn').onclick = function () {
+        var rzp = new Razorpay(options);
+        rzp.open();
+    };
+</script>

@@ -1,0 +1,30 @@
+﻿@model SureAdmitCore.Models.CourseCheckoutModel
+
+@{
+    ViewData["Title"] = "Payment Response";
+    Layout = null;
+}
+
+<div class="container mt-5">
+    <h2>Payment Status</h2>
+
+    @if (!string.IsNullOrEmpty(ViewBag.Message))
+    {
+        <div class="alert @(ViewBag.Message.Contains("Successful") ? "alert-success" : "alert-danger")">
+            @ViewBag.Message
+        </div>
+
+        @if (!string.IsNullOrEmpty(ViewBag.PaymentId))
+        {
+            <p>Payment Reference: <strong>@ViewBag.PaymentId</strong></p>
+        }
+    }
+    else
+    {
+        <div class="alert alert-warning">
+            Payment information not found.
+        </div>
+    }
+
+    <a href="@Url.Action("Index", "Home")" class="btn btn-primary mt-3">Back to Home</a>
+</div>

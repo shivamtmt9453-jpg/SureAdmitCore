@@ -58,15 +58,17 @@ ErrorMessage = "Enter a valid email address. Popular domains like gmail.com, out
         public string? PaymentRefNo { get; set; }
 
         public string? BookingId { get; set; }
-        public decimal Subtotal { get; set; }
-        public decimal GST { get; set; }
-        public decimal Total { get; set; }
+       
         // Cart Courses
         public List<Coursecheckout> CartCourses { get; set; } = new List<Coursecheckout>();
 
         // Dropdown for countries
         public IEnumerable<SelectListItem> CountryList { get; set; } = new List<SelectListItem>();
-
+        // Add these for totals
+        public decimal Subtotal { get; set; }
+        public decimal GST { get; set; }
+        public decimal Total { get; set; }
+        public string? SelectedCurrency { get; set; }
     }
     // Example course class
     public class Coursecheckout
@@ -79,6 +81,6 @@ ErrorMessage = "Enter a valid email address. Popular domains like gmail.com, out
         public decimal CoursePrice { get; set; }
 
         // Original string for display (with $ or ₹)
-        public string CoursePriceDisplay { get; set; }
+        public string? CoursePriceDisplay { get; set; }
     }
 }

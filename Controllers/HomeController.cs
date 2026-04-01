@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Data.SqlClient;
 using SureAdmitCore.Areas.Admin.Models;
@@ -6,6 +6,8 @@ using SureAdmitCore.Data;
 using SureAdmitCore.Models;
 using System.Data;
 using System.Diagnostics;
+using Stripe;
+using Stripe.Checkout;
 
 namespace SureAdmitCore.Controllers
 {
@@ -192,70 +194,131 @@ namespace SureAdmitCore.Controllers
         [HttpPost]
         public async Task<IActionResult> Checkout(CourseCheckoutModel model)
         {
-            // Get cart IDs from cookie
             var cartIds = Request.Cookies.GetObject<List<int>>("Cart") ?? new List<int>();
             if (!cartIds.Any())
                 return RedirectToAction("CourseCart");
 
-            // Fetch course prices from DB (example using your DB layer)
-            var parametersForCourses = new SqlParameter[]
+            var dtCourses = await _dbLayer.ExecuteSPAsync("sp_ManageCourse", new SqlParameter[]
             {
-        new SqlParameter("@Action", "Select") // Fetch all courses
-            };
-
-            DataTable dtCourses = await _dbLayer.ExecuteSPAsync("sp_ManageCourse", parametersForCourses);
+                new SqlParameter("@Action", "Select")
+            });
 
             var courses = dtCourses.AsEnumerable()
                 .Where(r => cartIds.Contains(Convert.ToInt32(r["CourseId"])))
-                .Select(r => new
+                .Select(r =>
                 {
-                    CourseId = Convert.ToInt32(r["CourseId"]),
-                    CourseName = r["CourseName"]?.ToString() ?? string.Empty,
-                    CoursePrice = decimal.TryParse(r["CoursePrice"]?.ToString(), out var p) ? p : 0
+                    var priceStr = r["CoursePrice"]?.ToString() ?? "0";
+                    string currencySymbol = new string(priceStr.TakeWhile(ch => !char.IsDigit(ch) && ch != ',' && ch != '.').ToArray());
+                    var cleanPriceStr = priceStr.Replace(currencySymbol, "").Replace(",", "").Trim();
+                    decimal.TryParse(cleanPriceStr, out var price);
+
+                    return new Coursecheckout
+                    {
+                        CourseId = Convert.ToInt32(r["CourseId"]),
+                        CourseName = r["CourseName"]?.ToString() ?? string.Empty,
+                        CoursePrice = price,
+                        CoursePriceDisplay = priceStr
+                    };
                 }).ToList();
 
-            decimal subtotal = courses.Sum(c => c.CoursePrice);
-            decimal gst = subtotal * 0.18m; // 18% GST
-            decimal total = subtotal + gst;
+            decimal subtotal = model.Subtotal;
+            decimal gst = model.GST;
+            decimal total = model.Total;
+            string currencySymbol = model.SelectedCurrency == "INR" ? "₹" : "$";
 
-            // Output parameter
             var outputParam = new SqlParameter("@OutputId", SqlDbType.Int)
             {
                 Direction = ParameterDirection.Output
             };
 
-            // Call SP to insert CourseApplication
             await _dbLayer.ExecuteSPAsync("sp_ManageCourseApplication", new SqlParameter[]
             {
-        new SqlParameter("@Action", "Insert"),
-        new SqlParameter("@Name", model.Name),
-        new SqlParameter("@Email", model.Email),
-        new SqlParameter("@Phone", model.Phone),
-        new SqlParameter("@BachelorCGPA", model.BachelorCGPA ?? (object)DBNull.Value),
-        new SqlParameter("@MasterCGPA", model.MasterCGPA ?? (object)DBNull.Value),
-        new SqlParameter("@GREVerbal", model.GREVerbal ?? (object)DBNull.Value),
-        new SqlParameter("@GREQuant", model.GREQuant ?? (object)DBNull.Value),
-        new SqlParameter("@Message", model.Message ?? (object)DBNull.Value),
-        new SqlParameter("@CartCourseIds", string.Join(",", cartIds)),
-        new SqlParameter("@BaseAmount", subtotal),
-        new SqlParameter("@GSTAmount", gst),
-        new SqlParameter("@TotalAmount", total),
-        outputParam
+                new SqlParameter("@Action", "Insert"),
+                new SqlParameter("@Name", model.Name),
+                new SqlParameter("@Email", model.Email),
+                new SqlParameter("@Phone", model.Phone),
+                new SqlParameter("@BachelorCGPA", model.BachelorCGPA ?? (object)DBNull.Value),
+                new SqlParameter("@MasterCGPA", model.MasterCGPA ?? (object)DBNull.Value),
+                new SqlParameter("@GREVerbal", model.GREVerbal ?? (object)DBNull.Value),
+                new SqlParameter("@GREQuant", model.GREQuant ?? (object)DBNull.Value),
+                new SqlParameter("@Message", model.Message ?? (object)DBNull.Value),
+                new SqlParameter("@CartCourseIds", string.Join(",", cartIds)),
+                new SqlParameter("@BaseAmount", subtotal),
+                new SqlParameter("@GSTAmount", gst),
+                new SqlParameter("@TotalAmount", total),
+                outputParam
             });
 
             int applicationId = (outputParam.Value != DBNull.Value) ? (int)outputParam.Value : 0;
-
             if (applicationId == 0)
                 return BadRequest("Unable to save application.");
+            TempData["Currency"] = model.SelectedCurrency;
+            TempData["ApplicationId"] = applicationId; 
+            TempData["TotalAmount"] = total.ToString("F2");
+            TempData["CurrencySymbol"] = courses.FirstOrDefault()?.CoursePriceDisplay?.FirstOrDefault() == '₹' ? "₹" : "$";
 
-            // Redirect to Payment Gateway page with ApplicationId
-            return RedirectToAction("PaymentGateway", new { id = applicationId });
+            return RedirectToAction("PaymentGateway");
         }
 
+        public IActionResult PaymentGateway()
+        {
+            var applicationId = (int?)TempData["ApplicationId"] ?? 0;
 
+            var totalAmountStr = TempData["TotalAmount"]?.ToString() ?? "0";
+            decimal totalAmount = decimal.Parse(totalAmountStr);
 
+            if (applicationId == 0 || totalAmount == 0)
+                return RedirectToAction("Checkout");
 
+            // Razorpay keys
+            ViewBag.RazorpayKey = "rzp_live_S10LtkcbKIWzQW";
+            ViewBag.Amount = (int)(totalAmount * 100); // convert to paise
+            ViewBag.ApplicationId = applicationId;
+            ViewBag.TotalAmount = totalAmount;
+            ViewBag.Currency = TempData["Currency"]?.ToString() ?? "INR";
+            return View();
+        }
 
+        [HttpGet]
+        public async Task<IActionResult> PaymentResponse(string applicationid, string status, string paymentId)
+        {
+            int appId = 0;
+            int.TryParse(applicationid, out appId);
+
+            if (appId == 0)
+                return RedirectToAction("Checkout");
+
+            string paymentStatus = status == "success" ? "Success" : "Failed";
+
+            // ✅ FIX: correct amount
+            decimal amount = 0;
+            decimal.TryParse(TempData["TotalAmount"]?.ToString(), out amount);
+
+            // ✅ FIX: currency
+            string currency = TempData["Currency"]?.ToString() ?? "INR";
+
+            // ✅ keep TempData safe
+            TempData.Keep("TotalAmount");
+            TempData.Keep("Currency");
+
+            string gatewayResponse = $"PaymentId: {paymentId}, Status: {status}";
+
+            await _dbLayer.ExecuteSPAsync("sp_UpdatePaymentStatus", new SqlParameter[]
+            {
+        new SqlParameter("@ApplicationId", appId),
+        new SqlParameter("@PaymentStatus", paymentStatus),
+        new SqlParameter("@PaymentRefNo", paymentId ?? (object)DBNull.Value),
+        new SqlParameter("@Amount", amount),
+        new SqlParameter("@Currency", currency),
+        new SqlParameter("@Gateway", "Razorpay"),
+        new SqlParameter("@GatewayResponse", gatewayResponse)
+            });
+
+            ViewBag.Message = status == "success" ? "Payment Successful!" : "Payment Failed!";
+            ViewBag.PaymentId = paymentId;
+
+            return View();
+        }
 
 
 
