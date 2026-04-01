@@ -1,0 +1,127 @@
+﻿
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+.cart-items {
+    flex: 2;
+    background: #e8d3ab;
+    padding: 20px;
+    margin-right: 20px;
+    border-radius: 8px;
+}
+.cart-item {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    border: 1px solid #fff;
+    border-radius: 20px;
+    overflow: hidden;
+}
+    .cart-item img {
+        width: 100px;
+        margin: 0 10px 0 0;
+    }
+.item-details {
+    flex: 1;
+}
+    .item-details h4 {
+        margin: 0;
+        font-weight: 500;
+    }
+.quantity {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.quantity button {
+    padding: 5px 10px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+.price {
+    font-weight: 500;
+    margin-top: 10px;
+}
+.remove {
+    color: red;
+    cursor: pointer;
+    font-size: 14px;
+}
+.summary {
+    flex: 1;
+    background: #5d7f57;
+    padding: 20px;
+    border-radius: 8px;
+    height: fit-content;
+}
+    .summary h3 {
+        margin-top: 0;
+        color: #fff;
+    }
+.summary p {
+    display: flex;
+    justify-content: space-between;
+}
+.total {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.btn {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+.checkout {
+    background: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+}
+.continue {
+    background: #e8d3ab;
+}
+/**********************/
+.classpricewrrap {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin: 10px 0;
+}
+.classpricewrrap > div {
+    padding: 0;
+    margin: 0;
+}
+h1, h2, h3, h4, p, a, div {
+    font-family: "Inter", sans-serif;
+}
+.summary p span {
+    color: #fff;
+}
+.checkout:hover {
+    background: #c42523;
+    border: 1px solid #c42523;
+}
+.continue:hover {
+    background: #ac2220;
+    color: #fff;
+}
+.cart-item:not(:first-child) {
+    margin: 10px 0 0 0;
+}
+.priceheightlight {
+    color: #5d7f57;
+    font-weight: 700;
+}
+
+@media all and (max-width: 767px) {
+    .cart-items {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+}

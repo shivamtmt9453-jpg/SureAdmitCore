@@ -4,6 +4,8 @@ using Microsoft.Data.SqlClient;
 using SureAdmitCore.Data;
 using SureAdmitCore.Models;
 using System.Data;
+using System.Net;
+using System.Net.Mail;
 using System.Security.Claims;
 
 namespace SureAdmitCore.Controllers
@@ -94,7 +96,7 @@ namespace SureAdmitCore.Controllers
             }
         }
 
-        [HttpPost]
+           [HttpPost]
             public IActionResult Logout()
             { 
                 HttpContext.Session.Clear(); 
@@ -102,8 +104,146 @@ namespace SureAdmitCore.Controllers
 
                 return RedirectToAction("Login", "Account");
             }
-       
-   
 
-}
+        // GET: Account/ForgetPassword
+        [HttpGet]
+        public IActionResult ForgetPassword()
+        {
+            return View();
+        }
+
+        // POST: Account/ForgetPassword
+        [HttpPost]
+        public async Task<IActionResult> ForgetPassword(ForgetPasswordViewModel model, string actionType)
+        {
+            // Remove fields from ModelState to allow partial validation
+            ModelState.Remove("Email");
+            ModelState.Remove("OTP");
+            ModelState.Remove("NewPassword");
+            ModelState.Remove("ConfirmPassword");
+
+            if (!ModelState.IsValid)
+            {
+                TempData["Message"] = "Please fill all required fields.";
+                TempData["MessageType"] = "error";
+                return View(model);
+            }
+
+            if (actionType == "SendOTP")
+            {
+                // Check if email exists in DB
+                SqlParameter[] parameters = new SqlParameter[] { new SqlParameter("@Email", model.Email) };
+                DataTable dt = await _dbLayer.ExecuteSPAsync("sp_CheckUserEmail", parameters);
+
+                if (dt.Rows.Count == 0)
+                {
+                    TempData["Message"] = "Email is not registered.";
+                    TempData["MessageType"] = "error";
+                    return View(model);
+                }
+
+                // Generate OTP
+                var otp = new Random().Next(100000, 999999).ToString();
+                // Set OTP in cookies
+                var cookieOptions = new CookieOptions
+                {
+                    HttpOnly = true,                  // JS se access na ho
+                    Expires = DateTime.Now.AddMinutes(1) // 1 minute expiry
+                }; 
+                // OTP
+                HttpContext.Response.Cookies.Append("OTP", otp, cookieOptions);
+
+                // Email
+                HttpContext.Response.Cookies.Append("OTPEmail", model.Email, cookieOptions);
+
+                // OTP expiry (optional, agar aap separate expiry chahte ho)
+                HttpContext.Response.Cookies.Append("OTPExpiry", DateTime.Now.AddMinutes(1).ToString("o"), cookieOptions);
+
+                // Send OTP via email
+                SendOTPEmail(model.Email, otp);
+
+                TempData["Message"] = "OTP sent to your email (valid for 1 minute).";
+                TempData["MessageType"] = "success";
+
+                ViewData["IsOTPSent"] = true;
+                ViewData["IsOTPExpired"] = null; // OTP just sent, not expired
+                return View(model);
+            }
+
+            if (actionType == "ResetPassword")
+            {
+                string sessionOtp = HttpContext.Session.GetString("OTP");
+                string sessionEmail = HttpContext.Session.GetString("OTPEmail");
+                DateTime otpExpiry = DateTime.Parse(HttpContext.Session.GetString("OTPExpiry") ?? DateTime.MinValue.ToString());
+
+                // OTP expired
+                if (DateTime.Now > otpExpiry)
+                {
+                    TempData["Message"] = "OTP expired. Please request a new OTP.";
+                    TempData["MessageType"] = "error";
+
+                    // Show "Resend OTP" button instead of OTP/password fields
+                    ViewData["IsOTPSent"] = null;
+                    ViewData["IsOTPExpired"] = true;
+                    return View(model);
+                }
+
+                // OTP invalid
+                if (model.OTP != sessionOtp || model.Email != sessionEmail)
+                {
+                    TempData["Message"] = "Invalid OTP.";
+                    TempData["MessageType"] = "error";
+                    ViewData["IsOTPSent"] = true;
+                    ViewData["IsOTPExpired"] = null;
+                    return View(model);
+                }
+
+                // Password mismatch server-side check
+                if (model.NewPassword != model.ConfirmPassword)
+                {
+                    TempData["Message"] = "Passwords do not match.";
+                    TempData["MessageType"] = "error";
+                    ViewData["IsOTPSent"] = true;
+                    ViewData["IsOTPExpired"] = null;
+                    return View(model);
+                }
+
+                // Update password in DB
+                SqlParameter[] parametersUpdate = new SqlParameter[]
+                {
+            new SqlParameter("@Email", model.Email),
+            new SqlParameter("@Password", model.NewPassword)
+                };
+                await _dbLayer.ExecuteSPAsync("sp_ResetUserPassword", parametersUpdate);
+
+                // Clear session
+                HttpContext.Session.Remove("OTP");
+                HttpContext.Session.Remove("OTPEmail");
+                HttpContext.Session.Remove("OTPExpiry");
+
+                TempData["Message"] = "Password reset successfully. Please login.";
+                TempData["MessageType"] = "success";
+                return RedirectToAction("Login");
+            }
+            // fallback
+            return View(model);
+        }
+
+        private void SendOTPEmail(string email, string otp)
+        {
+            MailMessage mail = new MailMessage();
+            mail.From = new MailAddress("ali.iddrisu@ghana.barstowschool.org");
+            mail.To.Add(email);
+            mail.Subject = "Password Reset OTP";
+            mail.Body = $"Your OTP for password reset is: <b>{otp}</b>";
+            mail.IsBodyHtml = true;
+
+            SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+            smtp.Credentials = new NetworkCredential("ali.iddrisu@ghana.barstowschool.org", "vxrf kndy xwyr xgre");
+            smtp.EnableSsl = true;
+            smtp.Send(mail);
+        }
+
+
+    }
 }

@@ -28,24 +28,20 @@ namespace SureAdmitCore.Areas.Admin.Controllers
 
         [HttpGet]
         public async Task<IActionResult> Index()
-        { 
-
+        {  
             var model = new DashboardViewModel();
 
-            //// 🔥 Single SP call for dashboard data
-            //var dtDashboard = await _dbLayer.ExecuteSPAsync(
-            //    "sp_GetDashboardData",
-            //    new[] { new SqlParameter("@Action", "GetDashboardStats") }
-            //);
+            // 🔥 Single SP call for dashboard data
+            var dtDashboard = await _dbLayer.ExecuteSPAsync(
+                "sp_GetDashboardData",
+                new[] { new SqlParameter("@Action", "GetDashboardStats") }
+            );
 
-            //if (dtDashboard.Rows.Count > 0)
-            //{
-            //    var row = dtDashboard.Rows[0];
-
-            //    // OPD Stats
-            //    model.OPDTodaysPatients = row["TodaysPatients"] != DBNull.Value ? (int)row["TodaysPatients"] : 0;
-            //    model.OPDNewPatients = row["OPDNewPatients"] != DBNull.Value ? (int)row["OPDNewPatients"] : 0;
-            //  }
+            if (dtDashboard.Rows.Count > 0)
+            {
+                var row = dtDashboard.Rows[0]; 
+                model.TotalCourse = row["TotalCourse"] != DBNull.Value ? (int)row["TotalCourse"] : 0;
+            }
 
             // User role from session/ViewBag
             model.UserRole = ViewBag.UserRole as string;

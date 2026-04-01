@@ -21,60 +21,61 @@ namespace SureAdmitCore.Areas.Admin.Controllers
 
 
         [HttpGet]
-        public async Task<IActionResult> DepartmentList(string? search = null, int? status = null)
+        public async Task<IActionResult> CourseList(string? search = null, int? status = null)
         {
-           
             SqlParameter[] parameters = new SqlParameter[]
             {
-                new SqlParameter("@Action", "Select"),
-                new SqlParameter("@FilterVal", string.IsNullOrEmpty(search) ? DBNull.Value : search),
-                new SqlParameter("@Status", status.HasValue ? status.Value : (object)DBNull.Value)
+        new SqlParameter("@Action", "Select"),
+        new SqlParameter("@FilterVal", string.IsNullOrWhiteSpace(search) ? DBNull.Value : search.Trim()),
+        new SqlParameter("@Status", status.HasValue ? status.Value : (object)DBNull.Value)
             };
 
-            DataTable dt = await _dbLayer.ExecuteSPAsync("sp_ManageDepartment", parameters);
+            DataTable dt = await _dbLayer.ExecuteSPAsync("sp_ManageCourse", parameters);
 
-            var departments = dt.AsEnumerable().Select(r => new Department
+            var courses = dt.AsEnumerable().Select(r => new Course
             {
-                DepartmentId = Convert.ToInt32(r["DepartmentId"]),
-                DepartmentName = r["DepartmentName"]?.ToString() ?? string.Empty,
-                IsActive = Convert.ToBoolean(r["IsActive"])
+                CourseId = r["CourseId"] != DBNull.Value ? Convert.ToInt32(r["CourseId"]) : 0,
+                CourseName = r["CourseName"]?.ToString() ?? string.Empty,
+                CourseImgPath = r["CourseImgPath"]?.ToString() ?? string.Empty,
+                CoursePrice = r["CoursePrice"]?.ToString() ?? string.Empty,
+                IsActive = r["IsActive"] != DBNull.Value && Convert.ToBoolean(r["IsActive"])
             }).ToList();
 
             ViewData["Search"] = search;
             ViewData["Status"] = status;
 
-            return View(departments);
+            return View(courses);
         }
 
-
         [HttpGet]
-        public async Task<IActionResult> AddDepartment(int? id)
-        { 
+        public async Task<IActionResult> AddCourse(int? id)
+        {
             if (id == null)
-                return View(new Department { IsActive = true });
+                return View(new Course { IsActive = true });
 
             SqlParameter[] parameters = new SqlParameter[]
             {
-                new SqlParameter("@Action", "SelectBYId"),
-                new SqlParameter("@DepartmentId", id)
+        new SqlParameter("@Action", "SelectById"),
+        new SqlParameter("@CourseId", id)
             };
 
-            DataTable dt = await _dbLayer.ExecuteSPAsync("sp_ManageDepartment", parameters);
+            DataTable dt = await _dbLayer.ExecuteSPAsync("sp_ManageCourse", parameters);
 
             if (dt.Rows.Count == 0) return NotFound();
 
-            var dept = new Department
+            var course = new Course
             {
-                DepartmentId = Convert.ToInt32(dt.Rows[0]["DepartmentId"]),
-                DepartmentName = dt.Rows[0]["DepartmentName"]?.ToString() ?? string.Empty,
-                IsActive = Convert.ToBoolean(dt.Rows[0]["IsActive"])
+                CourseId = Convert.ToInt32(dt.Rows[0]["CourseId"]),
+                CourseName = dt.Rows[0]["CourseName"]?.ToString() ?? string.Empty,
+                CourseImgPath = dt.Rows[0]["CourseImgPath"]?.ToString() ?? string.Empty,
+                CoursePrice = dt.Rows[0]["CoursePrice"]?.ToString() ?? string.Empty 
             };
 
-            return View(dept);
+            return View(course);
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddDepartment(Department model)
+        public async Task<IActionResult> AddCourse(Course model)
         {
             if (!ModelState.IsValid)
             {
@@ -85,126 +86,158 @@ namespace SureAdmitCore.Areas.Admin.Controllers
 
             try
             {
-                string action = model.DepartmentId > 0 ? "Update" : "Insert";
+                // ✅ IMAGE UPLOAD ONLY IF NEW FILE IS SELECTED
+                if (model.CourseImg != null && model.CourseImg.Length > 0)
+                {
+                    string uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/uploads");
+                    if (!Directory.Exists(uploadsFolder))
+                        Directory.CreateDirectory(uploadsFolder);
+
+                    string fileName = Guid.NewGuid().ToString() + Path.GetExtension(model.CourseImg.FileName);
+                    string filePath = Path.Combine(uploadsFolder, fileName);
+
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await model.CourseImg.CopyToAsync(stream);
+                    }
+
+                    // Set new image path
+                    model.CourseImgPath = "/uploads/" + fileName;
+                }
+                else
+                {
+                    // ✅ If no new image selected, keep existing path from DB
+                    SqlParameter[] selectParams = new SqlParameter[]
+                    {
+                new SqlParameter("@Action", "SelectById"),
+                new SqlParameter("@CourseId", model.CourseId)
+                    };
+
+                    DataTable dt = await _dbLayer.ExecuteSPAsync("sp_ManageCourse", selectParams);
+
+                    if (dt.Rows.Count > 0)
+                    {
+                        model.CourseImgPath = dt.Rows[0]["CourseImgPath"]?.ToString() ?? string.Empty;
+                    }
+                }
+
+                string action = model.CourseId > 0 ? "Update" : "Insert";
 
                 SqlParameter[] parameters = new SqlParameter[]
                 {
             new SqlParameter("@Action", action),
-            new SqlParameter("@DepartmentId", model.DepartmentId),
-            new SqlParameter("@DepartmentName", model.DepartmentName),
+            new SqlParameter("@CourseId", model.CourseId),
+            new SqlParameter("@CourseName", model.CourseName),
+            new SqlParameter("@CourseImgPath", model.CourseImgPath ?? (object)DBNull.Value),
+            new SqlParameter("@CoursePrice", model.CoursePrice),
             new SqlParameter("@IsActive", model.IsActive)
                 };
 
-                await _dbLayer.ExecuteSPAsync("sp_ManageDepartment", parameters);
+                await _dbLayer.ExecuteSPAsync("sp_ManageCourse", parameters);
 
                 TempData["Message"] = action == "Insert"
-                    ? "Department added successfully!"
-                    : "Department updated successfully!";
-
+                    ? "Course added successfully!"
+                    : "Course updated successfully!";
                 TempData["MessageType"] = "success";
             }
             catch (SqlException ex)
             {
-                // Handle RAISERROR from SP
                 TempData["Message"] = ex.Message;
                 TempData["MessageType"] = "error";
-
-                return View(model); // Return to the same view with input data
+                return View(model);
             }
             catch (Exception)
             {
-                TempData["Message"] = "Something went wrong. Please try again.";
+                TempData["Message"] = "Something went wrong.";
                 TempData["MessageType"] = "error";
                 return View(model);
             }
 
-            return RedirectToAction("DepartmentList");
+            return RedirectToAction("CourseList");
         }
 
 
         [HttpPost]
-        public async Task<IActionResult> ToggleDepartmentStatus(int id)
+        public async Task<IActionResult> ToggleCourseStatus(int id)
         {
             try
             {
-                await _dbLayer.ExecuteSPAsync("sp_ManageDepartment", new[]
+                await _dbLayer.ExecuteSPAsync("sp_ManageCourse", new[]
                 {
             new SqlParameter("@Action", "ToggleStatus"),
-            new SqlParameter("@DepartmentId", id)
+            new SqlParameter("@CourseId", id)
         });
 
-                TempData["Message"] = "Department status updated successfully!";
+                TempData["Message"] = "Course status updated successfully!";
                 TempData["MessageType"] = "success";
             }
             catch
             {
-                TempData["Message"] = "Unable to update department status.";
+                TempData["Message"] = "Unable to update course status.";
                 TempData["MessageType"] = "error";
             }
 
-            return RedirectToAction("DepartmentList");
+            return RedirectToAction("CourseList");
         }
 
         [HttpPost]
-        public async Task<IActionResult> DeleteDepartment(int id)
+        public async Task<IActionResult> DeleteCourse(int id)
         {
             try
             {
-                await _dbLayer.ExecuteSPAsync("sp_ManageDepartment", new[]
+                await _dbLayer.ExecuteSPAsync("sp_ManageCourse", new[]
                 {
             new SqlParameter("@Action", "Delete"),
-            new SqlParameter("@DepartmentId", id)
+            new SqlParameter("@CourseId", id)
         });
 
-                TempData["Message"] = "Department deleted successfully!";
+                TempData["Message"] = "Course deleted successfully!";
                 TempData["MessageType"] = "success";
             }
             catch
             {
-                TempData["Message"] = "Unable to delete department.";
+                TempData["Message"] = "Unable to delete course.";
                 TempData["MessageType"] = "error";
             }
 
-            return RedirectToAction("DepartmentList");
+            return RedirectToAction("CourseList");
         }
 
 
         [HttpPost]
-        public async Task<IActionResult> DeleteSelectedDepartments(int[] selectedIds)
+        public async Task<IActionResult> DeleteSelectedCourses(int[] selectedIds)
         {
             try
             {
                 if (selectedIds == null || selectedIds.Length == 0)
                 {
-                    TempData["Message"] = "Please select at least one department.";
+                    TempData["Message"] = "Please select at least one course.";
                     TempData["MessageType"] = "warning";
-                    return RedirectToAction("DepartmentList");
+                    return RedirectToAction("CourseList");
                 }
 
                 foreach (var id in selectedIds)
                 {
-                    await _dbLayer.ExecuteSPAsync("sp_ManageDepartment", new SqlParameter[]
+                    await _dbLayer.ExecuteSPAsync("sp_ManageCourse", new SqlParameter[]
                     {
                 new SqlParameter("@Action", "Delete"),
-                new SqlParameter("@DepartmentId", id)
+                new SqlParameter("@CourseId", id)
                     });
                 }
 
-                TempData["Message"] = $"{selectedIds.Length} department(s) deleted successfully!";
+                TempData["Message"] = $"{selectedIds.Length} course(s) deleted successfully!";
                 TempData["MessageType"] = "success";
             }
-            catch (Exception)
+            catch
             {
-                TempData["Message"] = "Unable to delete selected departments.";
+                TempData["Message"] = "Unable to delete selected courses.";
                 TempData["MessageType"] = "error";
             }
 
-            return RedirectToAction("DepartmentList");
+            return RedirectToAction("CourseList");
         }
 
- 
 
-         
 
 
 

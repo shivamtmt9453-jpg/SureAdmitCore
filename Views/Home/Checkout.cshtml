@@ -1,0 +1,185 @@
+﻿@model SureAdmitCore.Models.CourseCheckoutModel
+
+@{
+    ViewData["Title"] = "Checkout";
+    Layout = "_Layout";
+}
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="~/assets/css/cartpage.css" rel="stylesheet" />
+    <link href="~/assets/css/checkout.css" rel="stylesheet" />
+</head>
+
+<body>
+<main>
+    <section class="checkout-section">
+        <div class="container">
+            <div class="row">
+                <!-- Checkout Form -->
+                <div class="col-lg-7">
+                    <h2>Complete Your Details</h2>
+                    <form asp-action="Checkout" method="post">
+                        <div class="form-group">
+                            <label for="Name">Name*</label>
+                            <input asp-for="Name" class="form-control" required />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Email">Email*</label>
+                            <input asp-for="Email" class="form-control" type="email" required />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Phone">Phone*</label>
+                            <input autocomplete="off" asp-for="Phone" type="tel" id="Phone" name="Phone"
+                                   maxlength="15" class="form-control" required />
+                            <span asp-validation-for="Phone" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Country">Country*</label>
+                            <select asp-for="Country" asp-items="Model.CountryList" class="form-select" required>
+                                <option value="">--Select Country--</option>
+                            </select>
+                            <span asp-validation-for="Country" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="BachelorCGPA">Bachelor’s CGPA/%*</label>
+                            <input asp-for="BachelorCGPA" class="form-control" maxlength="5" required />
+                            <span asp-validation-for="BachelorCGPA" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="MasterCGPA">Master’s CGPA/%</label>
+                            <input asp-for="MasterCGPA" class="form-control" maxlength="5" />
+                            <span asp-validation-for="MasterCGPA" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="GREVerbal">GRE Verbal Test Score</label>
+                            <input asp-for="GREVerbal" class="form-control" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="GREQuant">GRE Quantitative Test Score</label>
+                            <input asp-for="GREQuant" class="form-control" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Message">Message</label>
+                            <textarea asp-for="Message" class="form-control" rows="3"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-lg mt-3">Continue to Pay</button>
+                    </form>
+                </div>
+
+                <!-- Cart Summary -->
+                <div class="col-lg-5">
+                    <h3>Cart Summary</h3>
+
+                    @if (Model.CartCourses != null && Model.CartCourses.Any())
+                    {
+                        
+    var firstCoursePrice = Model.CartCourses.FirstOrDefault()?.CoursePriceDisplay ?? "₹0.00";
+    var firstCurrencySymbol = firstCoursePrice.FirstOrDefault();
+    var isINR = firstCurrencySymbol == '₹';
+    var isUSD = firstCurrencySymbol == '$';
+ 
+                        <div class="form-group">
+                            <label for="Currency">Currency</label>
+                                
+                                <select id="Currency" class="form-select">
+                                    <option value="INR" selected="@(isINR ? "selected" : null)">₹ INR</option>
+                                    <option value="USD" selected="@(isUSD ? "selected" : null)">$ USD</option>
+                                </select>
+                        </div>
+
+                            <div id="CartCoursesList">
+                                @foreach (var course in Model.CartCourses)
+                                {
+                                    <div class="course-row mb-2">
+                                        <input type="text" class="form-control mb-1" value="@course.CourseName" readonly />
+                                        <input type="text" class="form-control price-field" value="@course.CoursePriceDisplay" readonly />
+                                    </div>
+                                }
+                            </div>
+
+                        <hr />
+
+                        <div class="form-group">
+                            <label>Subtotal</label>
+                            <input type="text" id="Subtotal" class="form-control" readonly />
+                        </div>
+                        <div class="form-group">
+                            <label>GST (18%)</label>
+                            <input type="text" id="GST" class="form-control" readonly />
+                        </div>
+                        <div class="form-group">
+                            <label>Total</label>
+                            <input type="text" id="Total" class="form-control" readonly />
+                        </div>
+                    }
+                    else
+                    {
+                        <p>No courses in cart.</p>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/4.0.0/jquery.validate.unobtrusive.min.js"></script>
+
+@section Scripts {
+        <script>
+            function calculateTotals() {
+                var priceFields = document.querySelectorAll(".price-field");
+                if (!priceFields.length) return;
+
+                var currencyDropdown = document.getElementById("Currency");
+                var selectedCurrency = currencyDropdown.value; // "INR" or "USD"
+                var conversionRate = 90; // 1 USD = 90 INR
+
+                var subtotal = 0;
+
+                priceFields.forEach(function(input) {
+                    var valueStr = input.value.replace(/[^0-9.,]/g, ''); // remove symbols
+                    valueStr = valueStr.replace(/,/g, ''); // remove commas
+                    var num = parseFloat(valueStr) || 0;
+                    // Convert USD → INR if needed
+                    if (input.value.charAt(0) === '$' && selectedCurrency === "INR") {
+                        num *= conversionRate;
+                    }
+                    subtotal += num;
+                });
+
+                // GST applies only if INR is selected
+                var gst = (selectedCurrency === "INR") ? subtotal * 0.18 : 0;
+                var total = subtotal + gst;
+
+                var symbol = selectedCurrency === "INR" ? "₹" : "$";
+
+                document.getElementById("Subtotal").value = symbol + subtotal.toFixed(2);
+                document.getElementById("GST").value = symbol + gst.toFixed(2);
+                document.getElementById("Total").value = symbol + total.toFixed(2);
+            }
+
+            // Initial calculation
+            calculateTotals();
+
+            // Recalculate on currency change
+            document.getElementById("Currency").addEventListener("change", function() {
+                calculateTotals();
+            });
+        </script>
+}
+</body>

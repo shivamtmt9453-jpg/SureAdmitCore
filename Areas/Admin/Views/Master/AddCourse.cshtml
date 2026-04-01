@@ -1,0 +1,105 @@
+﻿@model SureAdmitCore.Areas.Admin.Models.Course
+
+@{
+    ViewData["Title"] = "Add Course";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content-header">
+    <h1>Courses</h1>
+    <ol class="breadcrumb">
+        <li><a href="/admin/Dashboard/Index"><i class="fa fa-home"></i> Home</a></li>
+        <li class="active">Add Course</li>
+    </ol>
+</section>
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-body">
+
+                    <form asp-action="AddCourse" method="post" enctype="multipart/form-data" class="form-horizontal">
+
+                        <input type="hidden" asp-for="CourseId" />
+
+                        <!-- COURSE NAME -->
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Course Name <span class="required">*</span></label>
+                            <div class="col-md-4">
+                                <input autocomplete="off" asp-for="CourseName" class="form-control" required />
+                                <span asp-validation-for="CourseName" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <!-- COURSE PRICE -->
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Course Price <span class="required">*</span></label>
+                            <div class="col-md-4">
+                                <input asp-for="CoursePrice" class="form-control" required />
+                                <span asp-validation-for="CoursePrice" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <!-- IMAGE UPLOAD -->
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Course Image</label>
+
+                            <div class="col-md-4">
+                                <!-- FILE INPUT -->
+                                <input type="file"
+                                       asp-for="CourseImg"
+                                       accept=".png,.jpg,.jpeg"
+                                       class="form-control"
+                                       onchange="previewImage(event)" />
+
+                                <!-- VALIDATION -->
+                                <span asp-validation-for="CourseImg" class="text-danger"></span>
+
+                                <!-- PREVIEW (NEW IMAGE) -->
+                                <br />
+                                <img id="imgPreview"
+                                     src="@(string.IsNullOrEmpty(Model.CourseImgPath) ? "/images/no-image.png" : Model.CourseImgPath)"
+                                     width="100"
+                                     height="100"
+                                     style="object-fit:cover; border:1px solid #ddd; padding:3px;" />
+                            </div>
+                        </div>
+
+                        <!-- ACTION BUTTONS -->
+                        <div class="form-actions">
+                            <div class="col-md-offset-2 col-md-9"> 
+                                <button type="submit" class="btn btn-success btn-flat">
+                                    @(Model.CourseId > 0 ? "Update" : "Save")
+                                </button>
+                                <button type="reset" class="btn btn-primary btn-flat">Reset</button>
+                                <a asp-action="CourseList" class="btn btn-default btn-flat">
+                                    <i class="fa fa-ban"></i> Cancel
+                                </a>
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        function previewImage(event) {
+            var reader = new FileReader();
+
+            reader.onload = function () {
+                var output = document.getElementById('imgPreview');
+                output.src = reader.result;
+            };
+
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    </script>
+}

@@ -1,4 +1,4 @@
-﻿ 
+﻿@model List<SureAdmitCore.Areas.Admin.Models.Course>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -482,9 +482,7 @@ approach to research positioning, faculty alignment, and strategic program selec
 
                                 </ul>
                             </div>
-                        </div>
-                        
-                        
+                        </div> 
 
                         <p class="highlited"><b>Support Type:</b></p>
                         <ul class="commonlidesign">
@@ -509,6 +507,27 @@ approach to research positioning, faculty alignment, and strategic program selec
             </div>
         </div>
     </section>
+   
+<section class="dynamicbutton">
+    <div class="container">
+        <div class="carddesgn row">
+            @foreach (var course in Model)
+            {
+                <div class="col-sm-3 mb-3">
+                    <div class="common-btn-desgn text-center">
+                        <img src="@course.CourseImgPath" alt="@course.CourseName" style="width:100px;height:100px;object-fit:cover;"/>
+                        <h5>@course.CourseName</h5>
+                        <p>₹@course.CoursePrice</p>
+                        <a asp-action="AddToCart" asp-route-courseId="@course.CourseId" class="btn btn-primary">
+                            Add to Cart
+                        </a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
 <section class="phd-framework">
   <div class="container">
       <div class="row">

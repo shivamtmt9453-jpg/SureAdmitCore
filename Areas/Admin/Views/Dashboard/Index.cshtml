@@ -63,38 +63,23 @@
 <section class="content"> 
         <div class="row grid-design-box">
             <div class="col-lg-3 col-xs-6">
+            <a href="/admin/Master/CourseList">
                 <div class="small-box bg-aquas">
                     <div class="inner">
-                        <h3>@Model.OPDNewPatients</h3>
-                        <p>@DateTime.Now.ToString("MMMM") Total Course</p>
+                    <h3>@Model.TotalCourse</h3>
+                    <p>Total Course</p>
+                       @*  <p>@DateTime.Now.ToString("MMMM") Total Course</p> *@
                     </div>
-                    <div class="icon"><i class="fa fa-stethoscope"></i></div>
+                <div class="icon">
+                    <i class="fa fa-graduation-cap"></i>
+                    </div>
+                
                 </div>
+            </a>
             </div>
 
-            <div class="col-lg-3 col-xs-6">
-                <a href="/admin/OPD/PatientsDetails">
-                    <div class="small-box bg-greens">
-                        <div class="inner">
-                            <h3>@Model.OPDTotalPatients</h3>
-                            <p>Total Patients</p>
-                        </div>
-                        <div class="icon"><i class="fa fa-wheelchair-alt"></i></div>
-                    </div>
-                </a>
-            </div>  
-            <div class="col-lg-3 col-xs-6">
-                <a href="/admin/OPD/TodayPatientsDetails">
-                    <div class="small-box bg-greene">
-                        <div class="inner">
-                            <h3>@Model.OPDTodaysPatients</h3>
-                            <p>Today Patients</p>
-                        </div>
-                        <div class="icon"><i class="fa fa-hospital-user"></i></div>
-                    </div>
-                </a>
-            </div>
-            </div>
-         
 
+
+   
+</div>
 </section>

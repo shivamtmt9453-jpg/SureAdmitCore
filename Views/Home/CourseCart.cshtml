@@ -1,4 +1,85 @@
-﻿ 
+﻿@model List<SureAdmitCore.Areas.Admin.Models.Course>
+
 @{
     ViewData["Title"] = "Course Cart";
+    Layout = null;
 }
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/assets/css/cartpage.css" rel="stylesheet" />
+</head>
+<body>
+    <main>
+        <section class="cartpagewrrap">
+            <div class="container">
+
+                <!-- Cart Items -->
+                <div class="cart-items">
+                    @if (!Model.Any())
+                    {
+                        <p>No courses in cart.</p>
+                    }
+                    else
+                    {
+                        @foreach (var course in Model)
+                        {
+                            <div class="cart-item">
+                                <img src="@course.CourseImgPath" />
+                                <div class="item-details">
+                                    <h4>@course.CourseName</h4>
+                                    <div class="classpricewrrap">
+                                        <div class="priceheightlight">Price</div>
+                                        <div class="price">@course.CoursePrice</div>
+                                    </div>
+                                    <div class="remove">
+                                        <a asp-action="RemoveFromCart" asp-route-courseId="@course.CourseId" class="btn btn-danger btn-sm">Remove</a>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+
+                <!-- Summary -->
+                <div class="summary">
+                    <h3>Course Summary</h3>
+
+                    @{
+
+                        decimal subtotal = 0;
+                        string currencySymbol = "";
+
+                        foreach (var c in Model)
+                        {
+                            if (!string.IsNullOrEmpty(c.CoursePrice))
+                            {
+                                // Set currency symbol from first course
+                                if (string.IsNullOrEmpty(currencySymbol))
+                                    currencySymbol = c.CurrencySymbol ?? "$";
+
+                                // Remove non-numeric chars except dot
+                                var cleanPrice = new string(c.CoursePrice.Where(ch => char.IsDigit(ch) || ch == '.').ToArray());
+
+                                if (decimal.TryParse(cleanPrice, out var price))
+                                    subtotal += price;
+                            }
+                        }
+
+                        decimal discount = 0; // add your logic if needed
+                        decimal total = subtotal - discount;
+                    }
+
+                    <p><span>Subtotal</span><span>@currencySymbol@subtotal.ToString("N2")</span></p>
+                    <p><span>Discount</span><span>@currencySymbol@discount.ToString("N2")</span></p>
+                    <hr>
+                    <p class="total"><span>Total</span><span>@currencySymbol@total.ToString("N2")</span></p>
+
+                    <a asp-action="Checkout" class="btn checkout">Proceed to Checkout</a>
+                </div>
+
+            </div>
+        </section>
+    </main>
+</body>

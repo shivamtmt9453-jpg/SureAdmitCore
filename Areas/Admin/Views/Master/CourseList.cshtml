@@ -1,0 +1,184 @@
+﻿@model List<SureAdmitCore.Areas.Admin.Models.Course>
+
+@{
+    ViewData["Title"] = "Course List";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    string search = ViewData["Search"] as string;
+    int? status = ViewData["Status"] as int?;
+}
+
+<section class="content-header">
+    <h1>Courses</h1>
+    <ol class="breadcrumb">
+        <li><a href="/admin/Dashboard/Index"><i class="fa fa-home"></i> Home</a></li>
+        <li class="active">Courses</li>
+    </ol>
+</section>
+
+<section class="content">
+    <div class="box">
+        <div class="box-header with-border">
+
+            <!-- LEFT BUTTONS -->
+            <div class="pull-left">
+                <a class="btn btn-danger btn-flat"
+                   href="@Url.Action("AddCourse", "Master", new { area = "Admin" })">
+                    <i class="fa fa-plus"></i> Add Course
+                </a>
+
+                <button type="submit"
+                        form="deleteSelectedForm"
+                        class="btn btn-primary btn-flat"
+                        style="margin-left:10px;">
+                    Delete Selected
+                </button>
+            </div>
+
+            <!-- SEARCH -->
+            <div class="pull-right">
+                <form method="get" class="form-inline">
+                    <div class="col-sm-6">
+                        <input autocomplete="off" type="text" id="search" name="search"
+                           class="form-control input-sm"
+                           style="width:150px;"
+                           placeholder="Search Records....."
+                           value="" />
+                           </div> 
+                </form>
+            </div>
+        </div>
+
+        <!-- TABLE -->
+        <div class="box-body table-responsive">
+            <table class="table table-bordered table-hover" id="projectTable">
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" id="chkAll" /></th>
+                        <th>Image</th>
+                        <th>Course Name</th>
+                        <th>Price</th>
+                       @*  <th>Status</th> *@
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var course in Model)
+                    {
+                        <tr>
+                            <!-- CHECKBOX -->
+                            <td>
+                                <input type="checkbox"
+                                       name="selectedIds"
+                                       value="@course.CourseId"
+                                       class="chkItem"
+                                       form="deleteSelectedForm" />
+                            </td>
+
+                            <!-- IMAGE -->
+                            <td>
+                                @if (!string.IsNullOrEmpty(course.CourseImgPath))
+                                {
+                                    <img src="@course.CourseImgPath"
+                                         width="50"
+                                         height="50"
+                                         style="object-fit:cover;" />
+                                }
+                                else
+                                {
+                                    <span>No Image</span>
+                                }
+                            </td>
+
+                            <!-- NAME -->
+                            <td>@course.CourseName</td>
+
+                            <!-- PRICE -->
+                            <td>@course.CoursePrice</td>
+
+                          @*   <!-- STATUS -->
+                            <td>
+                                <form method="post" asp-action="ToggleCourseStatus"
+                                      onsubmit="return confirm('Change status?');">
+                                    <input type="hidden" name="id" value="@course.CourseId" />
+                                    <button type="submit"
+                                            class="btn btn-xs @(course.IsActive ? "btn-success" : "btn-danger")">
+                                        @(course.IsActive ? "Active" : "Inactive")
+                                    </button>
+                                </form>
+                            </td> *@
+
+                            <!-- EDIT -->
+                            <td>
+                                <a class="btn btn-sm btn-warning"
+                                   href="@Url.Action("AddCourse","Master",
+                                                                           new { id = course.CourseId, area = "Admin" })">
+                                <i class="fa fa-edit"></i>
+                            </a>
+                        </td>
+
+                            <!-- DELETE -->
+                            <td>
+                                <form method="post"
+                                      asp-action="DeleteCourse"
+                                      onsubmit="return confirm('Are you sure?')">
+                                    <input type="hidden" name="id" value="@course.CourseId" />
+                                    <button type="submit" class="btn btn-sm btn-danger">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                                        }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- BULK DELETE -->
+<form method="post"
+      asp-action="DeleteSelectedCourses"
+      id="deleteSelectedForm"></form>
+
+@section Scripts {
+    <script>
+        document.getElementById("chkAll").addEventListener("change", function () {
+            document.querySelectorAll(".chkItem")
+                .forEach(chk => chk.checked = this.checked);
+        });
+    </script>
+    <script>
+        document.getElementById('search').addEventListener('keyup', function () {
+            var filter = this.value.toLowerCase();
+            var rows = document.querySelectorAll('#projectTable tbody tr');
+            var hasVisible = false;
+
+            rows.forEach(function (row) {
+                // Skip "No Records Found" row if it exists
+                if (row.id === 'noRecordRow') return;
+
+                // Check all cells
+                var text = Array.from(row.cells).map(cell => cell.innerText.toLowerCase()).join(' ');
+                if (text.includes(filter)) {
+                    row.style.display = '';
+                    hasVisible = true;
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+
+            // Handle "No Records Found" row
+            var noRow = document.getElementById('noRecordRow');
+            if (!noRow) {
+                // Create if not exists
+                noRow = document.createElement('tr');
+                noRow.id = 'noRecordRow';
+                noRow.innerHTML = '<td colspan="10" class="text-center">No Records Found</td>';
+                document.querySelector('#projectTable tbody').appendChild(noRow);
+            }
+            noRow.style.display = hasVisible ? 'none' : '';
+        });
+    </script>
+}

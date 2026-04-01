@@ -1,7 +1,7 @@
 ﻿@model SureAdmitCore.Models.LoginViewModel
 @{
     ViewData["Title"] = "Login";
-    Layout = null; // No master layout, just like your old page
+    Layout = null; 
 }
 
 <!DOCTYPE html>
@@ -9,11 +9,9 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Admin Triangle Mind Technologies | Login Page</title>
+    <title>SureAdmit | Login Page</title>
     <link rel="icon" type="image/x-icon" href="~/logo.jpeg" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
-
     <link href="~/adminassets/bower_components/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet" />
     <link href="~/adminassets/bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
     <link href="~/adminassets/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -21,7 +19,6 @@
     <link href="~/adminassets/dist/css/AdminLTE.css" rel="stylesheet" />
     <link href="~/adminassets/plugins/iCheck/square/blue.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-
     <style>
         body.hold-transition.login-page {
             background-size: cover;
@@ -44,13 +41,18 @@
             border-radius: 4px;
             font-size: 17px;
         }
+
+        .login-logo img {
+            width: 100%;
+        }
+        /*01-04-2026**/
     </style>
 </head>
-<body class="hold-transition login-page" style="background-image:url('../adminassets/img/background_img.jpg')">
+<body class="hold-transition login-page" style="background-image:url('../adminassets/img/background_img.jpg.jpeg')">
     <div class="login-box" style="margin-top:10%;border:1px solid black">
         <div class="login-box-body">
-            <div class="login-logo">
-                <img src="~/logo.jpeg" style="width:100%;" />
+            <div class="login-logo">                 <img src="~/assets/images/header-logo.png" />
+
             </div>
 
             @if (ViewData["ErrorMessage"] != null)
@@ -78,9 +80,9 @@
                             </label>
                         </div>
                     </div>
-                    <div class="col-xs-6 flcss" style="display:none;">
+                    <div class="col-xs-6 flcss">
                         <label>
-                            <a href="#">Forget Password ?</a>
+                            <a href="/Account/ForgetPassword">Forget Password ?</a>
                         </label>
                     </div>
                 </div>
