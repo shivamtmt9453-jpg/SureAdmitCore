@@ -41,6 +41,7 @@ namespace SureAdmitCore.Areas.Admin.Controllers
             {
                 var row = dtDashboard.Rows[0]; 
                 model.TotalCourse = row["TotalCourse"] != DBNull.Value ? (int)row["TotalCourse"] : 0;
+                model.TotalApliedCourse = row["TotalApliedCourse"] != DBNull.Value ? (int)row["TotalApliedCourse"] : 0;
             }
 
             // User role from session/ViewBag

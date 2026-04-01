@@ -301,7 +301,7 @@ namespace SureAdmitCore.Controllers
             TempData.Keep("TotalAmount");
             TempData.Keep("Currency");
 
-            string gatewayResponse = $"PaymentId: {paymentId}, Status: {status}";
+            string gatewayResponse = $"{paymentId}";
 
             await _dbLayer.ExecuteSPAsync("sp_UpdatePaymentStatus", new SqlParameter[]
             {

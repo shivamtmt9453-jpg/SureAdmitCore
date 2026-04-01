@@ -96,14 +96,12 @@ namespace SureAdmitCore.Controllers
             }
         }
 
-           [HttpPost]
-            public IActionResult Logout()
-            { 
-                HttpContext.Session.Clear(); 
-                // await HttpContext.SignOutAsync();
-
-                return RedirectToAction("Login", "Account");
-            }
+        [HttpPost]
+        public IActionResult Logout()
+        { 
+            Response.Cookies.Delete(".AspNetCore.Cookies");  
+            return RedirectToAction("Login", "Account");
+        }
 
         // GET: Account/ForgetPassword
         [HttpGet]
@@ -172,12 +170,25 @@ namespace SureAdmitCore.Controllers
 
             if (actionType == "ResetPassword")
             {
-                string sessionOtp = HttpContext.Session.GetString("OTP");
-                string sessionEmail = HttpContext.Session.GetString("OTPEmail");
-                DateTime otpExpiry = DateTime.Parse(HttpContext.Session.GetString("OTPExpiry") ?? DateTime.MinValue.ToString());
+                // Read OTP from cookie
+                string cookieOtp = HttpContext.Request.Cookies["OTP"];
+                string cookieEmail = HttpContext.Request.Cookies["OTPEmail"];
+
+                // Optional: Read expiry if stored
+                string cookieExpiryStr = HttpContext.Request.Cookies["OTPExpiry"];
+                DateTime otpExpiry;
+                if (!string.IsNullOrEmpty(cookieExpiryStr) && DateTime.TryParse(cookieExpiryStr, out otpExpiry))
+                {
+                    if (DateTime.Now > otpExpiry)
+                    {
+                        // OTP expired
+                        cookieOtp = null;
+                        cookieEmail = null;
+                    }
+                }
 
                 // OTP expired
-                if (DateTime.Now > otpExpiry)
+                if (cookieOtp == null || cookieEmail == null)
                 {
                     TempData["Message"] = "OTP expired. Please request a new OTP.";
                     TempData["MessageType"] = "error";
@@ -189,7 +200,7 @@ namespace SureAdmitCore.Controllers
                 }
 
                 // OTP invalid
-                if (model.OTP != sessionOtp || model.Email != sessionEmail)
+                if (model.OTP != cookieOtp || model.Email != cookieEmail)
                 {
                     TempData["Message"] = "Invalid OTP.";
                     TempData["MessageType"] = "error";
@@ -211,15 +222,15 @@ namespace SureAdmitCore.Controllers
                 // Update password in DB
                 SqlParameter[] parametersUpdate = new SqlParameter[]
                 {
-            new SqlParameter("@Email", model.Email),
-            new SqlParameter("@Password", model.NewPassword)
+        new SqlParameter("@Email", model.Email),
+        new SqlParameter("@Password", model.NewPassword)
                 };
                 await _dbLayer.ExecuteSPAsync("sp_ResetUserPassword", parametersUpdate);
 
-                // Clear session
-                HttpContext.Session.Remove("OTP");
-                HttpContext.Session.Remove("OTPEmail");
-                HttpContext.Session.Remove("OTPExpiry");
+                // ✅ Clear OTP cookies after successful reset
+                Response.Cookies.Delete("OTP");
+                Response.Cookies.Delete("OTPEmail");
+                Response.Cookies.Delete("OTPExpiry");
 
                 TempData["Message"] = "Password reset successfully. Please login.";
                 TempData["MessageType"] = "success";
@@ -232,14 +243,14 @@ namespace SureAdmitCore.Controllers
         private void SendOTPEmail(string email, string otp)
         {
             MailMessage mail = new MailMessage();
-            mail.From = new MailAddress("ali.iddrisu@ghana.barstowschool.org");
+            mail.From = new MailAddress("trianglemind14@gmail.com");
             mail.To.Add(email);
             mail.Subject = "Password Reset OTP";
             mail.Body = $"Your OTP for password reset is: <b>{otp}</b>";
             mail.IsBodyHtml = true;
 
             SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
-            smtp.Credentials = new NetworkCredential("ali.iddrisu@ghana.barstowschool.org", "vxrf kndy xwyr xgre");
+            smtp.Credentials = new NetworkCredential("trianglemind14@gmail.com", "mgae pptn cmej axlp");
             smtp.EnableSsl = true;
             smtp.Send(mail);
         }

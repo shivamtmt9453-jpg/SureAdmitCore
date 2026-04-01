@@ -4,8 +4,9 @@ namespace SureAdmitCore.Areas.Admin.Models
 {
     public class DashboardViewModel
     {
-        // OPD
+      
         public int TotalCourse{ get; set; }
+        public int TotalApliedCourse { get; set; }
          
         // User
         public string UserRole { get; set; } = string.Empty;

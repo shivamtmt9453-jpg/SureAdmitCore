@@ -1,0 +1,141 @@
+﻿@model List<SureAdmitCore.Areas.Admin.Models.AppliedCourse>
+
+@{
+    ViewData["Title"] = "Applied Courses";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content-header">
+    <h1>Applied Courses</h1>
+    <ol class="breadcrumb">
+        <li><a href="/admin/Dashboard/Index"><i class="fa fa-home"></i> Home</a></li>
+        <li class="active">Applied Courses</li>
+    </ol>
+</section>
+
+<section class="content">
+    <div class="box">
+        <div class="box-header with-border">
+
+            <!-- LEFT BUTTONS -->
+            <div class="pull-left">
+                <button type="submit"
+                        form="deleteSelectedForm"
+                        class="btn btn-danger btn-flat"
+                        style="margin-left:10px;">
+                    Delete Selected
+                </button>
+            </div>
+
+            <!-- SEARCH -->
+            <div class="pull-right">
+                <form method="get" class="form-inline">
+                    <div class="col-sm-6">
+                        <input autocomplete="off" type="text" id="search" name="search"
+                               class="form-control input-sm"
+                               style="width:150px;"
+                               placeholder="Search Records....."
+                               value="" />
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- TABLE -->
+        <div class="box-body table-responsive">
+            <table class="table table-bordered table-hover" id="appliedCourseTable">
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" id="chkAll" /></th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Country</th>
+                        <th>Courses</th>
+                        <th>Base</th>
+                        <th>GST</th>
+                        <th>Total</th>
+                        <th>Payment Status</th>
+                        <th>Paid Amount</th>
+                        <th>Payment Date</th>
+                        <th>Gateway</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var app in Model)
+                    {
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="selectedIds" value="@app.ApplicationId" class="chkItem" form="deleteSelectedForm" />
+                            </td>
+                            <td>@app.Name</td>
+                            <td>@app.Email</td>
+                            <td>@app.Phone</td>
+                            <td>@app.Country</td>
+                            <td>@app.CourseNames</td>
+                            <td>@app.BaseAmount.ToString("F2")</td>
+                            <td>@app.GSTAmount.ToString("F2")</td>
+                            <td>@app.TotalAmount.ToString("F2")</td>
+                            <td>@app.PaymentStatus</td>
+                            <td>@app.PaidAmount.ToString("F2") @app.Currency</td>
+                            <td>@(app.PaymentDate.HasValue? app.PaymentDate.Value.ToString("dd-MM-yyyy HH:mm") : "-")</td>
+                            <td>@app.PaymentGateway</td>
+                            <td>
+                                <form method="post" asp-action="DeleteApplication" onsubmit="return confirm('Are you sure?')">
+                                    <input type="hidden" name="id" value="@app.ApplicationId" />
+                                    <button type="submit" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- BULK DELETE -->
+<form method="post"
+      asp-action="DeleteSelectedApplications"
+      id="deleteSelectedForm"></form>
+
+@section Scripts {
+    <script>
+        // Select/Deselect all checkboxes
+        document.getElementById("chkAll").addEventListener("change", function () {
+            document.querySelectorAll(".chkItem")
+                .forEach(chk => chk.checked = this.checked);
+        });
+
+        // Client-side search/filter
+        document.getElementById('search').addEventListener('keyup', function () {
+            var filter = this.value.toLowerCase();
+            var rows = document.querySelectorAll('#appliedCourseTable tbody tr');
+            var hasVisible = false;
+
+            rows.forEach(function (row) {
+                if (row.id === 'noRecordRow') return;
+
+                var text = Array.from(row.cells).map(cell => cell.innerText.toLowerCase()).join(' ');
+                if (text.includes(filter)) {
+                    row.style.display = '';
+                    hasVisible = true;
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+
+            // Handle "No Records Found" row
+            var noRow = document.getElementById('noRecordRow');
+            if (!noRow) {
+                noRow = document.createElement('tr');
+                noRow.id = 'noRecordRow';
+                noRow.innerHTML = '<td colspan="11" class="text-center">No Records Found</td>';
+                document.querySelector('#appliedCourseTable tbody').appendChild(noRow);
+            }
+            noRow.style.display = hasVisible ? 'none' : '';
+        });
+    </script>
+}
