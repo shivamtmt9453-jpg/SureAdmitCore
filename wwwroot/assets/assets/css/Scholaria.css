@@ -524,6 +524,7 @@ section.side-by-side-section td, section.side-by-side-section tr {
 }
 table.table-responsive-design tbody td {
     border-bottom: 1px solid #fff;
+    vertical-align: top;
 }
 table.table-responsive-design tbody td:not(:last-child) {
     border-right: 1px solid #fff;
@@ -1357,5 +1358,3 @@ section.finaldecisionguide img.sectionlogo {
     background: #c52f36;
     border: 1px solid #c52f36;
 }
-
-

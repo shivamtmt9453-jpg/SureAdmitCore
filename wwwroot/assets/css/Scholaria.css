@@ -524,6 +524,11 @@ section.side-by-side-section td, section.side-by-side-section tr {
 }
 table.table-responsive-design tbody td {
     border-bottom: 1px solid #fff;
+    vertical-align: top;
+    text-align: left;
+    font-size: 16px;
+    line-height: 27.2px;
+    font-family: "Inter", sans-serif;
 }
 table.table-responsive-design tbody td:not(:last-child) {
     border-right: 1px solid #fff;
@@ -1357,4 +1362,46 @@ section.finaldecisionguide img.sectionlogo {
 .cardimagecontent .common-btn-desgn a:hover {
     background: #c52f36;
     border: 1px solid #c52f36;
+}
+.accordion-row {
+    cursor: pointer;
+}
+.accordion-content {
+    display: none;
+
+}
+
+.active + .accordion-content {
+    display: table-row;
+}
+.accordion-row span.icon {
+    font-size: 25px;
+    color: #fff;
+    background: #5a7c54;
+    height: 31px;
+    width: 31px;
+    border-radius: 10px;
+    line-height: 28px;
+    vertical-align: middle;
+    text-align: center;
+    display: inline-block;
+    position: absolute;
+    top: 19px;
+    left: 10px;
+    bottom: 0;
+}
+.accordion-row > td:first-child {
+    padding-left: 45px;
+}
+.accordion-row td {
+    position: relative;
+}
+table thead tr th {
+    border-top-color: transparent;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    line-height: 27.2px;
+}
+tr.accordion-row.active span.icon {
+    background: #c52f36;
 }

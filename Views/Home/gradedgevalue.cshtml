@@ -47,6 +47,8 @@
   <link href="~/assets/css/fees-pay-responsive.css" rel="stylesheet" />
   <link href="~/assets/css/Scholaria.css" rel="stylesheet" />
   <link href="~/assets/css/Scholaria-responsive.css" rel="stylesheet" />
+  
+
   <script>
 
       jQuery(document).ready(function ($) {
@@ -67,7 +69,7 @@
      <div class="container">
          <div class="big-wrap-of-logo-menu">
              <div class="logo-wrap">
-                    <a href="/Home/feespaymentstructure">
+                    <a href="/home/scholaria">
                      <img src="~/assets/images/header-logo.png" /></a>
              </div>
              <div class="menu-wrap-menu">
@@ -526,48 +528,76 @@
                                 </tr>
                             </thead>
                             <tbody>
-
-                                <tr>
-                                    <td>Positioning</td>
+                                <!-- Row 1 -->
+                                <tr class="accordion-row" onclick="toggleRow(this)">
+                                    <td><span class="icon">+</span>Positioning</td>
+                                    <td>Clarity + Positioning</td>
+                                    <td>Execution + Optimization</td>
+                                </tr>
+                                <tr class="accordion-content">
+                                    <td></td>
                                     <td>
                                         <ul>
-                                            <li>Clarity + Positioning</li>
                                             <li>Direction-focused</li>
                                             <li>Cost-aware planning</li>
                                         </ul>
                                     </td>
                                     <td>
                                         <ul>
-                                            <li>Execution + Scholarship Optimization</li>
                                             <li>Decision-focused</li>
                                             <li>Outcome and cost optimization</li>
                                         </ul>
                                     </td>
                                 </tr>
-
-                                <tr>
-                                    <td>What it does</td>
+                                <!-- Row 2 -->
+                                <tr class="accordion-row" onclick="toggleRow(this)">
+                                    <td> <span class="icon">+</span>What it does</td>
                                     <td>
                                         <ul>
                                             <li>Provides application direction and program landscape</li>
+
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <ul>
+                                            <li>Finalizes university selection</li>
+
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr class="accordion-content">
+                                    <td></td>
+                                    <td>
+                                        <ul>
                                             <li>Defines admit range and cost strategy</li>
                                             <li>Builds a structured application plan</li>
                                         </ul>
                                     </td>
                                     <td>
                                         <ul>
-                                            <li>Finalizes university selection</li>
                                             <li>Executes applications with consistency</li>
                                             <li>Optimizes scholarship outcomes</li>
                                         </ul>
                                     </td>
                                 </tr>
-
-                                <tr>
-                                    <td>How it works</td>
+                                <!-- Row 3 -->
+                                <tr class="accordion-row" onclick="toggleRow(this)">
+                                    <td><span class="icon">+</span>How it works</td>
                                     <td>
                                         <ul>
                                             <li>Evaluates profile strength and eligibility</li>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <ul>
+                                            <li>Narrows to 8–10 final universities</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr class="accordion-content">
+                                    <td></td>
+                                    <td>
+                                        <ul>
                                             <li>Maps a 20–25 university landscape (US-focused)</li>
                                             <li>Provides scholarship and cost insights</li>
                                             <li>Defines application roadmap</li>
@@ -575,37 +605,59 @@
                                     </td>
                                     <td>
                                         <ul>
-                                            <li>Narrows to 8–10 final universities</li>
                                             <li>Applies Safe / Target / Ambitious framework</li>
                                             <li>Builds applications and supports submission</li>
                                             <li>Applies to external scholarships</li>
                                         </ul>
                                     </td>
                                 </tr>
-
-                                <tr>
-                                    <td>Core focus</td>
+                                <!-- Row 4 -->
+                                <tr class="accordion-row" onclick="toggleRow(this)">
+                                    <td><span class="icon">+</span>Core focus</td>
                                     <td>
                                         <ul>
                                             <li>Direction</li>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <ul>
+                                            <li>Decision-making</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr class="accordion-content">
+                                    <td></td>
+                                    <td>
+                                        <ul>
                                             <li>Admit range clarity</li>
                                             <li>Cost awareness</li>
                                         </ul>
                                     </td>
                                     <td>
                                         <ul>
-                                            <li>Decision-making</li>
                                             <li>Execution</li>
                                             <li>Scholarship optimization</li>
                                         </ul>
                                     </td>
                                 </tr>
-
-                                <tr>
-                                    <td>What you get</td>
+                                <!-- Row 5 -->
+                                <tr class="accordion-row" onclick="toggleRow(this)">
+                                    <td><span class="icon">+</span>What you get</td>
                                     <td>
                                         <ul>
                                             <li>Profile evaluation and admit range</li>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <ul>
+                                            <li><strong>University Optimization</strong></li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr class="accordion-content">
+                                    <td></td>
+                                    <td>
+                                        <ul>
                                             <li>Academic positioning clarity</li>
                                             <li>20–25 university landscape (US)</li>
                                             <li>Scholarship overview</li>
@@ -616,7 +668,6 @@
                                     </td>
                                     <td>
                                         <ul>
-                                            <li><strong>University Optimization</strong></li>
                                             <li>Final shortlist of 8–10 universities</li>
                                             <li>Safe / Target / Ambitious categorization</li>
                                             <li>Selection based on admit probability and cost</li>
@@ -635,81 +686,122 @@
                                         </ul>
                                     </td>
                                 </tr>
-
+                                <!-- Row 6 -->
                                 <tr>
                                     <td>Support level</td>
                                     <td>Structured advisory</td>
                                     <td>Guided execution with funding support</td>
                                 </tr>
-
+                                <!-- Row 7 -->
                                 <tr>
                                     <td>Your role</td>
                                     <td>You execute</td>
                                     <td>We support execution</td>
                                 </tr>
-
-                                <tr>
-                                    <td>Outcome</td>
+                                <!-- Row 8 -->
+                                <tr class="accordion-row" onclick="toggleRow(this)">
+                                    <td><span class="icon">+</span>Outcome</td>
                                     <td>
                                         <ul>
                                             <li>Clear direction on where and how to apply</li>
-                                            <li>Cost-aware application plan</li>
+
                                         </ul>
                                     </td>
                                     <td>
                                         <ul>
                                             <li>Higher probability of admit</li>
+
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr class="accordion-content">
+                                    <td></td>
+                                    <td>
+                                        <ul>
+
+                                            <li>Cost-aware application plan</li>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <ul>
+
                                             <li>Optimized university selection</li>
                                             <li>Increased scholarship success</li>
                                             <li>Reduced tuition (~$8K–$10K)</li>
                                         </ul>
                                     </td>
                                 </tr>
-
-                                <tr>
-                                    <td>When to choose</td>
+                                <!-- Row 9 -->
+                                <tr class="accordion-row" onclick="toggleRow(this)">
+                                    <td><span class="icon">+</span>When to choose</td>
                                     <td>
                                         <ul>
                                             <li>Need clarity before applying</li>
+
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <ul>
+                                            <li>Need final university selection</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr class="accordion-content">
+                                    <td></td>
+                                    <td>
+                                        <ul>
                                             <li>Want to explore options</li>
                                             <li>Comfortable executing independently</li>
                                         </ul>
                                     </td>
                                     <td>
                                         <ul>
-                                            <li>Need final university selection</li>
+
                                             <li>Need execution support</li>
                                             <li>Want better scholarship outcomes</li>
                                             <li>Want cost optimization</li>
                                         </ul>
                                     </td>
                                 </tr>
-
+                                <!-- Row 10 -->
                                 <tr>
                                     <td>Engagement depth</td>
                                     <td>~10–15 hours</td>
                                     <td>~30–50 hours</td>
                                 </tr>
-
+                                <!-- Row 11 -->
                                 <tr>
                                     <td>Upgrade path</td>
                                     <td>Upgrade to Assist™</td>
                                     <td>Final stage</td>
                                 </tr>
-
+                                <!-- Row 12 -->
                                 <tr>
                                     <td>Ideal mindset</td>
                                     <td>I need clarity and direction before I start</td>
                                     <td>I want to optimize outcomes and reduce cost</td>
                                 </tr>
-
+                                <!-- Row 13 -->
                                 <tr>
                                     <td>Investment</td>
                                     <td>US$ 391</td>
                                     <td>US$ 9,310</td>
                                 </tr>
-
-                                <tr>
+                                <!-- Row 14 -->
+                                <tr class="accordion-row" onclick="toggleRow(this)">
+                                    <td><span class="icon">+</span>ROI Perspective</td>
+                                    <td>
+                                        <ul>
+                                            <li>Avoid misaligned applications</li>
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <ul>
+                                            <li>Increase admit probability</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr class="accordion-content">
                                     <td>ROI Perspective</td>
                                     <td>
                                         <ul>
@@ -727,12 +819,20 @@
                                         </ul>
                                     </td>
                                 </tr>
-
-                                <tr>
-                                    <td>Cost of Not Choosing Command</td>
+                                <!-- Row 15 -->
+                                <tr class="accordion-row" onclick="toggleRow(this)">
+                                    <td><span class="icon">+</span>Cost of Not Choosing Command</td>
                                     <td>
                                         <ul>
                                             <li>Unoptimized applications</li>
+                                        </ul>
+                                    </td>
+                                    <td>—</td>
+                                </tr>
+                                <tr class="accordion-content">
+                                    <td></td>
+                                    <td>
+                                        <ul>
                                             <li>Missed scholarships</li>
                                             <li>Higher tuition</li>
                                         </ul>
@@ -743,7 +843,7 @@
                             </tbody>
                         </table>
 
-                        <div class="accordion-section">
+                       @*  <div class="accordion-section">
 
                             <!-- Accordion Item 1 -->
                             <div class="accordion-item">
@@ -752,7 +852,7 @@
                                 </div>
                                 <div class="accordion-content">
 
-                                  @*   <table class="table-responsive-design">
+                                    <table class="table-responsive-design">
                                         <thead>
                                             <tr>
                                                 <th>Dimension</th>
@@ -761,48 +861,76 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-
-                                            <tr>
+                                            <!-- Row 1 -->
+                                            <tr class="accordion-row" onclick="toggleRow(this)">
                                                 <td>Positioning</td>
+                                                <td>Clarity + Positioning</td>
+                                                <td>Execution + Optimization</td>
+                                            </tr>
+                                            <tr class="accordion-content">
+                                                <td></td>
                                                 <td>
                                                     <ul>
-                                                        <li>Clarity + Positioning</li>
                                                         <li>Direction-focused</li>
                                                         <li>Cost-aware planning</li>
                                                     </ul>
                                                 </td>
                                                 <td>
                                                     <ul>
-                                                        <li>Execution + Scholarship Optimization</li>
                                                         <li>Decision-focused</li>
                                                         <li>Outcome and cost optimization</li>
                                                     </ul>
                                                 </td>
                                             </tr>
-
-                                            <tr>
+                                            <!-- Row 2 -->
+                                            <tr class="accordion-row" onclick="toggleRow(this)">
                                                 <td>What it does</td>
                                                 <td>
                                                     <ul>
                                                         <li>Provides application direction and program landscape</li>
+                                                       
+                                                    </ul>
+                                                </td>
+                                                <td>
+                                                    <ul>
+                                                        <li>Finalizes university selection</li>
+                                                       
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                            <tr class="accordion-content">
+                                                <td></td>
+                                                <td>
+                                                    <ul>
                                                         <li>Defines admit range and cost strategy</li>
                                                         <li>Builds a structured application plan</li>
                                                     </ul>
                                                 </td>
                                                 <td>
                                                     <ul>
-                                                        <li>Finalizes university selection</li>
                                                         <li>Executes applications with consistency</li>
                                                         <li>Optimizes scholarship outcomes</li>
                                                     </ul>
                                                 </td>
                                             </tr>
-
-                                            <tr>
+                                            <!-- Row 3 -->
+                                            <tr class="accordion-row" onclick="toggleRow(this)">
                                                 <td>How it works</td>
                                                 <td>
                                                     <ul>
                                                         <li>Evaluates profile strength and eligibility</li>
+                                                    </ul>
+                                                </td>
+                                                <td>
+                                                    <ul>
+                                                        <li>Narrows to 8–10 final universities</li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                            <tr class="accordion-content">
+                                                <td></td>
+                                                <td>
+                                                    <ul>
                                                         <li>Maps a 20–25 university landscape (US-focused)</li>
                                                         <li>Provides scholarship and cost insights</li>
                                                         <li>Defines application roadmap</li>
@@ -810,37 +938,59 @@
                                                 </td>
                                                 <td>
                                                     <ul>
-                                                        <li>Narrows to 8–10 final universities</li>
                                                         <li>Applies Safe / Target / Ambitious framework</li>
                                                         <li>Builds applications and supports submission</li>
                                                         <li>Applies to external scholarships</li>
                                                     </ul>
                                                 </td>
                                             </tr>
-
-                                            <tr>
+                                            <!-- Row 4 -->
+                                            <tr class="accordion-row" onclick="toggleRow(this)">
                                                 <td>Core focus</td>
                                                 <td>
                                                     <ul>
                                                         <li>Direction</li>
+                                                    </ul>
+                                                </td>
+                                                <td>
+                                                    <ul>
+                                                        <li>Decision-making</li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                            <tr class="accordion-content">
+                                                <td></td>
+                                                <td>
+                                                    <ul>
                                                         <li>Admit range clarity</li>
                                                         <li>Cost awareness</li>
                                                     </ul>
                                                 </td>
                                                 <td>
                                                     <ul>
-                                                        <li>Decision-making</li>
                                                         <li>Execution</li>
                                                         <li>Scholarship optimization</li>
                                                     </ul>
                                                 </td>
                                             </tr>
-
-                                            <tr>
+                                            <!-- Row 5 -->
+                                            <tr class="accordion-row" onclick="toggleRow(this)">
                                                 <td>What you get</td>
                                                 <td>
                                                     <ul>
                                                         <li>Profile evaluation and admit range</li>
+                                                    </ul>
+                                                </td>
+                                                <td>
+                                                    <ul>
+                                                        <li><strong>University Optimization</strong></li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                            <tr class="accordion-content">
+                                                <td></td>
+                                                <td>
+                                                    <ul>
                                                         <li>Academic positioning clarity</li>
                                                         <li>20–25 university landscape (US)</li>
                                                         <li>Scholarship overview</li>
@@ -851,7 +1001,6 @@
                                                 </td>
                                                 <td>
                                                     <ul>
-                                                        <li><strong>University Optimization</strong></li>
                                                         <li>Final shortlist of 8–10 universities</li>
                                                         <li>Safe / Target / Ambitious categorization</li>
                                                         <li>Selection based on admit probability and cost</li>
@@ -870,81 +1019,122 @@
                                                     </ul>
                                                 </td>
                                             </tr>
-
+                                            <!-- Row 6 -->
                                             <tr>
                                                 <td>Support level</td>
                                                 <td>Structured advisory</td>
                                                 <td>Guided execution with funding support</td>
                                             </tr>
-
+                                            <!-- Row 7 -->
                                             <tr>
                                                 <td>Your role</td>
                                                 <td>You execute</td>
                                                 <td>We support execution</td>
                                             </tr>
-
-                                            <tr>
+                                            <!-- Row 8 -->
+                                            <tr class="accordion-row" onclick="toggleRow(this)">
                                                 <td>Outcome</td>
                                                 <td>
                                                     <ul>
                                                         <li>Clear direction on where and how to apply</li>
-                                                        <li>Cost-aware application plan</li>
+                                                    
                                                     </ul>
                                                 </td>
                                                 <td>
                                                     <ul>
                                                         <li>Higher probability of admit</li>
+
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                            <tr class="accordion-content">
+                                                <td></td>
+                                                <td>
+                                                    <ul>
+                                                       
+                                                        <li>Cost-aware application plan</li>
+                                                    </ul>
+                                                </td>
+                                                <td>
+                                                    <ul>
+                                                        
                                                         <li>Optimized university selection</li>
                                                         <li>Increased scholarship success</li>
                                                         <li>Reduced tuition (~$8K–$10K)</li>
                                                     </ul>
                                                 </td>
                                             </tr>
-
-                                            <tr>
+                                            <!-- Row 9 -->
+                                            <tr class="accordion-row" onclick="toggleRow(this)">
                                                 <td>When to choose</td>
                                                 <td>
                                                     <ul>
                                                         <li>Need clarity before applying</li>
+
+                                                    </ul>
+                                                </td>
+                                                <td>
+                                                    <ul>
+                                                        <li>Need final university selection</li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                            <tr class="accordion-content">
+                                                <td></td>
+                                                <td>
+                                                    <ul>
                                                         <li>Want to explore options</li>
                                                         <li>Comfortable executing independently</li>
                                                     </ul>
                                                 </td>
                                                 <td>
                                                     <ul>
-                                                        <li>Need final university selection</li>
+                                                      
                                                         <li>Need execution support</li>
                                                         <li>Want better scholarship outcomes</li>
                                                         <li>Want cost optimization</li>
                                                     </ul>
                                                 </td>
                                             </tr>
-
+                                            <!-- Row 10 -->
                                             <tr>
                                                 <td>Engagement depth</td>
                                                 <td>~10–15 hours</td>
                                                 <td>~30–50 hours</td>
                                             </tr>
-
+                                            <!-- Row 11 -->
                                             <tr>
                                                 <td>Upgrade path</td>
                                                 <td>Upgrade to Assist™</td>
                                                 <td>Final stage</td>
                                             </tr>
-
+                                            <!-- Row 12 -->
                                             <tr>
                                                 <td>Ideal mindset</td>
                                                 <td>I need clarity and direction before I start</td>
                                                 <td>I want to optimize outcomes and reduce cost</td>
                                             </tr>
-
+                                            <!-- Row 13 -->
                                             <tr>
                                                 <td>Investment</td>
                                                 <td>US$ 391</td>
                                                 <td>US$ 9,310</td>
                                             </tr>
-
-                                            <tr>
+                                            <!-- Row 14 -->
+                                            <tr class="accordion-row" onclick="toggleRow(this)">
+                                                <td>ROI Perspective</td>
+                                                <td>
+                                                    <ul>
+                                                        <li>Avoid misaligned applications</li>
+                                                    </ul>
+                                                </td>
+                                                <td>
+                                                    <ul>
+                                                        <li>Increase admit probability</li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                            <tr class="accordion-content">
                                                 <td>ROI Perspective</td>
                                                 <td>
                                                     <ul>
@@ -962,12 +1152,20 @@
                                                     </ul>
                                                 </td>
                                             </tr>
-
-                                            <tr>
+                                            <!-- Row 15 -->
+                                            <tr class="accordion-row" onclick="toggleRow(this)">
                                                 <td>Cost of Not Choosing Command</td>
                                                 <td>
                                                     <ul>
                                                         <li>Unoptimized applications</li>
+                                                    </ul>
+                                                </td>
+                                                <td>—</td>
+                                            </tr>
+                                            <tr class="accordion-content">
+                                                <td></td>
+                                                <td>
+                                                    <ul>
                                                         <li>Missed scholarships</li>
                                                         <li>Higher tuition</li>
                                                     </ul>
@@ -976,10 +1174,10 @@
                                             </tr>
 
                                         </tbody>
-                                    </table> *@
+                                    </table>
                                 </div>
                             </div>
-                        </div>
+                        </div> *@
                     </div>
                 </div>
             </div>
@@ -1234,6 +1432,28 @@
     </div>
 </footer>
 <!-- footer end -->
-    <script src="js/sure.js"></script>
+    <script>
+        function toggleRow(row) {
+          row.classList.toggle("active");
+        }
+    </script>
+    <script>
+        function toggleRow(row) {
+          const icon = row.querySelector(".icon");
+
+          // Toggle active class
+          row.classList.toggle("active");
+
+          // Change icon
+          if (row.classList.contains("active")) {
+            icon.textContent = "−";
+          } else {
+            icon.textContent = "+";
+          }
+        }
+    </script>
+
+    <script src="~/assets/js/sure.js"></script>
+  
 </body>
 </html>
