@@ -30,29 +30,34 @@ namespace SureAdmitCore.Controllers
         {
             return View();
         }
-        public async Task<IActionResult> Scholaria()
+        public IActionResult Scholaria()
         {
-            // Fetch all active courses
-            var parameters = new SqlParameter[]
-            {
-        new SqlParameter("@Action", "Select"),
-        new SqlParameter("@FilterVal", DBNull.Value) // no search
-            };
-
-            DataTable dt = await _dbLayer.ExecuteSPAsync("sp_ManageCourse", parameters);
-
-            var courses = dt.AsEnumerable()
-                .Where(r => r["IsActive"] != DBNull.Value && Convert.ToBoolean(r["IsActive"]))
-                .Select(r => new Course
-                {
-                    CourseId = Convert.ToInt32(r["CourseId"]),
-                    CourseName = r["CourseName"]?.ToString() ?? string.Empty,
-                    CourseImgPath = r["CourseImgPath"]?.ToString() ?? "/images/no-image.png",
-                    CoursePrice = r["CoursePrice"]?.ToString() ?? "0"
-                }).ToList();
-
-            return View(courses);
+            return View();
         }
+
+        //public async Task<IActionResult> Scholaria()
+        //{
+        //    // Fetch all active courses
+        //    var parameters = new SqlParameter[]
+        //    {
+        //new SqlParameter("@Action", "Select"),
+        //new SqlParameter("@FilterVal", DBNull.Value) // no search
+        //    };
+
+        //    DataTable dt = await _dbLayer.ExecuteSPAsync("sp_ManageCourse", parameters);
+
+        //    var courses = dt.AsEnumerable()
+        //        .Where(r => r["IsActive"] != DBNull.Value && Convert.ToBoolean(r["IsActive"]))
+        //        .Select(r => new Course
+        //        {
+        //            CourseId = Convert.ToInt32(r["CourseId"]),
+        //            CourseName = r["CourseName"]?.ToString() ?? string.Empty,
+        //            CourseImgPath = r["CourseImgPath"]?.ToString() ?? "/images/no-image.png",
+        //            CoursePrice = r["CoursePrice"]?.ToString() ?? "0"
+        //        }).ToList();
+
+        //    return View(courses);
+        //}
         public IActionResult gradedgefundingtm()
         {
             return View();
@@ -137,8 +142,8 @@ namespace SureAdmitCore.Controllers
                 var idsParam = string.Join(",", cartIds);
                 var dtCourses = await _dbLayer.ExecuteSPAsync("sp_ManageCourse", new SqlParameter[]
                 {
-            new SqlParameter("@Action", "SelectById"),
-            new SqlParameter("@CourseId", idsParam)
+            new SqlParameter("@Action", "SelectByCartCourseId"),
+            new SqlParameter("@CartCourseId", idsParam)
                 });
 
                 var courses = dtCourses.AsEnumerable()
