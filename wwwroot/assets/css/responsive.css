@@ -73,8 +73,8 @@
 
 @media only screen and (min-width: 1200px){
 	.row:not(.g-0) {
-		margin-left: 0;
-		margin-right: 0;
+		margin-left: auto;
+		margin-right: auto;
 	}
 	/* header */
 	.prt-stickable-header.fixed-header {

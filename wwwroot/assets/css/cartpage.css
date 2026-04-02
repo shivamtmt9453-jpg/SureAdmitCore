@@ -20,27 +20,26 @@ section.cartpagewrrap .container {
     overflow: hidden;
     background: #5d7f57;
 }
-    .cart-item img {
-        width: 150px;
-        margin: 0 10px 0 0;
-        height: 150px;
-        object-fit: cover;
-        object-position: center;
-    }
+.cart-item img {
+    width: 150px;
+    margin: 0 10px 0 0;
+    height: 150px;
+    object-fit: cover;
+    object-position: center;
+}
 .item-details {
     flex: 1;
 }
-    .item-details h4 {
-        color: #fff;
-        margin: 0;
-        font-weight: 500;
-    }
+.item-details h4 {
+    color: #fff;
+    margin: 0;
+    font-weight: 500;
+}
 .quantity {
     display: flex;
     align-items: center;
     margin-top: 10px;
 }
-
 .quantity button {
     padding: 5px 10px;
     margin: 0 5px;
@@ -167,7 +166,7 @@ section.checkout-section .container {
     width: 100%;
     resize: none;
     height: 53px;
-    padding: 10px 10px;
+    padding: 10px 10px 10px 22px;
     color: #000;
     outline: none;
     border: 1px solid #000;
@@ -265,6 +264,9 @@ div#CartCoursesList .course-row {
     max-width: 710px;
     margin: auto;
 }
+.submitbutton, .paybtnpay {
+    max-width: 200px;
+}
 .paybtnpay {
     grid-column-start: unset;
     grid-column-end: unset;
@@ -331,11 +333,13 @@ span#Email-error {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 .alert-success {
     font-size: 20px;
     color: #5d7f57;
     font-weight: 700;
+    margin: 0 0 9px 0;
 }
 .bactohome a {
     font-size: 16px;
@@ -355,6 +359,15 @@ main.maincoursecart {
 }
 .summary p.total {
     font-size: 18px;
+}
+div#CartCoursesList .course-row:not(:last-child) {
+    margin-bottom: 35px;
+}
+a {
+    text-decoration: none;
+}
+.container.paymentresponse .bactohome {
+    margin: 10px 0 0 0;
 }
 @media all and (max-width: 767px) {
     .cart-items {
