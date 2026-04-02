@@ -17,68 +17,157 @@
         <section class="checkout-section">
             <div class="container">
 
-                <h2>Complete Your Details</h2>
+                <h2>Complete <span>Your Details</span> for <span>Payment</span></h2>
                 <form asp-action="Checkout" method="post" id="checkoutForm">
                     <div class="row">
                         <!-- Left: Customer Details -->
-                        <div class="col-lg-7">
+                        <div class="formwrapdesign">
                             <div class="form-group">
                                 <label for="Name">Name*</label>
-                                <input asp-for="Name" class="form-control" required />
+                                <div class="input-wrap">
+                                    <input asp-for="Name" autocomplete="off" class="form-control" required />
+                                </div>
                                 <span asp-validation-for="Name" class="text-danger"></span>
                             </div>
 
                             <div class="form-group">
                                 <label for="Email">Email*</label>
-                                <input asp-for="Email" class="form-control" type="email" required />
+                                <div class="input-wrap">
+                                    <input asp-for="Email" autocomplete="off" class="form-control" type="email" required />
+                                </div>
                                 <span asp-validation-for="Email" class="text-danger"></span>
                             </div>
 
                             <div class="form-group">
                                 <label for="Phone">Phone*</label>
-                                <input asp-for="Phone" type="tel" maxlength="15" class="form-control" required />
+                                <div class="input-wrap">
+                                    <input asp-for="Phone" autocomplete="off"  type="tel" maxlength="15" class="form-control" required />
+                                </div>
                                 <span asp-validation-for="Phone" class="text-danger"></span>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group input_focus value_focus ">
                                 <label for="Country">Country*</label>
-                                <select asp-for="Country" asp-items="Model.CountryList" class="form-select" required>
-                                    <option value="">--Select Country--</option>
-                                </select>
+                                <div class="input-wrap selectarow">
+                                    <select asp-for="Country" asp-items="Model.CountryList" class="form-select" required>
+                                        <option value="">--Select Country--</option>
+                                    </select>
+                                </div>
                                 <span asp-validation-for="Country" class="text-danger"></span>
                             </div>
 
                             <div class="form-group">
                                 <label for="BachelorCGPA">Bachelor’s CGPA/%*</label>
-                                <input asp-for="BachelorCGPA" class="form-control" maxlength="5" required />
+                                <div class="input-wrap">
+                                    <input asp-for="BachelorCGPA" autocomplete="off" class="form-control" maxlength="5" required />
+                                </div>
                                 <span asp-validation-for="BachelorCGPA" class="text-danger"></span>
                             </div>
 
                             <div class="form-group">
                                 <label for="MasterCGPA">Master’s CGPA/%</label>
-                                <input asp-for="MasterCGPA" class="form-control" maxlength="5" />
+                                <div class="input-wrap">
+                                    <input asp-for="MasterCGPA" autocomplete="off" class="form-control" maxlength="5" />
+                                </div>
                                 <span asp-validation-for="MasterCGPA" class="text-danger"></span>
                             </div>
 
                             <div class="form-group">
                                 <label for="GREVerbal">GRE Verbal Test Score</label>
-                                <input asp-for="GREVerbal" class="form-control" />
+                                <div class="input-wrap">
+                                    <input asp-for="GREVerbal" autocomplete="off" class="form-control" />
+                                </div>
                             </div>
 
                             <div class="form-group">
                                 <label for="GREQuant">GRE Quantitative Test Score</label>
-                                <input asp-for="GREQuant" class="form-control" />
+                                <div class="input-wrap">
+                                    <input asp-for="GREQuant" autocomplete="off" class="form-control" />
+                                </div>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group textara">
                                 <label for="Message">Message</label>
-                                <textarea asp-for="Message" class="form-control" rows="3"></textarea>
+                                <div class="input-wrap">
+                                    <textarea asp-for="Message" autocomplete="off" class="form-control" rows="3"></textarea>
+                                </div>
+                            </div>
+
+                            @if (Model.CartCourses != null && Model.CartCourses.Any())
+                            {
+                                var firstCoursePrice = Model.CartCourses.FirstOrDefault()?.CoursePriceDisplay ?? "₹0.00";
+                                var firstCurrencySymbol = firstCoursePrice.FirstOrDefault();
+                                var isINR = firstCurrencySymbol == '₹';
+                                var isUSD = firstCurrencySymbol == '$';
+                                <div class="form-group currency input_focus value_focus">
+                                    <label for="Currency">Currency</label>
+                                    <div class="input-wrap selectarow">
+                                        <select id="Currency" asp-for="SelectedCurrency" class="form-select">
+                                            <option value="USD">$ USD</option>
+                                            <option value="INR">₹ INR</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div id="CartCoursesList" class="form-group">
+                                    @foreach (var course in Model.CartCourses)
+                                    {
+                                        <div class="course-row mb-2">
+                                            <div class="form-group input_focus value_focus">
+                                                <label>Course</label>
+                                                <div class="input-wrap">
+                                                    <input type="text" autocomplete="off" class="form-control mb-1" value="@course.CourseName" readonly />
+                                                </div>
+                                            </div>
+                                            <div class="form-group input_focus value_focus">
+                                                <label>Course Price</label>
+                                                <div class="input-wrap">
+                                                    <input type="text" autocomplete="off" class="form-control price-field" value="@course.CoursePriceDisplay" readonly />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+
+                              
+
+                                <!-- Display Totals -->
+                                <div class="form-group input_focus value_focus">
+                                    <label>Subtotal</label>
+                                    <div class="input-wrap">
+                                        <input type="text" id="Subtotal" class="form-control" readonly />
+                                        <input type="hidden" autocomplete="off" asp-for="Subtotal" id="SubtotalHidden" />
+                                    </div>
+
+                                </div>
+                                <div class="form-group input_focus value_focus">
+                                    <label>GST (18%)</label>
+                                    <div class="input-wrap">
+                                        <input type="text" id="GST" class="form-control" readonly />
+                                        <input type="hidden" autocomplete="off" asp-for="GST" id="GstHidden" />
+                                    </div>
+
+                                </div>
+                                <div class="form-group input_focus value_focus">
+                                    <label>Total</label>
+                                    <div class="input-wrap">
+                                        <input type="text" id="Total" class="form-control" readonly />
+                                        <input type="hidden" autocomplete="off" asp-for="Total" id="TotalHidden" />
+                                    </div>
+
+                                </div>
+                            }
+                            else
+                            {
+                                <p>No courses in cart.</p>
+                            }
+                            <div class="col-12 mt-3 submitbutton">
+                                <button type="submit" >Continue to Pay</button>
                             </div>
                         </div>
 
                         <!-- Right: Cart Summary -->
-                        <div class="col-lg-5">
-                            <h3>Cart Summary</h3>
+                      @*   <div class="col-lg-5">
 
                             @if (Model.CartCourses != null && Model.CartCourses.Any())
                             {
@@ -88,10 +177,12 @@
                                 var isUSD = firstCurrencySymbol == '$';
                             <div class="form-group">
                                 <label for="Currency">Currency</label>
+                                    <div class="input-wrap">
                                     <select id="Currency" asp-for="SelectedCurrency" class="form-select">
-                                        <option value="USD">$ USD</option> 
                                         <option value="INR">₹ INR</option>
+                                        <option value="USD">$ USD</option>
                                     </select>
+                                    </div>
                             </div>
 
                             <div id="CartCoursesList">
@@ -107,31 +198,38 @@
                             <hr />
 
                             <!-- Display Totals -->
-                            <div class="form-group">
-                                <label>Subtotal</label>
-                                <input type="text" id="Subtotal" class="form-control" readonly />
-                                <input type="hidden" asp-for="Subtotal" id="SubtotalHidden" />
-                            </div>
-                            <div class="form-group">
-                                <label>GST (18%)</label>
-                                <input type="text" id="GST" class="form-control" readonly />
-                                <input type="hidden" asp-for="GST" id="GstHidden" />
-                            </div>
-                            <div class="form-group">
-                                <label>Total</label>
-                                <input type="text" id="Total" class="form-control" readonly />
-                                <input type="hidden" asp-for="Total" id="TotalHidden" />
-                            </div>
+                                <div class="form-group">
+                                    <label>Subtotal</label>
+                                    <div class="input-wrap">
+                                        <input type="text" id="Subtotal" class="form-control" readonly />
+                                        <input type="hidden" asp-for="Subtotal" id="SubtotalHidden" />
+                                    </div>
+                                   
+                                </div>
+                                <div class="form-group">
+                                    <label>GST (18%)</label>
+                                    <div class="input-wrap">
+                                        <input type="text" id="GST" class="form-control" readonly />
+                                        <input type="hidden" asp-for="GST" id="GstHidden" />
+                                    </div>
+                                   
+                                </div>
+                                <div class="form-group">
+                                    <label>Total</label>
+                                    <div class="input-wrap">
+                                        <input type="text" id="Total" class="form-control" readonly />
+                                        <input type="hidden" asp-for="Total" id="TotalHidden" />
+                                    </div>
+                                   
+                                </div>
                             }
                             else
                             {
                                 <p>No courses in cart.</p>
                             }
                         </div>
-
-                        <div class="col-12 mt-3">
-                            <button type="submit" class="btn btn-primary btn-lg">Continue to Pay</button>
-                        </div>
+ *@
+                      
                     </div>
                 </form>
             </div>
@@ -192,6 +290,23 @@
 
             // Recalculate on currency change
             $("#Currency").on("change", calculateTotals);
+        });
+    </script>
+    <script>
+                jQuery('input[type!="submit"], textarea,select').focusin(function () {
+            jQuery(this).parent().parent().addClass("input_focus");
+            jQuery(".submit-btn input").parent().parent().removeClass("input_focus");
+        })
+            .focusout(function () {
+                jQuery(this).parent().parent().removeClass("input_focus");
+            });
+
+        jQuery('input[type!="submit"], textarea,select').change(function () {
+            if (jQuery(this).val() != "") {
+                jQuery(this).parent().parent().addClass("value_focus");
+            } else {
+                jQuery(this).parent().parent().removeClass("value_focus");
+            }
         });
     </script>
 </body>

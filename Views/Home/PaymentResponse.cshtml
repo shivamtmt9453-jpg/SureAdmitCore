@@ -4,9 +4,14 @@
     ViewData["Title"] = "Payment Response";
     Layout = null;
 }
-
-<div class="container mt-5">
-    <h2>Payment Status</h2>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="~/assets/css/cartpage.css" rel="stylesheet" />
+    <link href="~/assets/css/checkout.css" rel="stylesheet" />
+</head>
+<div class="container mt-5 paymentresponse">
+    <h2>Payment <span>Status</span></h2>
 
     @if (!string.IsNullOrEmpty(ViewBag.Message))
     {
@@ -25,6 +30,7 @@
             Payment information not found.
         </div>
     }
-
-    <a href="@Url.Action("Index", "Home")" class="btn btn-primary mt-3">Back to Home</a>
+    <div class="bactohome">
+        <a href="/home/Scholaria" class="">Back to Home</a>
+    </div>
 </div>

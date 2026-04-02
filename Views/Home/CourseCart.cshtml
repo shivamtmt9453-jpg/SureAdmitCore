@@ -30,10 +30,10 @@
                                 <div class="item-details">
                                     <h4>@course.CourseName</h4>
                                     <div class="classpricewrrap">
-                                        <div class="priceheightlight">Price</div>
+                                        <div class="priceheightlight">Price :</div>
                                         <div class="price">@course.CoursePrice</div>
                                     </div>
-                                    <div class="remove">
+                                    <div class="remove common-btn-desgn">
                                         <a asp-action="RemoveFromCart" asp-route-courseId="@course.CourseId" class="btn btn-danger btn-sm">Remove</a>
                                     </div>
                                 </div>
@@ -76,7 +76,7 @@
                     <hr>
                     <p class="total"><span>Total</span><span>@currencySymbol@total.ToString("N2")</span></p>
 
-                    <a asp-action="Checkout" class="btn checkout">Proceed to Checkout</a>
+                    <a asp-action="Checkout" class="checkout">Proceed to Checkout</a>
                 </div>
 
             </div>

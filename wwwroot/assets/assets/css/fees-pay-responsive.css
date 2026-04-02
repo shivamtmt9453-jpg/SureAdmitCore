@@ -1,0 +1,220 @@
+﻿@media (max-width: 1024px) {
+    .image-fee img.img-fluid {
+        height: 435px;
+        object-fit: cover;
+    }
+    section.graduate-admissions.sixth-section {
+        background-position: -290px 0;
+    }
+    table tbody a {
+        padding: 0 11px;
+    }
+}
+@media (max-width: 768px) {
+    table tbody tr td {
+        font-size: 16px;
+        line-height: 27px;
+    }
+    section.graduate-admissions p {
+        font-size: 16px;
+        line-height: 27px;
+    }
+    .fees-structure-table-wrap {
+        margin: 0 0 20px 0;
+    }
+    table thead tr th {
+        font-size: 16px;
+        line-height: 27px;
+    }
+    section.graduate-admissions h2 {
+        font-size: 27px;
+        line-height: 40px;
+    }
+    section.graduate-admissions h1 {
+        font-size: 33px;
+        line-height: 50px;
+    }
+    section.graduate-admissions h3.respoonsive-view {
+        display: block;
+    }
+
+    .big-wrap-img-and-content {
+        flex-direction: column;
+    }
+        .big-wrap-img-and-content .fees-structure-table-wrap {
+            width: auto;
+            margin: 0;
+        }
+        .big-wrap-img-and-content .image-wrap-content {
+            width: 100%;
+        }
+    section.graduate-admissions h3.respoonsive-view {
+        display: flex;
+    }
+    .big-wrap-img-and-content {
+        gap: 15px;
+    }
+    section.graduate-admissions.third-section {
+        padding: 20px 0;
+    }
+    section.graduate-admissions.sixth-section {
+        background-position: 0 0;
+        margin: 0 16px;
+        padding: 480px 0 0 0;
+        min-height: auto;
+    }
+    .fees-wrap-wrap-big {
+        flex-direction: column;
+    }
+        .fees-wrap-wrap-big > div {
+            width: auto;
+        }
+    .fees-wrap-wrap-big {
+        display: block;
+    }
+    section.seventh-section .fees-structure-table-wrap {
+       
+        margin: 0 auto 20px;
+    }
+    footer.footer .wrapper {
+        gap: 15px 25px;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    table {
+        margin: 0 0 10px 0;
+        display: block;
+        overflow-x: auto;
+        width: 100%;
+    }
+    section.banner-section .container {
+        padding-top: 147px;
+    }
+    .banner-img img {
+        height: 260px;
+    }
+    section.graduate-admissions.frst-box-section {
+        margin: 30px 0 0 0;
+    }
+    section.banner-section.sureadmit-essentials-package .container {
+        padding-top: 180px;
+    }
+}
+@media (max-width: 767px) {
+    table {
+        width: 100%;
+        min-width: 362px;
+    }
+    .table-responsive-design {
+        display: block;
+        overflow-x: auto;
+        width: 100%;
+    }
+    section.graduate-admissions h2 {
+        font-size: 21px;
+        line-height: 30px;
+    }
+    section.graduate-admissions h1 {
+        font-size: 24px;
+        line-height: 30px;
+        margin: 5px 0;
+    }
+    .banner-img img {
+        height: 290px;
+    }
+    .big-wrap-img-and-content .fees-structure-table-wrap {
+        padding: 20px 15px;
+    }
+    section.graduate-admissions h3 {
+        font-size: 17px;
+        line-height: 25px;
+    }
+    span.numberssss {
+        height: 25px;
+        width: 25px;
+        font-size: 16px;
+        gap: 6px;
+    }
+    table thead tr th {
+        font-size: 14px;
+        line-height: 25px;
+    }
+    table tbody tr td {
+        font-size: 14px;
+        line-height: 19px;
+        padding: 11px 6px;
+    }
+    section.graduate-admissions p {
+        font-size: 14px;
+        line-height: 25px;
+        margin: 6px 0 6px;
+    }
+    section.graduate-admissions ul li {
+        font-size: 14px;
+        line-height: 25px;
+        padding: 0 0 0 24px;
+        margin: 0 0 6px 0;
+    }
+        section.graduate-admissions ul li::before {
+            height: 20px;
+            width: 20px;
+            top: 5px;
+        }
+    .image-fee img.img-fluid {
+        height: 245px;
+    }
+    section.graduate-admissions.sixth-section .fees-structure-table-wrap {
+        padding: 20px 15px;
+        margin-top: -120px;
+    }
+    section.graduate-admissions.sixth-section {
+        background-position: 0 0;
+        margin: 0 15px;
+        padding: 0 0 0 0;
+        min-height: auto;
+        background-image: none;
+    }
+    .responsive-image {
+        display: block;
+    }
+        .responsive-image img {
+            max-height: 277px;
+            height: 100%;
+            width: 100%;
+        }
+    section.graduate-admissions.seventh-section {
+        padding: 0;
+    }
+    section.seventh-section .fees-structure-table-wrap {
+        padding: 20px 15px;
+    }
+    footer.footer .wrapper {
+        grid-template-columns: repeat(1,1fr);
+    }
+    footer.footer h3.wp-block-heading {
+        margin: 0 0 10px 0;
+    }
+    footer.footer .wrapper p {
+        margin: 0 0 5px 0;
+    }
+    section.graduate-admissions.third-section {
+        padding: 21px 0 0 0;
+    }
+    .span {
+        width: 85%;
+    }
+    .big-wrap-img-and-content {
+        gap: 20px;
+    }
+    section.last-two-box {
+        margin: 20px 0 0 0;
+    }
+    section.banner-section.sureadmit-essentials-package .container {
+        padding-top: 141px;
+    }
+    section.banner-section.sureadmit-essentials-package .banner-img img {
+        height: 160px;
+    }
+    p.last-para {
+        gap: 5px;
+    }
+}

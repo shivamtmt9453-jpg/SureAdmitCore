@@ -2,15 +2,22 @@
     ViewData["Title"] = "Payment Gateway";
     Layout = null;
 }
-
-<div class="container mt-5 text-center">
-    <h2>Complete Payment</h2>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="~/assets/css/cartpage.css" rel="stylesheet" />
+    <link href="~/assets/css/checkout.css" rel="stylesheet" />
+</head>
+<div class="container compltpay mt-5 text-center">
+    <h2>Complete <span>Payment</span></h2>
+    <p>Please Click Pay Now</p>
     <p style="display:none;">Application ID: <strong>@ViewBag.ApplicationId</strong></p>
     <p>Total Amount: <strong>₹@ViewBag.TotalAmount</strong></p>
-
+    <div class="paybtnpay">
     <button id="payBtn" class="btn btn-success btn-lg mt-3">
         Pay Now
     </button>
+    </div>
 </div>
 
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
