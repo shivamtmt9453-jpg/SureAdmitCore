@@ -75,7 +75,7 @@ h4 {
 
 /*******************************/
 main {
-    margin: 61px 0 0 0;
+    margin: 43px 0 0 0;
 }
 .imgbnr img {
     height: 300px;
@@ -613,10 +613,10 @@ section.closinglinesection h2 span {
 section.closinglinesection.second .container {
     background: transparent;
 }
-section.closinglinesection.second h2.commonheading {
-    text-align: left;
-    padding-left: 50px;
-}
+    section.closinglinesection.second h2.commonheading {
+        text-align: left;
+        padding-left: 0;
+    }
 section.closinglinesection.second .container {
     background: transparent;
     padding: 0 15px;
@@ -718,8 +718,9 @@ section.a-fully-fundedphd .spacing-1 {
 }
 section.why-do-ninty-percent-ofphd .commonbtn {
     position: relative;
-    max-width: 380px;
+    max-width: 474px;
     margin: -17px auto 0;
+    gap: 15px;
 }
 section.products-card-section .commonbtn {
     max-width: 180px;
@@ -753,7 +754,7 @@ img.logodesngwrap {
     max-width: 210px;
 }
 .closingline {
-    padding: 0 0 0 60px !important;
+    padding: 0 !important;
     position: relative;
 }
 .midlecontent::before {
@@ -1357,5 +1358,3 @@ section.finaldecisionguide img.sectionlogo {
     background: #c52f36;
     border: 1px solid #c52f36;
 }
-
-
