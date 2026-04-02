@@ -264,7 +264,7 @@ div#CartCoursesList .course-row {
     max-width: 710px;
     margin: auto;
 }
-.submitbutton, .paybtnpay {
+.paybtnpay {
     max-width: 200px;
 }
 .paybtnpay {
