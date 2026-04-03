@@ -68,7 +68,7 @@
                                 <span asp-validation-for="Phone" class="text-danger"></span>
                             </div>
 
-                            <div class="form-group input_focus value_focus ">
+                            <div class="form-group input_focus value_focus" style="display:none;">
                                 <label for="Country">Country*</label>
                                 <div class="input-wrap selectarow">
                                     <select asp-for="Country" asp-items="Model.CountryList" class="form-select" required>
@@ -78,7 +78,7 @@
                                 <span asp-validation-for="Country" class="text-danger"></span>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group" style="display:none;">
                                 <label for="BachelorCGPA">Bachelor’s CGPA/%*</label>
                                 <div class="input-wrap">
                                     <input asp-for="BachelorCGPA" autocomplete="off" class="form-control" maxlength="5" required />
@@ -86,7 +86,7 @@
                                 <span asp-validation-for="BachelorCGPA" class="text-danger"></span>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group" style="display:none;">
                                 <label for="MasterCGPA">Master’s CGPA/%</label>
                                 <div class="input-wrap">
                                     <input asp-for="MasterCGPA" autocomplete="off" class="form-control" maxlength="5" />

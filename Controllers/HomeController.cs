@@ -121,6 +121,7 @@ namespace SureAdmitCore.Controllers
                     {
                         CourseId = Convert.ToInt32(r["CourseId"]),
                         CourseName = r["CourseName"]?.ToString() ?? string.Empty,
+                        CourseDescription = r["CourseDescription"]?.ToString() ?? string.Empty,
                         CourseImgPath = r["CourseImgPath"]?.ToString() ?? "/images/no-image.png",
                         CoursePrice = priceStr,       // Keep original with symbol
                         CurrencySymbol = symbol       // store symbol separately

@@ -22,6 +22,7 @@ namespace SureAdmitCore.Areas.Admin.Models
         public bool IsActive { get; set; }
  
      public string? CurrencySymbol { get; set; } // e.g. "$"
+     public string? CourseDescription { get; set; } 
         
     }
 }
