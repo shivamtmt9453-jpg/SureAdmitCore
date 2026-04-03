@@ -22,10 +22,10 @@
                     <form asp-action="AddCourse" method="post" enctype="multipart/form-data" class="form-horizontal">
 
                         <input type="hidden" asp-for="CourseId" />
-
+                        <div class="row grid-design-wrap">
                         <!-- COURSE NAME -->
                         <div class="form-group">
-                            <label class="col-md-2 control-label">Course Name <span class="required">*</span></label>
+                            <label class="control-label">Course Name <span class="required">*</span></label>
                             <div class="col-md-4">
                                 <input autocomplete="off" asp-for="CourseName" class="form-control" required />
                                 <span asp-validation-for="CourseName" class="text-danger"></span>
@@ -34,7 +34,7 @@
 
                         <!-- COURSE PRICE -->
                         <div class="form-group">
-                            <label class="col-md-2 control-label">Course Price <span class="required">*</span></label>
+                            <label class="control-label">Course Price <span class="required">*</span></label>
                             <div class="col-md-4">
                                 <input asp-for="CoursePrice" class="form-control" required />
                                 <span asp-validation-for="CoursePrice" class="text-danger"></span>
@@ -43,7 +43,7 @@
 
                         <!-- IMAGE UPLOAD -->
                         <div class="form-group">
-                            <label class="col-md-2 control-label">Course Image</label>
+                            <label class="control-label">Course Image</label>
 
                             <div class="col-md-4">
                                 <!-- FILE INPUT -->
@@ -57,15 +57,27 @@
                                 <span asp-validation-for="CourseImg" class="text-danger"></span>
 
                                 <!-- PREVIEW (NEW IMAGE) -->
-                                <br />
+                             
                                 <img id="imgPreview"
                                      src="@(string.IsNullOrEmpty(Model.CourseImgPath) ? "/images/no-image.png" : Model.CourseImgPath)"
                                      width="100"
                                      height="100"
                                      style="object-fit:cover; border:1px solid #ddd; padding:3px;" />
                             </div>
+                            </div>
+                               
                         </div>
-
+                            <div class="row">
+                            <!-- COURSE DESCRIPTION -->
+                            <div class="col-md-12 form-group">
+                                <label class="control-label">Course Description</label>
+                                <div class="col-md-12">
+                                    <textarea asp-for="CourseDescription" class="form-control" id="CourseDescription"></textarea>
+                                    <span asp-validation-for="CourseDescription" class="text-danger"></span>
+                                </div>
+                            </div>
+                             
+                        </div>
                         <!-- ACTION BUTTONS -->
                         <div class="form-actions">
                             <div class="col-md-offset-2 col-md-9"> 
@@ -101,5 +113,10 @@
 
             reader.readAsDataURL(event.target.files[0]);
         }
+    </script>
+    <script src="https://cdn.ckeditor.com/4.21.0/standard/ckeditor.js"></script>
+    <script>
+        // Initialize CKEditor
+        CKEDITOR.replace('CourseDescription');
     </script>
 }

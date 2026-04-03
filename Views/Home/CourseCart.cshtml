@@ -1,5 +1,6 @@
 ﻿@model List<SureAdmitCore.Areas.Admin.Models.Course>
 @using System.Text.RegularExpressions
+@using System.Text.Encodings.Web
 @{
     ViewData["Title"] = "Course Cart";
     Layout = null;
@@ -79,29 +80,19 @@
                     }
                     else
                     {
-                      
-
-                    @foreach (var course in Model)
-                        {
-                            var plainText = Regex.Replace(course.CourseDescription ?? "", "<.*?>", "");
-                            var shortDesc = plainText.Length > 150 ? plainText.Substring(0, 150) + "..." : plainText;
-
+    @foreach (var course in Model)
+                        { 
                             <div class="cart-item">
                                 <img src="@course.CourseImgPath" />
 
                                 <div class="item-details">
                                     <h4>@course.CourseName</h4>
+ 
 
-                                    <!-- ✅ Short Description -->
-                                    <p class="short-desc">@shortDesc</p>
-
-                                    <!-- ✅ Read More Button -->
-                                    <button class="read-more-btn"
-                                            data-name="@course.CourseName"
-                                            data-img="@course.CourseImgPath"
-                                            data-desc='@Html.Raw(course.CourseDescription)'>
-                                        Read More
-                                    </button>
+                                    <!-- ✅ Full Description (HTML from CKEditor) -->
+                                    <div class="full-desc">
+                                        @Html.Raw(course.CourseDescription)
+                                    </div>
 
                                     <div class="classpricewrrap">
                                         <div class="priceheightlight">Price :</div>
@@ -238,50 +229,5 @@
     <!-- footer end -->
 </body>
 
-<div id="courseModal" class="custom-modal">
-    <div class="modal-content">
-        <span class="close-btn">×</span>
-        <div class="row">
-        <!-- Image Section -->
-        <div class="col-sm-6 modal-img-wrap">
-            <img id="modalImg" src="" alt="Course Image" />
-        </div>
-
-        <!-- Details Section -->
-            <div class="col-sm-6 modal-details">
-            <h2 id="modalTitle"></h2>
-            <div id="modalDesc"></div> <!-- HTML content goes here -->
-        </div>
-        </div>
-    </div>
-</div>
-
-    <script>
-        const modal = document.getElementById("courseModal");
-        const modalTitle = document.getElementById("modalTitle");
-        const modalImg = document.getElementById("modalImg");
-        const modalDesc = document.getElementById("modalDesc");
-        const closeBtn = document.querySelector(".close-btn");
-
-        document.querySelectorAll(".read-more-btn").forEach(btn => {
-            btn.addEventListener("click", function () {
-
-                modal.style.display = "block";
-                modalTitle.innerText = this.dataset.name;
-                modalImg.src = this.dataset.img;
-
-                // 🔥 CKEditor HTML render
-                modalDesc.innerHTML = this.dataset.desc;
-            });
-        });
-
-        closeBtn.onclick = function () {
-            modal.style.display = "none";
-        };
-
-        window.onclick = function (e) {
-            if (e.target == modal) {
-                modal.style.display = "none";
-            }
-        };
-    </script>
+ 
+ 

@@ -38,6 +38,7 @@ namespace SureAdmitCore.Areas.Admin.Controllers
                 CourseName = r["CourseName"]?.ToString() ?? string.Empty,
                 CourseImgPath = r["CourseImgPath"]?.ToString() ?? string.Empty,
                 CoursePrice = r["CoursePrice"]?.ToString() ?? string.Empty,
+                CourseDescription = r["CourseDescription"]?.ToString() ?? string.Empty,
                 IsActive = r["IsActive"] != DBNull.Value && Convert.ToBoolean(r["IsActive"])
             }).ToList();
 
@@ -68,7 +69,8 @@ namespace SureAdmitCore.Areas.Admin.Controllers
                 CourseId = Convert.ToInt32(dt.Rows[0]["CourseId"]),
                 CourseName = dt.Rows[0]["CourseName"]?.ToString() ?? string.Empty,
                 CourseImgPath = dt.Rows[0]["CourseImgPath"]?.ToString() ?? string.Empty,
-                CoursePrice = dt.Rows[0]["CoursePrice"]?.ToString() ?? string.Empty 
+                CoursePrice = dt.Rows[0]["CoursePrice"]?.ToString() ?? string.Empty,
+                CourseDescription = dt.Rows[0]["CourseDescription"]?.ToString() ?? string.Empty 
             };
 
             return View(course);
@@ -129,6 +131,7 @@ namespace SureAdmitCore.Areas.Admin.Controllers
             new SqlParameter("@CourseId", model.CourseId),
             new SqlParameter("@CourseName", model.CourseName),
             new SqlParameter("@CourseImgPath", model.CourseImgPath ?? (object)DBNull.Value),
+            new SqlParameter("@CourseDescription", model.CourseDescription ?? (object)DBNull.Value),
             new SqlParameter("@CoursePrice", model.CoursePrice),
             new SqlParameter("@IsActive", model.IsActive)
                 };
