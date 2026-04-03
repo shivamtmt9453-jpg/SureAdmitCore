@@ -410,6 +410,22 @@ a {
 .summary p.total span:first-child {
     color: #c52f36;
 }
+.checkbox-wrap {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+.form-group.chektext {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+.checkbox-wrap input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+}
+.checkbox-wrap a {
+    color: #c52f36;
+}
 @media all and (max-width: 767px) {
     .cart-items {
         margin-right: 0;
