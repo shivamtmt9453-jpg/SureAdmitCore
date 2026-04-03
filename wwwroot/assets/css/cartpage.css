@@ -1,4 +1,13 @@
-﻿
+﻿p {
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+a, button {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
 section.cartpagewrrap .container {
     display: flex;
     flex-wrap: wrap;
@@ -6,29 +15,27 @@ section.cartpagewrrap .container {
 }
 .cart-items {
     flex: 2;
-    background: #e8d3ab;
-    padding: 20px;
     margin-right: 20px;
-    border-radius: 8px;
 }
 .cart-item {
     display: flex;
-    align-items: center;
-    padding: 0;
-    border: 1px solid #fff;
-    border-radius: 20px;
+    padding: 20px;
     overflow: hidden;
-    background: #5d7f57;
+    background: #fff;
+    box-shadow: 0 0 60px 0 #0000000d;
+    margin-bottom: 20px;
+    gap: 15px;
 }
 .cart-item img {
-    width: 150px;
+    width: 180px;
     margin: 0 10px 0 0;
-    height: 150px;
+    height: 180px;
     object-fit: cover;
     object-position: center;
 }
 .item-details {
     flex: 1;
+    padding: 0 15px 0 0;
 }
 .item-details h4 {
     color: #fff;
@@ -47,7 +54,7 @@ section.cartpagewrrap .container {
 }
 .price {
     font-weight: 500;
-    color: #fff;
+    color: #000;
 }
 .remove {
     color: red;
@@ -56,14 +63,14 @@ section.cartpagewrrap .container {
 }
 .summary {
     flex: 1;
-    background: #5d7f57;
+    background: #fff;
     padding: 20px;
-    border-radius: 8px;
     height: fit-content;
+    box-shadow: 0 0 60px 0 #0000000d;
 }
     .summary h3 {
         margin-top: 0;
-        color: #fff;
+        color: #c52f36;
     }
     .summary p {
         display: flex;
@@ -84,9 +91,9 @@ section.cartpagewrrap .container {
     font-size: 16px;
 }
 .checkout {
-    background: transparent;
-    color: #fff;
-    border: 1px solid #fff;
+    background: #fff;
+    color: #c42523;
+    border: 1px solid #c42523;
     display: block;
     line-height: 39px;
     text-decoration: none;
@@ -97,10 +104,10 @@ section.cartpagewrrap .container {
 }
 /**********************/
 .classpricewrrap {
-    display: flex;
     align-items: center;
     gap: 7px;
     margin: 10px 0;
+    display: none;
 }
 .classpricewrrap > div {
     padding: 0;
@@ -110,11 +117,12 @@ h1, h2, h3, h4, p, a, div {
     font-family: "Inter", sans-serif;
 }
 .summary p span {
-    color: #fff;
+    color: #000;
 }
 .checkout:hover {
     background: #c42523;
     border: 1px solid #c42523;
+    color: #fff;
 }
 .continue:hover {
     background: #ac2220;
@@ -124,7 +132,7 @@ h1, h2, h3, h4, p, a, div {
     margin: 10px 0 0 0;
 }
 .priceheightlight {
-    color: #e8d3ab;
+    color: #000;
     font-weight: 700;
     font-size: 20px;
     line-height: 30px;
@@ -368,6 +376,38 @@ a {
 }
 .container.paymentresponse .bactohome {
     margin: 10px 0 0 0;
+}
+.item-details p {
+    font-size: 16px;
+    line-height: 24px;
+}
+.cart-item .full-desc p strong {
+    color: #c52f36;
+}
+.cart-item .full-desc p {
+    margin: 0 0 7px 0;
+}
+.full-desc ul li {
+    position: relative;
+    list-style: none;
+    padding: 0 0 11px 35px;
+    font-size: 16px;
+    line-height: 1.7;
+}
+.full-desc ul li::before {
+    content: "";
+    background-image: url('../images/favicon.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    top: 3px;
+    bottom: 0;
+    left: 0;
+    height: 23px;
+    width: 30px;
+}
+.summary p.total span:first-child {
+    color: #c52f36;
 }
 @media all and (max-width: 767px) {
     .cart-items {
