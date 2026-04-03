@@ -54,6 +54,7 @@
                         <th>Address</th>
                         <th>PinCode</th>
                         <th>City</th>
+                        <th>Agree</th>
                         <th>Courses</th>
                         <th>Base</th>
                         <th>GST</th>
@@ -61,7 +62,7 @@
                         <th>Payment Status</th>
                         <th>Paid Amount</th>
                         <th>Payment Date</th>
-                        <th>Gateway</th>
+                        @* <th>Gateway</th> *@
                         <th>Delete</th>
                     </tr>
                 </thead>
@@ -80,6 +81,9 @@
                             <td>@app.Address</td>
                             <td>@app.PinCode</td>
                             <td>@app.City</td>
+                            <td>
+                                @(app.IsAgreementAccepted ? "Agree" : "Not Agree")
+                            </td>
                             <td>@app.CourseNames</td>
                             <td>@app.BaseAmount.ToString("F2")</td>
                             <td>@app.GSTAmount.ToString("F2")</td>
@@ -87,7 +91,7 @@
                             <td>@app.PaymentStatus</td>
                             <td>@app.PaidAmount.ToString("F2") @app.Currency</td>
                             <td>@(app.PaymentDate.HasValue? app.PaymentDate.Value.ToString("dd-MM-yyyy HH:mm") : "-")</td>
-                            <td>@app.PaymentGateway</td>
+                            @* <td>@app.PaymentGateway</td> *@
                             <td>
                                 <form method="post" asp-action="DeleteApplication" onsubmit="return confirm('Are you sure?')">
                                     <input type="hidden" name="id" value="@app.ApplicationId" />
