@@ -69,7 +69,7 @@
                             </div>
                             
                           
-                            <div class="form-group input_focus value_focus">
+                           @*  <div class="form-group input_focus value_focus">
                                 <label for="State">State*</label>
                                 <div class="input-wrap selectarow">
                                     <select asp-for="State" asp-items="Model.StateList" class="form-select" required>
@@ -77,7 +77,7 @@
                                     </select>
                                 </div>
                                 <span asp-validation-for="Country" class="text-danger"></span>
-                            </div>
+                            </div> *@
 
                             <div class="form-group">
                                 <label for="Address">Address*</label>
@@ -109,6 +109,15 @@
                                     <input asp-for="City" autocomplete="off" class="form-control" type="text" required />
                                 </div>
                                 <span asp-validation-for="City" class="text-danger"></span>
+                            </div>
+                            <div class="form-group input_focus value_focus">
+                                <label for="State">State*</label>
+                                <div class="input-wrap selectarow">
+                                    <select asp-for="State" asp-items="Model.StateList" class="form-select" required>
+                                        <option value="">--Select State--</option>
+                                    </select>
+                                </div>
+                                <span asp-validation-for="Country" class="text-danger"></span>
                             </div>
                             <div class="form-group chektext">
                                 <div class="checkbox-wrap">
