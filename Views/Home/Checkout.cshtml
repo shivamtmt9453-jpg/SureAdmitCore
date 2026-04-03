@@ -68,7 +68,8 @@
                                 <span asp-validation-for="Phone" class="text-danger"></span>
                             </div>
                             
-                          
+                      
+
                             <div class="form-group">
                                 <label for="Address">Address*</label>
                                 <div class="input-wrap">
@@ -100,15 +101,18 @@
                                 </div>
                                 <span asp-validation-for="City" class="text-danger"></span>
                             </div>
-                               <div class="form-group input_focus value_focus">
+
+                                
+                            <div class="form-group input_focus value_focus">
                                 <label for="State">State*</label>
                                 <div class="input-wrap selectarow">
                                     <select asp-for="State" asp-items="Model.StateList" class="form-select" required>
                                         <option value="">--Select State--</option>
                                     </select>
-                                </div> 
+                                </div>
                                 <span asp-validation-for="State" class="text-danger"></span>
                             </div>
+
                             <div class="form-group chektext">
                                 <div class="checkbox-wrap">
                                     <input asp-for="IsAgreementAccepted" type="checkbox" required />
