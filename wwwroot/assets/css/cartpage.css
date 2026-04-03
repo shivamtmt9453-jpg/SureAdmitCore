@@ -1,4 +1,13 @@
-﻿
+﻿p {
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+a, button {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
 section.cartpagewrrap .container {
     display: flex;
     flex-wrap: wrap;
@@ -6,29 +15,29 @@ section.cartpagewrrap .container {
 }
 .cart-items {
     flex: 2;
-    background: #e8d3ab;
+    background: #fff;
     padding: 20px;
     margin-right: 20px;
-    border-radius: 8px;
+    box-shadow: 0 0 40px 0 #0000001c;
 }
 .cart-item {
     display: flex;
     align-items: center;
     padding: 0;
-    border: 1px solid #fff;
-    border-radius: 20px;
+    border: 1px solid #5d7f5747;
     overflow: hidden;
-    background: #5d7f57;
+    background: #fff;
 }
 .cart-item img {
-    width: 150px;
+    width: 180px;
     margin: 0 10px 0 0;
-    height: 150px;
+    height: 180px;
     object-fit: cover;
     object-position: center;
 }
 .item-details {
     flex: 1;
+    padding: 0 15px 0 0;
 }
 .item-details h4 {
     color: #fff;
@@ -56,14 +65,14 @@ section.cartpagewrrap .container {
 }
 .summary {
     flex: 1;
-    background: #5d7f57;
+    background: #fff;
     padding: 20px;
-    border-radius: 8px;
     height: fit-content;
+    box-shadow: 0 0 40px 0 #0000001c;
 }
     .summary h3 {
         margin-top: 0;
-        color: #fff;
+        color: #000;
     }
     .summary p {
         display: flex;
@@ -110,7 +119,7 @@ h1, h2, h3, h4, p, a, div {
     font-family: "Inter", sans-serif;
 }
 .summary p span {
-    color: #fff;
+    color: #000;
 }
 .checkout:hover {
     background: #c42523;
@@ -368,6 +377,10 @@ a {
 }
 .container.paymentresponse .bactohome {
     margin: 10px 0 0 0;
+}
+.item-details p {
+    font-size: 16px;
+    line-height: 24px;
 }
 @media all and (max-width: 767px) {
     .cart-items {
