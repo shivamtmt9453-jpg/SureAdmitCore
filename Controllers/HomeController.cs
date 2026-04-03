@@ -187,7 +187,7 @@ namespace SureAdmitCore.Controllers
         new SqlParameter("@Action", "Select")
             });
 
-            model.CountryList = dtCountries.AsEnumerable()
+            model.StateList = dtCountries.AsEnumerable()
                 .Select(r => new SelectListItem
                 {
                     Text = r["CountryName"]?.ToString() ?? "",
@@ -243,6 +243,11 @@ namespace SureAdmitCore.Controllers
                 new SqlParameter("@Name", model.Name),
                 new SqlParameter("@Email", model.Email),
                 new SqlParameter("@Phone", model.Phone),
+                new SqlParameter("@State", model.State),
+                new SqlParameter("@Address", model.Address),
+                new SqlParameter("@PinCode", model.PinCode),
+                new SqlParameter("@City", model.City), 
+                new SqlParameter("@IsAgreementAccepted", model.IsAgreementAccepted), 
                 new SqlParameter("@BachelorCGPA", model.BachelorCGPA ?? (object)DBNull.Value),
                 new SqlParameter("@MasterCGPA", model.MasterCGPA ?? (object)DBNull.Value),
                 new SqlParameter("@GREVerbal", model.GREVerbal ?? (object)DBNull.Value),

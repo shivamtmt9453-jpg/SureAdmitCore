@@ -8,6 +8,10 @@ namespace SureAdmitCore.Areas.Admin.Models
         public string Name { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
         public string Phone { get; set; } = string.Empty;
+        public string Address { get; set; } = string.Empty;
+        public string PinCode { get; set; } = string.Empty;
+        public string City { get; set; } = string.Empty;
+        public bool IsAgreementAccepted { get; set; }
         public string Country { get; set; } = string.Empty;
         public string CountryName { get; set; } = string.Empty;
         public string BachelorCGPA { get; set; } = string.Empty;

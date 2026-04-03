@@ -24,7 +24,11 @@ ErrorMessage = "Enter a valid email address. Popular domains like gmail.com, out
         [RegularExpression(@"^\d{7,15}$", ErrorMessage = "Phone number must be between 7 and 15 digits.")]
         public string Phone { get; set; } = string.Empty;
 
+        [Required(ErrorMessage = "Pin Code is required.")]
+        [RegularExpression(@"^\d{6}$", ErrorMessage = "PinCode must be exactly 6 digits.")]
+        public string PinCode { get; set; } = string.Empty;
         public string? Country { get; set; }
+        public string? State { get; set; }
 
         // Education Details
         [Display(Name = "Bachelor's CGPA/%")]
@@ -39,6 +43,12 @@ ErrorMessage = "Enter a valid email address. Popular domains like gmail.com, out
 
         // Additional Message
         public string? Message { get; set; }
+
+        [StringLength(200, MinimumLength = 10, ErrorMessage = "Address must be between 10 and 200 characters.")]
+        public string Address { get; set; } = string.Empty;
+
+        [StringLength(200, MinimumLength = 10, ErrorMessage = "City must be between 10 and 100 characters.")]
+        public string City { get; set; } = string.Empty;
 
         // Cart & Payment Details
         public List<int> CartCourseIds { get; set; } = new List<int>();
@@ -64,11 +74,15 @@ ErrorMessage = "Enter a valid email address. Popular domains like gmail.com, out
 
         // Dropdown for countries
         public IEnumerable<SelectListItem> CountryList { get; set; } = new List<SelectListItem>();
+        public IEnumerable<SelectListItem> StateList { get; set; } = new List<SelectListItem>();
         // Add these for totals
         public decimal Subtotal { get; set; }
         public decimal GST { get; set; }
         public decimal Total { get; set; }
         public string? SelectedCurrency { get; set; }
+
+        [Required(ErrorMessage = "You must accept the agreement before making payment.")]
+        public bool IsAgreementAccepted { get; set; } = false;
     }
     // Example course class
     public class Coursecheckout

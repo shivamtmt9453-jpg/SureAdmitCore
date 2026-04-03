@@ -67,17 +67,58 @@
                                 </div>
                                 <span asp-validation-for="Phone" class="text-danger"></span>
                             </div>
-
-                            <div class="form-group input_focus value_focus" style="display:none;">
-                                <label for="Country">Country*</label>
+                            
+                          
+                            <div class="form-group input_focus value_focus">
+                                <label for="State">State*</label>
                                 <div class="input-wrap selectarow">
-                                    <select asp-for="Country" asp-items="Model.CountryList" class="form-select" required>
-                                        <option value="">--Select Country--</option>
+                                    <select asp-for="State" asp-items="Model.StateList" class="form-select" required>
+                                        <option value="">--Select State--</option>
                                     </select>
                                 </div>
                                 <span asp-validation-for="Country" class="text-danger"></span>
                             </div>
 
+                            <div class="form-group">
+                                <label for="Address">Address*</label>
+                                <div class="input-wrap">
+                                    <input asp-for="Address" autocomplete="off" class="form-control" type="text" required />
+                                </div>
+                                <span asp-validation-for="Address" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="PinCode">Pin Code*</label>
+                                <div class="input-wrap">
+                                    <input asp-for="PinCode"
+                                           type="text"
+                                           maxlength="6"
+                                           autocomplete="off"
+                                           class="form-control"
+                                           required
+                                           oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                                           pattern="\d{6}"
+                                           title="Pin Code must be exactly 6 digits" />
+                                </div>
+                                <span asp-validation-for="PinCode" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="City">City*</label>
+                                <div class="input-wrap">
+                                    <input asp-for="City" autocomplete="off" class="form-control" type="text" required />
+                                </div>
+                                <span asp-validation-for="City" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <div class="checkbox-wrap">
+                                    <input asp-for="IsAgreementAccepted" type="checkbox" required />
+                                    <span for="IsAgreementAccepted">
+                                        I have read and agree to the <a href="#" target="_blank">Terms & Conditions</a> before making payment.
+                                    </span>
+                                </div>
+                                <span asp-validation-for="IsAgreementAccepted" class="text-danger"></span>
+                            </div>
                             <div class="form-group" style="display:none;">
                                 <label for="BachelorCGPA">Bachelor’s CGPA/%*</label>
                                 <div class="input-wrap">
@@ -94,26 +135,21 @@
                                 <span asp-validation-for="MasterCGPA" class="text-danger"></span>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group" style="display:none;">
                                 <label for="GREVerbal">GRE Verbal Test Score</label>
                                 <div class="input-wrap">
                                     <input asp-for="GREVerbal" autocomplete="off" class="form-control" />
                                 </div>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group" style="display:none;">
                                 <label for="GREQuant">GRE Quantitative Test Score</label>
                                 <div class="input-wrap">
                                     <input asp-for="GREQuant" autocomplete="off" class="form-control" />
                                 </div>
                             </div>
 
-                            <div class="form-group textara">
-                                <label for="Message">Message</label>
-                                <div class="input-wrap">
-                                    <textarea asp-for="Message" autocomplete="off" class="form-control" rows="3"></textarea>
-                                </div>
-                            </div>
+                           
 
                             @if (Model.CartCourses != null && Model.CartCourses.Any())
                             {
