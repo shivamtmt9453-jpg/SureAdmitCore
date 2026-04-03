@@ -70,6 +70,10 @@ namespace SureAdmitCore.Controllers
         {
             return View();
         }
+        public IActionResult ScholariaCommand()
+        {
+            return View();
+        }
 
         // Add course ID to cart (cookie-based)
         public IActionResult AddToCart(int courseId)

@@ -1166,15 +1166,18 @@ section.how-gradedgefunding-section .row .commoncarddesign {
     border-radius: 8px;
     color: #000;
     background: #e7d2aa;
+    font-family: "Inter", sans-serif;
 }
 .accordion-item.active {
-    border: 1px solid #ffffff9e;
+    border: 1px solid #5d7f57;
     border-radius: 8px;
 }
-.accordion-header:hover, .accordion-item.active .accordion-header {
-    background: #5d7f57;
-    color: #fff;
-}
+    .accordion-header:hover, .accordion-item.active .accordion-header,
+    .accordion-item.active .accordion-header p i,
+    .accordion-item .accordion-header:hover p i {
+        background: #5d7f57;
+        color: #fff;
+    }
 .accordion-header::after {
     content: '+';
     font-size: 35px;
@@ -1207,6 +1210,7 @@ section.how-gradedgefunding-section .row .commoncarddesign {
     max-height: 530px;
     padding: 20px 30px;
     overflow-y: auto;
+    display: block;
 }
 .accordion-content::-webkit-scrollbar {
     width: 6px;
@@ -1413,4 +1417,13 @@ table thead tr th {
 }
 tr.accordion-row.active span.icon {
     background: #c52f36;
+}
+.productimage img {
+    width: 100%;
+}
+main.productsummary {
+    margin: 72px 0 0 0;
+}
+section.product-detail-section {
+    padding: 40px 0 40px 0;
 }

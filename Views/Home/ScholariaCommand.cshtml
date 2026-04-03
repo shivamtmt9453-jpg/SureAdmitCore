@@ -1,0 +1,491 @@
+﻿@{
+    ViewData["Title"] = "Scholaria™ Command";
+    Layout = null;
+}
+<head>
+    <title>Scholaria™</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="~/assets/assets/images/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Niconne&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Slab:wght@100..900&family=Satisfy&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Niconne&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Satisfy&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Carlito:ital,wght@0,400;0,700;1,400;1,700&family=Caveat:wght@400..700&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Dancing+Script:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jost:ital,wght@0,100..900;1,100..900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Luxurious+Roman&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Moon+Dance&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&family=Rajdhani:wght@300;400;500;600;700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Space+Grotesk:wght@300..700&family=Teko:wght@300..700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Bebas+Neue&family=Carlito:ital,wght@0,400;0,700;1,400;1,700&family=Caveat:wght@400..700&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Dancing+Script:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jost:ital,wght@0,100..900;1,100..900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Luxurious+Roman&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Moon+Dance&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&family=Rajdhani:wght@300;400;500;600;700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Space+Grotesk:wght@300..700&family=Teko:wght@300..700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="~/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/aos.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/fontello.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/flaticon.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/flag-icon.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/themify-icons.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/slick.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/prettyPhoto.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/twentytwenty.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/megamenu.css">
+
+    <link href="~/assets/css/main.css" rel="stylesheet" />
+    <link href="~/assets/css/shortcodes.css" rel="stylesheet" />
+    <link href="~/assets/css/responsive.css" rel="stylesheet" />
+    <link href="~/assets/css/fees-payment.css" rel="stylesheet" />
+    <link href="~/assets/css/fees-pay-responsive.css" rel="stylesheet" />
+    <link href="~/assets/css/Scholaria.css" rel="stylesheet" />
+    <link href="~/assets/css/Scholaria-responsive.css" rel="stylesheet" />
+    <script>
+
+        jQuery(document).ready(function ($) {
+            $(window).on("scroll", function () {
+                var scroll = $(window).scrollTop();
+                if (scroll >= 80) {
+                    $("#header").addClass("fixed");
+                } else {
+                    $("#header").removeClass("fixed");
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <header class="header" id="header">
+        <div class="container">
+            <div class="big-wrap-of-logo-menu">
+                <div class="logo-wrap">
+                    <a href="/Home/feespaymentstructure">
+                        <img src="~/assets/images/schoarialogo.png" />
+                    </a>
+                </div>
+                <div class="menu-wrap-menu">
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="productsummary">
+        <section class="product-detail-section">
+            <div class="container">
+                <div class="row productimagecontent">
+                    <div class="col-lg-4">
+                        <div class="productimage">
+                            <img src="~/assets/images/1-command.png" />
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="productcontent">
+                            <h2 class="common-heading">Scholaria<sup>™</sup> <span>Command</span></h2>
+                            <p><b>A Research-Driven System for Maximizing Funded PhD Admission Outcomes</b></p>
+                            <p>Funded PhD admits can only happen when your profile is elevated rigorously to a
+                                critical level, and then aligned precisely to the research requirements and interests
+                                of the faculty and departments to ensure
+                                they readily accept you on scholarships or assistantships.</p>
+                            <p>
+                                That's why Scholaria<sup>™</sup> Command is designed as a high-touch, expert-led system
+                                that can architect and manage your entire PhD application journey - from strategic program selection
+                                to faculty alignment, application build, and final conversion.</p>
+                            <p>
+                                Built on <b>26+ years of admissions insight across 2,000+ cases</b>, Scholaria™ Command is completely
+                                unmatched in its rigorous, <b>strategy-driven application architecture, which maximizes funded PhD
+                                    admission probability
+                                </b> for
+                                aspirants across the entire gamut of disciplines and majors.</p>
+                            <h3 class="common-heading">The <span>Mechanics</span></h3>
+                            <p>Scholaria™ Command operates intuitively -  exactly as PhD admissions commitees function - as
+                                a <b>distributed, faculty-driven selection system - and what we interpret as</b>
+                                an architecture of three interdependent layers:</p>
+                            <table class="table-responsive-design">
+                                <thead>
+                                    <tr>
+                                        <th>Layer</th>
+                                        <th>Function</th>
+                                        <th>Core Question</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Selection</td>
+                                        <td>Opportunity Design</td>
+                                        <td>Where should you compete?</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Alignment</td>
+                                        <td>Intellectual Positioning</td>
+                                        <td>Why should you be selected?</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Execution</td>
+                                        <td>Signal Transmission</td>
+                                        <td>How effectively is your value communicated?</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            
+                            <p>These layers are <b>non-linear and iteratively optimized</b>, forming a closed-loop system.</p>
+                            <div class="accordion-section">
+
+                                <!-- Accordion Item 1 -->
+                                <div class="accordion-item">
+                                    <div class="accordion-header">
+                                        <div class="paraacordion">
+                                            <div>1. Scholaria<sup>™</sup> Strategic Program & University Selection</div>
+                                            <p><i>(Decision Intelligence & Opportunity Design Layer)</i></p>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-content">
+                                       <p> The single most important determinant of funded PhD success is
+                                            <b>where you choose to compete within the global research ecosystem.</b>
+                                        </p>
+                                        <p>The United States alone contains over 400 research-intensive universities. Under the Carnegie Classification:</p>
+                                        <ul class="commonlidesign">
+                                            <li>187 R1 institutions (very high research activity) </li>
+                                            <li>139 R2 institutions (high research activity) </li>
+                                            <li>215 R3 professional doctorate institutions </li>
+                                       
+                                        </ul>
+                                        <p>Canada and Australia add over 100 additional doctorate-granting universities.
+                                            Yet funded PhD opportunities are not uniformly distributed - they are concentrated
+                                            within a far narrower subset of <b>research-intensive institutions characterized by
+                                            active faculty hiring, sustained grant inflows,
+                                                and expanding research agendas.
+                                            </b>
+                                        </p>
+                                        <p>As a result, each university - and more critically, each program within it - functions as a <b>distinct, faculty-driven micro-market,</b> governed by:</p>
+                                        <ul class="commonlidesign">
+                                            <li>Hiring intent </li>
+                                            <li>Funding cycles</li>
+                                            <li>Research priorities </li>
+                                            <li>Competitive dynamics </li>
+                                        </ul>
+                                        <p><b>We model program selection as a portfolio optimization problem</b></p>
+                                        <p><b>Objective</b></p>
+                                        <p>Maximize:<b>P (Funded Admit | Program × Faculty × Applicant Fit)</b></p>
+                                        <h4><b>Selection Framework Components</b></h4>
+                                        <p><b>A. Research Ecosystem Mapping</b></p>
+                                        <ul class="commonlidesign">
+                                            <li>Classification based on <b>research intensity, funding density, and lab productivity </b></li>
+                                            <li>Identification of <b>active research clusters</b>, not static institutions </li>
+                                            <li>Filtering based on <b>funding ecosystems rather than ranking proxies</b></li>
+                                        </ul>
+                                        <p><b>B. Faculty Demand Signaling</b></p>
+                                        <p>Inference of hiring probability through:</p>
+                                        <ul class="commonlidesign">
+                                            <li>Publication velocity </li>
+                                            <li>Grant acquisition patterns </li>
+                                            <li>Lab expansion indicators</li>
+                                            <li>PhD/postdoc throughput </li>
+                                            <li>Collaboration networks </li>
+                                        </ul>
+                                        <p><b>C. Portfolio Construction</b></p>
+                                        <p>Each program is evaluated across:</p>
+                                        <ul class="commonlidesign">
+                                            <li>Alignment strength </li>
+                                            <li>Funding likelihood</li>
+                                            <li>Admission probability </li>
+                                        </ul>
+                                        <p>Portfolio is structured across:</p>
+                                        <ul class="commonlidesign">
+                                            <li>High-probability aligned programs </li>
+                                            <li>Strategic reach programs </li>
+                                            <li>Controlled-risk options </li>
+                                        </ul>
+                                        <p><b>D. Constraint Calibration</b></p>
+                                        <p>Optimization based on:</p>
+                                        <ul class="commonlidesign">
+                                            <li>Profile strength </li>
+                                            <li>Research maturity </li>
+                                            <li>Competition density </li>
+                                            <li>Funding compatibility </li>
+                                        </ul>
+                                        <p><b>Output of This Layer</b></p>
+                                        <p>A <b>calibrated application portfolio</b>, engineered to maximize expected admission outcomes.</p>
+                                        <h3>Check <span>Realworld Specimens</span></h3>
+                                    </div>
+                                </div>
+                                <!-- Accordion Item 2 -->
+                                <div class="accordion-item">
+                                    <div class="accordion-header">
+                                        <div class="paraacordion">
+                                            <div>Scholaria<sup>™</sup> Deep Research–Faculty Alignment</div>
+                                            <p><i>(Intellectual Positioning & Fit Engineering Layer)</i></p>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-content">
+                                        <p>
+                                            Funded PhD admissions are not awarded to strong profiles in isolation.
+                                            They are awarded to candidates who <b>reduce uncertainty for faculty selection decisions.</b>
+                                        </p>
+                                        <p><b>We treat alignment as a positioning problem</b></p>
+                                        <p><b>A. Research Identity Formalization</b></p>
+                                        <p>We construct:</p>
+
+                                        <ul class="commonlidesign">
+                                            <li>Core research problem definition</li>
+                                            <li>Theoretical anchoring </li>
+                                            <li>Methodological direction </li>
+                                            <li>Forward research trajectory</li>
+                                        </ul>
+                                        <p>Transition:From <b>interest-based narrative → problem-centered identity</b> </p>
+                                        <p><b>B. Faculty–Problem Matching</b></p>
+                                        <p>
+                                            Alignment is evaluated at the level of:
+                                        </p>
+                                       
+                                        <ul class="commonlidesign">
+                                            <li>Problem space overlap </li>
+                                            <li>Methodological compatibility </li>
+                                            <li>Research direction convergence </li>
+                                            <li>Lab-level contribution potential </li>
+                                        </ul>
+                                        <p>Outcome: <b>Contextual necessity, not generic relevance</b></p>
+                                      
+                                        <p><b>C. Narrative System Integration</b></p>
+                                        <p>Alignment is embedded across:</p>
+                                        <ul class="commonlidesign">
+                                            <li>Statement of Purpose</li>
+                                            <li>Research Statement </li>
+                                            <li>Academic CV </li>
+                                            <li>Recommendation inputs </li>
+                                        </ul>
+                                        <p>Each component functions as part of a coherent signaling system.</p>
+                                        <p><b>Output of This Layer</b></p>
+                                        <p>A <b>defensible academic positioning,</b> where selection becomes a logical consequence rather than a persuasive effort.</p>
+                                       
+                                        <h3>Check <span>Realworld Specimens</span></h3>
+                                    </div>
+                                </div>
+                                <!-- Accordion Item 3 -->
+                                <div class="accordion-item">
+                                    <div class="accordion-header">
+                                        <div class="paraacordion">
+                                            <div>Document-Level Differentiation: SOP & Research Statement</div>
+                                            <p><i>(Signal Engineering vs Document Writing)</i></p>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-content">
+                                        <p>
+                                            Most applicants approach Statements of Purpose and Research Statements as writing exercises.
+                                        </p>
+                                        <p>Admissions committees do not.</p>
+                                        <p>They interpret them as <b>signals within a faculty-driven selection system.</b></p>
+                                        <p><b>Difference in Approach</b></p>
+                                        <table class="table-responsive-design">
+                                            <thead>
+                                                <tr>
+                                                    <th>Typical Approach</th>
+                                                    <th>Scholaria™ Command</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>SOP as a personal story</td>
+                                                    <td>SOP as a positioning instrument</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Research Statement as a summary</td>
+                                                    <td>Research Statement as a problem-definition framework</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Generic alignment statements</td>
+                                                    <td>Faculty-specific alignment embedded structurally</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Focus on making it “impressive”</td>
+                                                    <td>Focus on reducing faculty decision uncertainty</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>One-time drafting and editing</td>
+                                                    <td>Iterative signal refinement</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Documents built independently</td>
+                                                    <td>Documents built as a unified narrative system</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <p><b>How We Engineer These Documents</b></p>
+                                        <p>SOP and Research Statements are designed to answer three implicit selection questions:</p>
+                                        <ul class="commonlidesign">
+                                            <li>What problem does this candidate work on? </li>
+                                            <li>Can they contribute to my research system? </li>
+                                            <li>Are they aligned with my current and future work? </li>
+                                        </ul>
+                                        <p>
+                                            <b>Our Approach</b>
+                                        </p>
+                                        <p>We construct these documents as:</p>
+                                        <ul class="commonlidesign">
+                                            <li><b>Problem-definition tools</b>, not interest summaries </li>
+                                            <li><b>Alignment mechanisms</b>, not generic narratives </li>
+                                            <li><b>Decision-support signals</b>, not persuasive essays </li>
+                                          
+                                        </ul>
+                                        <p><b>Outcome of This Layer</b></p>
+                                        <p>The objective is not to make your documents sound and strong. It is to make your selection <b>obvious.</b></p>
+                                       
+                                        <h3>Check <span>Realworld Specimens</span></h3>
+
+                                    </div>
+                                </div>
+                                <!-- Accordion Item 4 -->
+                                <div class="accordion-item">
+                                    <div class="accordion-header">
+                                        <div class="paraacordion">
+                                            <div>3. Scholaria™ Execution & Conversion Precision</div>
+                                            <p><i>(Signal Transmission & Outcome Realization Layer)</i></p>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-content">
+                                        <p>
+                                            Even well-positioned candidates fail without <b>high-fidelity execution</b>
+                                            because admissions outcomes depend
+                                            on the <b>clarity, consistency, and strength of transmitted signals.</b>
+                                        </p>
+                                        <p><b>Execution System</b></p>
+                                        <p><b>A. Faculty Engagement Strategy</b></p>
+                                        <ul class="commonlidesign">
+                                            <li>Structured outreach across 3–5 faculty per program </li>
+                                            <li>Context-aware communication sequencing </li>
+                                            <li>Post-application engagement support </li>
+
+                                        </ul>
+                                        <p><b>B. Application System Development</b></p>
+                                        <ul>
+                                            <li>SOP, CV, and Research Statement built as a <b>unified narrative system</b> </li>
+                                            <li>
+                                                Cross-document consistency in:
+                                                <ul>
+                                                    <li>Positioning </li>
+                                                    <li>Language </li>
+                                                    <li>Research direction </li>
+                                                    <li>Faculty alignment </li>
+                                                </ul>
+                                            </li>
+                                           
+                                        </ul>
+                                        <p><b>C. Iterative Optimization Loop</b></p>
+                                        <ul class="commonlidesign">
+                                            <li>Multi-cycle refinement </li>
+                                            <li>Advisor-guided recalibration </li>
+                                            <li>Continuous improvement in clarity and precision </li>
+                                        </ul>
+                                        <p><b>D. Interview Conversion</b></p>
+                                        <p>Preparation aligned with:</p>
+                                        <ul class="commonlidesign">
+                                            <li>Faculty evaluation heuristics</li>
+                                            <li>Research articulation clarity </li>
+                                            <li>Problem–method–impact coherence </li>
+                                        </ul>
+                                        <p><b>Output of This Layer</b></p>
+                                        <p>Conversion of <b>positioning into admission decisions</b>, with minimal signal loss.</p>
+                                        
+                                        <p><b>System Integration</b></p>
+                                        <p>
+                                            Instead of being an unrealistically linear workflow, Scholaria<sup>™</sup>
+                                            Command operates as a <b>closed-loop optimization system</b> where:
+                                        </p>
+                                        <ul class="commonlidesign">
+                                            <li>Selection informs alignment </li>
+                                            <li>Alignment informs execution </li>
+                                            
+                                        </ul>
+                                       
+                                        <h3>Check <span>Realworld Specimens</span></h3>
+                                        <p><b>Scholaria<sup>™</sup> Command is where that structure is engineered.</b></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="common-btn-desgn">
+                                <a href="">Join Scholaria<sup>™</sup> Command Now </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- footer start -->
+    <footer class="footer widget-footer clearfix">
+        <div class="container">
+            <div class="wrapper">
+                <div class="widget-area first-box-footer">
+                    <div id="block-13" class="widget widget_block widget_media_image">
+                        <a href="/Home/feespaymentstructure">
+                            <img loading="lazy" decoding="async" src="~/assets/images/header-logo.png" alt="" class="wp-image-3840">
+                        </a>
+                    </div>
+                    <div id="block-14" class="widget widget_block widget_text">
+                        <p>
+                            <strong>Your Roadmap to Success</strong><br />
+                            Harness our 25+ years of accomplished experience to simplify your admissions journey,
+                            while maximizing your admit and scholarship probabilities.
+                        </p>
+                    </div>
+                    <div id="block-15" class="widget widget_block widget_text">
+                        <p>
+                            <img loading="lazy" decoding="async" width="124" height="41" class="wp-image-149" style="width: 124px;" src="https://themes.getmotopress.com/coachzee-teacher/wp-content/uploads/sites/47/2022/01/sign-light.svg" alt="">
+                        </p>
+                    </div>
+                </div>
+                <div class="widget-area">
+                    <div id="block-16" class="widget widget_block">
+                        <h3 class="wp-block-heading">Book a session Today</h3>
+                    </div>
+                    <div id="block-17" class="widget widget_block widget_text">
+                        <p>Discover Scholarships and Foreign Universities with us and take the class leading counselling for free, Today!</p>
+                    </div>
+
+                </div>
+                <div class="widget-area">
+                    <div id="block-18" class="widget widget_block">
+                        <h3 class="wp-block-heading">Get in Touch </h3>
+                    </div>
+                    <div id="block-19" class="widget widget_block">
+                        <div class="custom-table">
+                            <div class="custom-table-item">
+                                <img class="png-icon-design" src="~/assets/images/fees-call.png" />
+                                <span class="custom-table-value">
+                                    <a href="tel:+919810010113">+91-98100 10113</a><br />
+                                    <a href="tel:+1(833)3276640">+1 (833) 327 6640</a>
+                                </span>
+                            </div>
+                            <div class="custom-table-item">
+                                <img class="png-icon-design" src="~/assets/images/fees-mail.png" />
+                                <span class="custom-table-value">
+                                    <a href="mailto:enquiry@sureadmit.com">enquiry@sureadmit.com</a>
+                                </span>
+                            </div>
+                            <div class="custom-table-item">
+                                <img class="png-icon-design" src="~/assets/images/fees-address.png" />
+                                <span class="custom-table-value">
+                                    101-B, Grover Chambers, 4-B Pusa Road,<br />
+                                    New Delhi 110005, India
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright-text">
+            <div class="container">
+                <div class="wrapper">
+                    <div class="site-info">
+                        SureAdmit © 2026 - All Rights Reserved
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer end -->
+    <script src="~/assets/js/sure.js"></script>
+</body>
